@@ -84,7 +84,6 @@ a:hover > .logo i{color:var(--verde);animation-duration:1.3s}
 .marca:hover .logo{transform:rotate(-4deg) scale(1.04)}
 .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex:none}
 .menu .mbtn{justify-content:center}
-.menu .mbtn:nth-child(5){grid-column:span 2}
 .mbtn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-weight:800;font-size:13px;padding:7px 12px;border-radius:var(--r-pill);background:var(--tinta-2);color:var(--beige);transition:color .3s,transform .3s var(--rebote);white-space:nowrap}
 .mbtn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--morado);transform:translateY(101%);transition:transform .4s var(--ease)}
 .mbtn:hover{color:var(--tinta)}
@@ -168,11 +167,11 @@ a:hover > .logo i{color:var(--verde);animation-duration:1.3s}
   .menu{position:absolute;left:0;right:0;top:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px max(16px,env(safe-area-inset-left,0px)) 20px;background:var(--tinta);border-radius:0 0 var(--r-lg) var(--r-lg);box-shadow:0 30px 40px -20px rgba(0,0,0,.55);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .4s var(--ease),visibility 0s .4s}
   .top.abierto .menu{clip-path:inset(0 0 -80px 0);visibility:visible;transition:clip-path .5s var(--ease)}
   .top.abierto .menu .mbtn{animation:entra-panel .45s var(--ease) both}
-  .top.abierto .menu .mbtn:nth-child(2){animation-delay:.04s}.top.abierto .menu .mbtn:nth-child(3){animation-delay:.08s}.top.abierto .menu .mbtn:nth-child(4){animation-delay:.12s}.top.abierto .menu .mbtn:nth-child(5){animation-delay:.16s}
+  .top.abierto .menu .mbtn:nth-child(2){animation-delay:.04s}.top.abierto .menu .mbtn:nth-child(3){animation-delay:.08s}.top.abierto .menu .mbtn:nth-child(4){animation-delay:.12s}.top.abierto .menu .mbtn:nth-child(5){animation-delay:.16s}.top.abierto .menu .mbtn:nth-child(6){animation-delay:.2s}
   @keyframes entra-panel{from{opacity:0;transform:translateY(-12px)}}
   .menu .mbtn{justify-content:space-between;padding:14px 16px;font-size:15px}
   .menu .mbtn:first-child{grid-column:1/-1;background:var(--morado);color:var(--tinta)}
-  .menu .mbtn:nth-child(5){grid-column:auto}
+  .menu .mbtn:nth-child(6){grid-column:1/-1;background:var(--verde);color:var(--tinta)}
   .menu-redes{display:grid;grid-column:1/-1;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
   .menu-redes span{grid-column:1/-1;text-align:center;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#D9D7EA}
   .menu-redes a{display:flex;align-items:center;justify-content:center;gap:8px;height:46px;border-radius:var(--r-pill);background:var(--verde);color:var(--tinta);font-weight:800;text-decoration:none}
@@ -558,6 +557,164 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   .btn{min-height:50px;font-size:15px}
   .hero .ctas .btn{flex:1 1 auto;justify-content:center}
 }
+
+/* ===== v7: embudo, kit, combo, testimonios ===== */
+.q-fil{all:unset;cursor:pointer;flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--tinta);transition:background .2s,transform .3s var(--rebote)}
+.q-fil svg{width:17px;height:17px}
+.q-fil:hover{background:var(--verde);transform:rotate(-8deg)}
+.q-fil:focus-visible{outline:3px solid var(--morado-f)}
+.q-ico{width:44px;height:44px;border-radius:12px;background:var(--morado);display:grid;place-items:center;font-family:var(--f-acento);font-style:italic;font-weight:900;font-size:22px}
+button.q-it{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:6px 8px 6px 6px;border-radius:12px;width:100%}
+button.q-it:hover,button.q-it:focus-visible{background:var(--blanco)}
+/* catálogo: barra de búsqueda + embudo */
+.busca-fila{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 14px}
+.busca-fila .cat-busca{flex:1 1 280px;margin:0;max-width:540px}
+.fbtn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 16px;border-radius:var(--r-pill);background:var(--blanco);box-shadow:0 0 0 2px var(--tinta);font-weight:800;font-size:14px;transition:background .2s,transform .3s var(--rebote)}
+.fbtn svg{width:18px;height:18px}
+.fbtn:hover{transform:translateY(-2px);background:var(--verde)}
+.fbtn:focus-visible{outline:3px solid var(--morado-f);outline-offset:3px}
+.fbtn[aria-expanded="true"],.fbtn.activo{background:var(--tinta);color:var(--verde)}
+.fcount{display:none;min-width:22px;height:22px;border-radius:11px;background:var(--verde);color:var(--tinta);font-size:12px;place-items:center;padding:0 6px}
+.fbtn.activo .fcount{display:inline-grid}
+.f-res{font-size:13px;font-weight:700;color:#4A4770;margin-left:auto}
+.fpan{background:var(--blanco);border-radius:var(--r-lg);padding:16px 18px 18px;margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px 22px;box-shadow:0 0 0 2px var(--tinta);animation:abre .35s var(--ease)}
+.fpan[hidden]{display:none}
+.fgrupo{border:0;margin:0;padding:0;min-width:0}
+.fgrupo legend{font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:0;margin-bottom:8px;color:#4A4770}
+.fgrupo div{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{all:unset;box-sizing:border-box;cursor:pointer;font-weight:700;font-size:13px;padding:6px 12px;border-radius:var(--r-pill);background:var(--beige);transition:background .2s,transform .25s var(--rebote)}
+.fchip:hover{background:var(--morado-2)}
+.fchip[aria-pressed="true"]{background:var(--tinta);color:var(--verde)}
+.fchip[aria-pressed="true"]::before{content:"✓ "}
+.fchip:focus-visible{outline:3px solid var(--morado-f)}
+.fpie{grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;align-items:center}
+.fpie .bsec{background:var(--beige)}
+.link{all:unset;cursor:pointer;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.link:focus-visible{outline:3px solid var(--morado-f)}
+/* tarjetas: botón + para el kit */
+.prod{position:relative}
+.prod .abre{position:absolute;inset:0;z-index:2;border-radius:inherit}
+.prod .abre:focus-visible{outline:3px solid var(--morado-f);outline-offset:2px}
+.kit-mas{all:unset;box-sizing:border-box;cursor:pointer;position:absolute;z-index:3;top:8px;right:8px;width:38px;height:38px;border-radius:50%;background:var(--tinta);color:var(--verde);display:grid;place-items:center;font-size:22px;font-weight:800;line-height:1;box-shadow:0 6px 14px -6px rgba(0,0,0,.5);transition:transform .3s var(--rebote),background .2s}
+.kit-mas:hover{transform:scale(1.12) rotate(90deg);background:var(--verde);color:var(--tinta)}
+.kit-mas:focus-visible{outline:3px solid var(--morado-f);outline-offset:2px}
+.kit-mas.ok{background:var(--verde);color:var(--tinta)}
+.kit-mas.ok::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;background:inherit;border-radius:50%}
+.prod.uni .img{background:var(--morado)}
+.prod .desde .cot{font-size:16px}
+.info-c .img{background:var(--morado);display:grid;place-items:center;aspect-ratio:4/3}
+.info-c .ico{width:74px;height:74px;display:grid;place-items:center;background:var(--verde);clip-path:var(--flor);font-family:var(--f-acento);font-style:italic;font-weight:900;font-size:36px}
+.info-c .txt{font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.kit-chip{text-decoration:none;background:var(--verde)!important;color:var(--tinta)!important}
+/* ficha: precio a cotizar, kit y combo */
+.precio-box .cifra.cot{font-size:clamp(34px,4vw,48px)}
+.btn.blanco{--bf:var(--blanco);justify-content:center}
+.det .chip.b{background:var(--blanco)}
+.extras{margin-top:18px;display:grid;gap:8px}
+.ex-t{font-weight:800;font-size:14px}
+.ex-ops{display:flex;flex-wrap:wrap;gap:6px}
+.ex-op{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:4px 12px 4px 4px;border-radius:var(--r-pill);background:var(--blanco);font-weight:700;font-size:13px;transition:background .2s,transform .25s var(--rebote)}
+.ex-op img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:var(--morado)}
+.ex-op:hover{transform:translateY(-2px)}
+.ex-op[aria-pressed="true"]{background:var(--tinta);color:var(--verde)}
+.ex-op:focus-visible{outline:3px solid var(--morado-f)}
+/* ventana: arma tu kit */
+.kit-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(18px,3vw,36px);align-items:start}
+.kit-caja{position:sticky;top:12px;background:var(--blanco);border:3px solid var(--tinta);border-radius:var(--r-lg);box-shadow:var(--s1);padding:18px;display:grid;gap:12px}
+.kit-cab{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.kit-cab h3{font-size:28px}
+.kit-cab span{font-weight:800;font-size:13px;background:var(--verde);border-radius:var(--r-pill);padding:3px 10px}
+.kit-lista{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:46vh;overflow:auto}
+.kit-it{display:grid;grid-template-columns:48px 1fr auto auto;gap:10px;align-items:center;background:var(--beige);border-radius:14px;padding:6px 8px 6px 6px}
+.kit-it img{width:48px;height:60px;object-fit:cover;border-radius:10px}
+.kit-it b{display:block;font-size:14px;line-height:1.2}
+.kit-it small{font-size:12px;color:#4A4770}
+.paso-n{display:flex;align-items:center;gap:4px}
+.paso-n button,.kit-x{all:unset;cursor:pointer;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--blanco)}
+.paso-n button:hover{background:var(--verde)}
+.paso-n output{min-width:20px;text-align:center;font-weight:800}
+.kit-x{background:none;font-size:13px}
+.kit-x:hover{background:var(--tinta);color:var(--verde)}
+.paso-n button:focus-visible,.kit-x:focus-visible{outline:3px solid var(--morado-f)}
+.kit-vacio{padding:14px;border-radius:14px;background:var(--beige);font-size:14px}
+.kit-lab{font-weight:800;font-size:13px}
+.kit-caja textarea,.r-in{width:100%;border:2px solid var(--tinta);border-radius:14px;padding:10px 12px;font:500 16px/1.4 var(--f-cuerpo);color:var(--tinta);background:var(--beige);resize:vertical}
+.kit-caja textarea:focus,.r-in:focus{outline:none;box-shadow:0 0 0 4px var(--verde)}
+.kit-caja .btn{justify-content:center}
+.kit-caja .btn.off{opacity:.45;cursor:not-allowed}
+#kit-vaciar{justify-self:center;font-size:13px}
+.kit-agrega h3{font-size:clamp(24px,3vw,32px);margin-bottom:12px}
+.kit-agrega .cat-busca .campo{max-width:none}
+.kit-cat{display:grid;gap:8px}
+.kmini{display:grid;grid-template-columns:52px 1fr auto auto;gap:10px;align-items:center;background:var(--blanco);border-radius:14px;padding:6px 8px 6px 6px;animation:aparece .4s var(--ease) both}
+.kmini img{width:52px;height:65px;object-fit:cover;border-radius:10px;background:var(--morado)}
+.kmini b{display:block;font-size:14px;line-height:1.2}
+.kmini small{font-size:12px;color:#4A4770}
+.kmini-ver{font-weight:800;font-size:13px;padding:6px 10px;border-radius:var(--r-pill);background:var(--beige);text-decoration:none}
+.kmini-ver:hover{background:var(--morado-2)}
+.kmini .kit-mas{position:relative;top:auto;right:auto;width:36px;height:36px}
+@media (max-width:860px){.kit-grid{grid-template-columns:1fr}.kit-caja{position:static}}
+/* botón flotante y avisos */
+.kit-flot{position:fixed;z-index:45;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:8px;padding:10px 12px 10px 16px;border-radius:var(--r-pill);background:var(--tinta);color:var(--beige);font-weight:800;text-decoration:none;border:3px solid var(--verde);box-shadow:0 14px 30px -10px rgba(23,20,58,.6);animation:pega .6s var(--rebote);transition:transform .3s var(--rebote)}
+.kit-flot[hidden]{display:none}
+.kit-flot:hover{transform:translateY(-4px) rotate(-2deg)}
+.kit-flot svg{width:20px;height:20px;color:var(--verde)}
+.kit-flot b,.kit-pill b{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;border-radius:12px;background:var(--verde);color:var(--tinta);font-size:13px}
+.kit-pill{flex:none;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 5px 0 10px;border-radius:var(--r-pill);background:var(--tinta-2);color:var(--beige);font-weight:800;font-size:13px;text-decoration:none;transition:background .2s,color .2s,transform .3s var(--rebote)}
+.kit-pill svg{width:17px;height:17px;color:var(--verde)}
+.kit-pill:hover{background:var(--verde);color:var(--tinta);transform:translateY(-2px)}
+.kit-pill:hover svg{color:var(--tinta)}
+@media (max-width:640px){.kit-pill span{display:none}.kit-pill{height:30px;padding:0 4px 0 8px}.kit-pill b{min-width:20px;height:20px;font-size:11px}}
+.toast{position:fixed;z-index:1000;left:50%;bottom:24px;translate:-50% 0;max-width:min(92vw,520px);background:var(--tinta);color:var(--beige);border:3px solid var(--verde);border-radius:var(--r-md);padding:12px 16px;font-weight:700;font-size:14px;box-shadow:0 20px 40px -14px rgba(0,0,0,.6);animation:toast-in .45s var(--rebote);transition:opacity .4s,transform .4s}
+.toast a{color:var(--verde);font-weight:800;margin-left:6px}
+.toast.va{opacity:0;transform:translateY(16px)}
+@keyframes toast-in{from{opacity:0;transform:translateY(24px) scale(.95)}}
+/* testimonios: estrellas apagadas, texto largo y formulario */
+.estrellas .apag{color:rgba(23,20,58,.2)}
+.testi q{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.testi-acc{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+.testi-prom{font-weight:800;font-size:14px;background:var(--blanco);border-radius:var(--r-pill);padding:8px 14px}
+.testi-prom::before{content:"★ ";color:var(--morado-f)}
+dialog.mini{border:0;padding:0;margin:auto;width:min(520px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border-radius:var(--r-lg);background:var(--beige);color:var(--tinta);box-shadow:0 40px 80px -30px rgba(0,0,0,.6);overflow:auto}
+dialog.mini[open]{animation:vent-in .5s var(--rebote)}
+dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+#f-resena{display:grid;gap:14px;padding:18px 20px 22px}
+.mini-cab{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mini-cab h2{font-size:clamp(26px,5vw,34px)}
+.r-campo{display:grid;gap:6px;border:0;margin:0;padding:0;min-width:0;position:relative}
+.r-campo > label,.r-campo legend{font-weight:800;font-size:14px;padding:0}
+.r-prod .campo{background:var(--blanco);box-shadow:0 0 0 2px var(--tinta)}
+.r-prod .campo:focus-within{box-shadow:0 0 0 2px var(--tinta),0 0 0 6px var(--verde)}
+.r-prod .campo input{font-size:16px}
+.r-res{position:static;max-height:280px;margin-top:2px;box-shadow:0 0 0 2px var(--tinta);animation:none}
+.r-sel{display:flex;align-items:center;gap:10px;background:var(--blanco);border-radius:14px;padding:6px 8px 6px 6px}
+.r-sel[hidden]{display:none}
+.r-sel img{width:40px;height:50px;object-fit:cover;border-radius:8px}
+.r-sel b{flex:1;font-size:15px}
+.r-sel .bsec{background:var(--beige);padding:7px 12px;font-size:13px}
+.r-est{display:flex;gap:4px}
+.r-est input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.r-est label{cursor:pointer;font-size:38px;line-height:1;color:rgba(23,20,58,.16);transition:transform .25s var(--rebote),color .15s}
+.r-est label.on{color:var(--tinta)}
+.r-est label:hover{transform:scale(1.15) rotate(-8deg)}
+.r-est input:focus-visible+label{outline:3px solid var(--morado-f);border-radius:8px}
+.r-trampa{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.r-err{color:#B3261E;font-weight:800;font-size:14px;min-height:1em}
+.r-err:empty{display:none}
+#f-resena .btn{justify-content:center}
+.kit-pill{margin-left:auto}.kit-pill+.barra-redes{margin-left:8px}
+.r-prod .campo[hidden]{display:none}
+.c3d-ctrl[hidden]{display:none}
+.det-h{font-weight:800;font-size:14px;margin:16px 0 8px;font-family:var(--f-cuerpo);letter-spacing:0}
+.precio-box .det-h{margin:4px 0 0}
+.det-p{font-size:14px;margin-top:8px}
+.tarifas{width:100%;border-collapse:collapse;font-size:13.5px}
+.tarifas caption{text-align:left;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#4A4770;padding-bottom:6px}
+.tarifas th{text-align:left;font-weight:600;padding:6px 8px 6px 0;border-top:1px dashed rgba(23,20,58,.2)}
+.tarifas td{text-align:right;font-weight:800;padding:6px 0;border-top:1px dashed rgba(23,20,58,.2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.ex-op small{font-weight:800;opacity:.75}
+.ex-ico{width:30px;height:30px;border-radius:50%;background:var(--morado);clip-path:var(--flor);flex:none}
+.ex-det{font-size:13px;color:#4A4770;margin-top:-2px}
 </style>
 </head>
 <body>
@@ -566,13 +723,15 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M7 2.8h10A4.2 4.2 0 0 1 21.2 7v10a4.2 4.2 0 0 1-4.2 4.2H7A4.2 4.2 0 0 1 2.8 17V7A4.2 4.2 0 0 1 7 2.8Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
   <symbol id="i-lupa" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
   <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2-2.8V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.8 7.8 0 0 0 4.4 1.4V6.7A4.4 4.4 0 0 1 16.6 2Z"/></symbol>
+  <symbol id="i-embudo" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round" d="M3 4.5h18l-7 8.2v5.8l-4 2v-7.8z"/></symbol>
+  <symbol id="i-kit" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M3.5 9.5h17v11h-17zM2.5 6h19v3.5h-19zM12 6v14.5M12 6c-1.5-3.5-6-3.5-5 0M12 6c1.5-3.5 6-3.5 5 0"/></symbol>
 </svg>
 
 <header class="top" id="arriba">
   <div class="wrap fila">
     <a class="marca" href="#inicio" aria-label="Moranta, ir al inicio"><span class="logo"></span></a>
     <form class="buscador" role="search" id="buscador" autocomplete="off">
-      <div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="q" placeholder="Busca tu detalle: ramo, taza, tarjeta…" aria-label="Buscar productos" aria-controls="q-res" aria-expanded="false" enterkeyhint="search"><button class="q-ir" type="submit" aria-label="Buscar">→</button></div>
+      <div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="q" placeholder="Busca tu detalle: ramo, taza, tarjeta…" aria-label="Buscar productos" aria-controls="q-res" aria-expanded="false" enterkeyhint="search"><button class="q-fil" type="button" id="q-fil" aria-label="Filtrar productos, servicios e información" title="Filtros"><svg aria-hidden="true"><use href="#i-embudo"/></svg></button><button class="q-ir" type="submit" aria-label="Buscar">→</button></div>
       <div class="q-res" id="q-res" hidden></div>
     </form>
     <div class="lado">
@@ -583,7 +742,7 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
       </div></div>
     </div>
     <nav class="menu" id="menu" aria-label="Menú">
-      <a class="mbtn" href="#catalogo">Catálogo <i>↗</i></a><a class="mbtn" href="#categorias">Categorías <i>↗</i></a><a class="mbtn" href="#testimonios">Testimonios <i>↗</i></a><a class="mbtn" href="#preguntas">Preguntas <i>↗</i></a><a class="mbtn" href="#nosotros">Nosotros <i>↗</i></a>
+      <a class="mbtn" href="#catalogo">Catálogo <i>↗</i></a><a class="mbtn" href="#categorias">Categorías <i>↗</i></a><a class="mbtn" href="#testimonios">Testimonios <i>↗</i></a><a class="mbtn" href="#preguntas">Preguntas <i>↗</i></a><a class="mbtn" href="#nosotros">Nosotros <i>↗</i></a><a class="mbtn" href="#kit">Arma tu kit <i>↗</i></a>
       <div class="menu-redes"><span>Síguenos</span><a href="https://www.instagram.com/morantadetalles/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a><a href="https://www.tiktok.com/@morantadetalles" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></div>
     </nav>
     <button class="hamb" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span class="rayas" aria-hidden="true"><i></i><i></i><i></i></span><b aria-hidden="true">+</b></button>
@@ -606,8 +765,8 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
       </div>
     </div>
     <div class="pila">
-      <a class="p1" href="#catalogo/ramo-perfumado" aria-label="Ramo perfumado"><img src="img/ramo-1.jpg" alt="Ramo perfumado de tulipanes para mamá"></a>
-      <a class="p2" href="#catalogo/caja-bolso" aria-label="Caja sorpresa con bolso"><img src="img/bolso-1.jpg" alt="Caja sorpresa con bolso blanco y perfume"></a>
+      <a class="p1" href="#catalogo/ramo-perfumado" aria-label="Ramo perfumado"><img src="img/ramo-perfumado-1.jpg" alt="Ramos perfumados de tulipanes, flores azules y violetas"></a>
+      <a class="p2" href="#catalogo/combo-bolso" aria-label="Combo con bolso"><img src="img/combo-bolso-1.jpg" alt="Combo con bolso camel en caja con papel de seda"></a>
       <div class="sello" aria-hidden="true"><b>Hecho<br>a tu<br>medida</b></div>
     </div>
   </div>
@@ -627,7 +786,7 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   <span class="adorno e" style="width:70px;height:70px;bottom:40px;left:-20px" aria-hidden="true"></span>
   <span class="adorno c" style="width:260px;height:260px;top:30%;right:-120px" aria-hidden="true"></span>
   <div class="wrap">
-    <div class="sec-h"><div><p class="eyebrow">Para cada ocasión</p><h2 class="t rev">¿A quién le <span class="acento">regalas?</span></h2></div><p class="lead rev">Todas nuestras categorías, en una sola ventana: regalos para papá, para mamá, corporativos, Navidad, papelería y mucho más.</p></div>
+    <div class="sec-h"><div><p class="eyebrow">Para cada ocasión</p><h2 class="t rev">¿A quién le <span class="acento">regalas?</span></h2></div><p class="lead rev">Todas nuestras categorías en una sola ventana: fechas especiales, corporativos y souvenirs, papelería, infantiles, combos, regalos por unidad y tu propio kit.</p></div>
     <div class="lineas" id="lineas"></div>
   </div>
 </section>
@@ -647,11 +806,12 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   <span class="adorno" style="width:48px;height:48px;top:96px;right:7%" aria-hidden="true"></span>
   <span class="adorno c" style="width:240px;height:240px;bottom:12%;left:-110px" aria-hidden="true"></span>
   <div class="wrap">
-    <div class="sec-h"><div><p class="eyebrow">Testimonios</p><h2 class="t rev">Lo que dicen al <span class="acento">abrirlo.</span></h2></div><p class="lead rev">Detalles que ya hicieron sonreír a alguien. Se detienen al pasar el ratón o al tocarlos, para que los leas con calma.</p></div>
+    <div class="sec-h"><div><p class="eyebrow">Testimonios</p><h2 class="t rev">Lo que dicen al <span class="acento">abrirlo.</span></h2></div><p class="lead rev">Detalles que ya hicieron sonreír a alguien. Se detienen al pasar el cursor o al tocarlos, para que los leas con calma.</p></div>
+    <div class="testi-acc"><button class="btn sm" type="button" data-resena>Deja tu testimonio <span class="fl" aria-hidden="true">★</span></button><span class="testi-prom"></span><a class="bsec" href="#testimonios">Ver todos <i>→</i></a></div>
   </div>
   <div class="cinta" id="testi-home" aria-label="Testimonios de clientes"></div>
   <div class="wrap faq-home">
-    <div class="sec-h"><div><p class="eyebrow">Preguntas</p><h2 class="t rev">Lo que nos <span class="acento">preguntáis.</span></h2></div><p class="lead rev">Las dudas más habituales antes de hacer tu pedido.</p></div>
+    <div class="sec-h"><div><p class="eyebrow">Preguntas</p><h2 class="t rev">Lo que nos <span class="acento">preguntan.</span></h2></div><p class="lead rev">Las dudas más comunes antes de hacer tu pedido.</p></div>
     <div class="faq-grid"><div><div class="faq" id="faq-home"></div><div class="mas-preg"><a class="bsec" href="#preguntas" style="background:var(--tinta);color:var(--beige)">Ver todas las preguntas <i>→</i></a></div></div><div id="faq-lado-home"></div></div>
   </div>
 </section>
@@ -664,7 +824,7 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     <div>
       <p class="eyebrow">Nosotros</p>
       <h2 class="t rev" style="font-size:clamp(32px,5vw,58px)">Detrás de cada detalle, <span class="acento">nosotros.</span></h2>
-      <p class="lead rev" style="margin-top:14px">Somos Moranta: diseñamos, imprimimos y armamos cada regalo a mano para que digas lo que sientes sin complicarte.</p>
+      <p class="lead rev" style="margin-top:14px">¡Hola! Somos Sara y Jacob. Nos encanta elaborar detalles listos para entregar y que hagan sentir especiales a quienes los reciben.</p>
       <div class="ctas"><a class="btn mag" href="#nosotros">Conócenos <span class="fl" aria-hidden="true">→</span></a></div>
     </div>
   </div>
@@ -695,7 +855,7 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
       <a class="btn mag" data-wa="Hola, quiero cotizar unos detalles personalizados" href="https://api.whatsapp.com/send/?phone=573043375997&amp;text=Hola%2C+estoy+interesado+en+los+detalles" target="_blank" rel="noopener">Cotiza por WhatsApp <span class="fl wa-i" aria-hidden="true"><svg><use href="#i-wa"/></svg></span></a>
     </div>
     <div class="botones" style="margin-top:14px">
-      <a class="bsec" href="#catalogo">Catálogo <i>→</i></a><a class="bsec" href="#categorias">Categorías <i>→</i></a><a class="bsec" href="#testimonios">Testimonios <i>→</i></a><a class="bsec" href="#preguntas">Preguntas <i>→</i></a><a class="bsec" href="#nosotros">Nosotros <i>→</i></a>
+      <a class="bsec" href="#catalogo">Catálogo <i>→</i></a><a class="bsec" href="#categorias">Categorías <i>→</i></a><a class="bsec" href="#testimonios">Testimonios <i>→</i></a><a class="bsec" href="#preguntas">Preguntas <i>→</i></a><a class="bsec" href="#nosotros">Nosotros <i>→</i></a><a class="bsec" href="#kit">Arma tu kit <i>→</i></a>
     </div>
   </div>
 </template>
@@ -707,10 +867,11 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     <section class="vent-sec" id="cat-lista">
       <span class="adorno e" style="width:64px;height:64px;top:20px;right:4%" aria-hidden="true"></span>
       <div class="wrap">
-        <div class="sec-h" style="margin-bottom:20px"><div><p class="eyebrow">Catálogo</p><h2 class="t">Todo lo que <span class="acento">hacemos.</span></h2></div><p class="lead">Toca un producto para ver sus fotos, sus detalles y cotizarlo por WhatsApp.</p></div>
-        <form class="cat-busca" id="cat-busca" role="search" autocomplete="off"><div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="cq" placeholder="Busca en el catálogo…" aria-label="Buscar en el catálogo" enterkeyhint="search"></div></form>
+        <div class="sec-h" style="margin-bottom:20px"><div><p class="eyebrow">Catálogo</p><h2 class="t">Todo lo que <span class="acento">hacemos.</span></h2></div><p class="lead">Sabemos que un bonito detalle marca la diferencia. Toca un producto para ver fotos, precios por cantidad y qué incluye, cotízalo por WhatsApp o súmalo a tu kit con el botón +.</p></div>
+        <div class="busca-fila"><form class="cat-busca" id="cat-busca" role="search" autocomplete="off"><div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="cq" placeholder="Busca productos, servicios o información…" aria-label="Buscar en el catálogo" enterkeyhint="search"></div></form><button class="fbtn" type="button" id="fbtn" aria-expanded="false" aria-controls="fpan"><svg aria-hidden="true"><use href="#i-embudo"/></svg>Filtros <span class="fcount">0</span></button><span class="f-res" id="f-res" aria-live="polite"></span></div>
+        <div class="fpan" id="fpan" hidden></div>
         <div class="filtros" id="filtros" role="toolbar" aria-label="Filtrar por categoría"></div>
-        <div class="aviso" id="cat-aviso" hidden><span>¿Lo prefieres ordenado por tipo: infantiles, fechas especiales, empresas…?</span><a class="bsec" href="#papeleria">Abrir Papelería y diseños <i>→</i></a></div>
+        <div class="aviso" id="cat-aviso" hidden><span>¿Lo prefieres ordenado por tipo: tarjetería, cajitas, diseños, agendas e insumos?</span><a class="bsec" href="#papeleria">Abrir Papelería y diseños <i>→</i></a></div>
         <div class="prods" id="prods"></div>
       </div>
     </section>
@@ -774,7 +935,8 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     <section class="vent-sec">
       <span class="adorno" style="width:48px;height:48px;top:30px;right:8%" aria-hidden="true"></span>
       <div class="wrap">
-        <div class="sec-h"><div><p class="eyebrow">Testimonios</p><h2 class="t">Lo que dicen al <span class="acento">abrirlo.</span></h2></div><p class="lead">Cada detalle se entrega con su empaque, su tarjeta y su lazo.</p></div>
+        <div class="sec-h"><div><p class="eyebrow">Testimonios</p><h2 class="t">Lo que dicen al <span class="acento">abrirlo.</span></h2></div><p class="lead">Todas las opiniones, de la más alta a la más baja. ¿Ya recibiste tu detalle? Cuéntanos cómo te fue.</p></div>
+        <div class="testi-acc" style="margin:-10px 0 6px"><button class="btn sm" type="button" data-resena>Deja tu testimonio <span class="fl" aria-hidden="true">★</span></button><span class="testi-prom"></span></div>
       </div>
       <div class="cinta" id="testi-vent" aria-label="Testimonios de clientes"></div>
       <div class="wrap">
@@ -792,15 +954,18 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     <section class="vent-sec">
       <span class="adorno e" style="width:60px;height:60px;bottom:30px;right:3%" aria-hidden="true"></span>
       <div class="wrap">
-        <div class="sec-h"><div><p class="eyebrow">Preguntas</p><h2 class="t">Lo que nos <span class="acento">preguntáis.</span></h2></div><p class="lead">Si no encuentras tu respuesta, escríbenos y te contestamos enseguida.</p></div>
+        <div class="sec-h"><div><p class="eyebrow">Preguntas</p><h2 class="t">Lo que nos <span class="acento">preguntan.</span></h2></div><p class="lead">Si no encuentras tu respuesta, escríbenos y te contestamos enseguida.</p></div>
         <div class="faq-grid">
           <div class="faq">
-            <details open><summary>¿Cuál es el pedido mínimo? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Depende del producto: muchos se venden desde 1 unidad y los recordatorios, desde 6 o 12. Lo verás en la ficha de cada producto.</div></details>
-            <details><summary>¿Cuánto tardáis en entregar? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Entre 3 y 8 días hábiles desde que apruebas la prueba, según la cantidad. En fechas especiales, pide con tiempo.</div></details>
+            <details open><summary>¿Cuál es el pedido mínimo? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Los productos personalizados grandes, los combos, los kits y las anchetas se hacen desde 1 unidad. Los detalles personalizados pequeños, como tarjetas, pinzas, lapiceros y souvenirs, se hacen desde 4 unidades. En los demás productos el mínimo varía y te lo confirmamos al cotizar. Siempre buscamos la forma de ayudarte lo más que podamos.</div></details>
+            <details><summary>¿Cuánto tardan en entregar? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">En Medellín y el área metropolitana, 1 día hábil si el producto no lleva personalización y 3 días hábiles si es personalizado, según la cantidad. Lo validamos contigo al cotizar. Fuera de la ciudad, el tiempo depende de la transportadora: nosotros lo validamos y te ayudamos a agilizar el envío.</div></details>
             <details><summary>¿Puedo personalizarlo? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. Nombre, mensaje, colores, fotos o tu logo. Nos lo mandas por WhatsApp y lo adaptamos al diseño.</div></details>
-            <details><summary>¿Cómo se paga? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Por Nequi o transferencia. Pedimos un anticipo para empezar y el resto al entregar.</div></details>
-            <details><summary>¿Hacéis envíos? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. Cuéntanos tu dirección y te decimos el coste del envío.</div></details>
-            <details><summary>¿Hacéis factura electrónica? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. Avísanos al hacer tu pedido y la gestionamos.</div></details>
+            <details><summary>¿Puedo armar mi propio kit? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. En «Arma tu kit» juntas productos, artículos por unidad y servicios, y nos envías la lista por WhatsApp para darte un precio especial por el kit completo.</div></details>
+            <details><summary>¿Cómo se paga? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Por Nequi o transferencia. Para iniciar el diseño y la producción pedimos un anticipo: el 50 % en pedidos pequeños y, en pedidos grandes, un porcentaje que acordamos según el monto. No manejamos pago contra entrega en envíos por transportadora o domicilio: el saldo se paga antes del despacho. Si recoges tu pedido, puedes pagar el resto al recibirlo, si lo acordamos antes.</div></details>
+            <details><summary>¿Veo el diseño antes de que lo hagan? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. Antes de producir te enviamos una propuesta digital para que la apruebes. Una vez aprobada, los cambios pueden generar costos o mover la fecha de entrega.</div></details>
+            <details><summary>¿Los precios pueden variar? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Tenemos precios estándar, pero pueden variar según el nivel de personalización y los materiales que elijas. Cada cotización la hacemos a tu medida para darte la mejor opción según lo que necesitas y tu presupuesto. La elaboración está sujeta a disponibilidad: si algo falta, te ofrecemos una alternativa de igual calidad.</div></details>
+            <details><summary>¿Hacen envíos? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. Entregamos en Medellín y el área metropolitana y enviamos al resto del país por transportadora. Cuéntanos tu dirección y te decimos el costo del envío.</div></details>
+            <details><summary>¿Hacen factura electrónica? <span class="mas" aria-hidden="true">+</span></summary><div class="resp">Sí. Avísanos al hacer tu pedido y la gestionamos.</div></details>
           </div>
           <div class="faq-lado"><div class="flor" aria-hidden="true"></div><b class="t" style="font-size:22px">¿Otra <span class="acento">duda?</span></b><a class="btn sm" data-wa="Hola, tengo una pregunta sobre los detalles" href="https://api.whatsapp.com/send/?phone=573043375997&amp;text=Hola%2C+estoy+interesado+en+los+detalles" target="_blank" rel="noopener">Pregúntanos</a></div>
         </div>
@@ -821,8 +986,8 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
         <div>
           <p class="eyebrow">Nosotros</p>
           <h2 class="t" style="font-size:clamp(32px,5vw,58px)">Detrás de cada detalle, <span class="acento">nosotros.</span></h2>
-          <p class="lead" style="margin-top:14px">Moranta nació de las ganas de regalar bonito. Diseñamos, imprimimos y armamos cada detalle a mano, pensando en la persona que lo va a abrir.</p>
-          <p class="lead" style="margin-top:10px">Hacemos regalos para el Día de la Madre y del Padre, cumpleaños, recordatorios y detalles para empresas.</p>
+          <p class="lead" style="margin-top:14px" id="nos-texto">¡Hola! Somos Sara y Jacob. Nos encanta elaborar detalles listos para entregar y que hagan sentir especiales a quienes los reciben.</p>
+          <p class="lead" style="margin-top:10px">Diseñamos detalles personalizados por cantidad para personas, empresas, eventos, talleres, conferencias, grupos y celebraciones especiales. Creamos regalos que se adaptan a cada ocasión o que reflejen la esencia de tu marca, porque estamos convencidos de que un detalle pensado con intención puede hacer la diferencia.</p>
         </div>
       </div>
       <div class="wrap">
@@ -832,9 +997,9 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
           <div class="valor" style="background:var(--tinta);color:var(--beige)"><b>Cerca de ti</b><p>Te atendemos por WhatsApp de principio a fin.</p></div>
         </div>
         <div class="atajos">
-          <a class="atajo" href="#catalogo/c-mama"><i style="background-image:url(img/ramo-3.jpg)"></i><span>Para mamá</span></a>
-          <a class="atajo" href="#catalogo/c-papa"><i style="background-image:url(img/camiseta-1.jpg)"></i><span>Para papá</span></a>
-          <a class="atajo" href="#catalogo/c-infantiles"><i style="background-image:url(img/hd5.jpg)"></i><span>Infantil</span></a>
+          <a class="atajo" href="#catalogo/c-fechas"><i style="background-image:url(img/ramo-perfumado-1.jpg)"></i><span>Fechas especiales</span></a>
+          <a class="atajo" href="#catalogo/c-corporativos"><i style="background-image:url(img/kit-corporativo-1.jpg)"></i><span>Corporativos</span></a>
+          <a class="atajo" href="#kit"><i style="background-image:url(img/u-perfume.jpg)"></i><span>Arma tu kit</span></a>
           <a class="atajo" data-wa="Hola, estoy interesado en los detalles" href="https://api.whatsapp.com/send/?phone=573043375997&amp;text=Hola%2C+estoy+interesado+en+los+detalles" target="_blank" rel="noopener"><i style="background:var(--verde)"><svg><use href="#i-wa"/></svg></i><span>Contacto</span></a>
         </div>
       </div>
@@ -843,258 +1008,742 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   </div>
 </dialog>
 
+<!-- ventana: arma tu kit -->
+<dialog class="vent" id="v-kit" aria-label="Arma tu kit">
+  <div class="vent-barra"><div class="tit"><a class="ini" href="#inicio" aria-label="Ir al inicio"><span class="logo"></span></a><b>Arma tu kit</b></div><button class="cerrar" type="button" aria-label="Cerrar">✕</button></div>
+  <div class="vent-cuerpo">
+    <section class="vent-sec">
+      <span class="adorno e" style="width:60px;height:60px;top:24px;right:4%" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="sec-h"><div><p class="eyebrow">Arma tu kit</p><h2 class="t">Tu regalo, <span class="acento">a tu manera.</span></h2></div><p class="lead" id="kit-lead">Personaliza tu detalle y complétalo con los productos que prefieras, como llaveros, pinzas, lapiceros, perfumes y mucho más. Nos envías la lista por WhatsApp y creamos una propuesta a la medida de tu necesidad, con precio especial por el kit completo.</p></div>
+        <div class="kit-grid">
+          <div class="kit-caja">
+            <div class="kit-cab"><h3 class="t">Mi kit</h3><span id="kit-cuenta">Sin artículos</span></div>
+            <ul class="kit-lista" id="kit-lista" aria-live="polite"></ul>
+            <label class="kit-lab" for="kit-notas">Notas para tu kit (opcional)</label>
+            <textarea id="kit-notas" rows="3" maxlength="400" placeholder="Ej.: para 20 personas, con los colores de la empresa, para el 15 de diciembre…"></textarea>
+            <a class="btn mag" id="kit-cotizar" target="_blank" rel="noopener">Cotizar kit por WhatsApp <span class="fl wa-i" aria-hidden="true"><svg><use href="#i-wa"/></svg></span></a>
+            <button type="button" class="link" id="kit-vaciar">Vaciar kit</button>
+          </div>
+          <div class="kit-agrega">
+            <h3 class="t">Agrega a tu <span class="acento">kit</span></h3>
+            <form class="cat-busca" id="kit-busca" role="search" autocomplete="off"><div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="kq" placeholder="Busca productos para tu kit…" aria-label="Buscar productos para tu kit" enterkeyhint="search"></div></form>
+            <div class="filtros" id="kit-fil" role="toolbar" aria-label="Qué quieres ver"></div>
+            <div class="kit-cat" id="kit-cat"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="final" style="--antes:var(--beige)"></section>
+  </div>
+</dialog>
+
+<!-- formulario: deja tu testimonio -->
+<dialog class="mini" id="d-resena" aria-labelledby="r-tit">
+  <form id="f-resena" novalidate>
+    <div class="mini-cab"><h2 class="t" id="r-tit">Deja tu <span class="acento">testimonio</span></h2><button class="cerrar" type="button" aria-label="Cerrar">✕</button></div>
+    <div class="r-campo r-prod"><label for="r-prod">¿Qué producto recibiste?</label>
+      <div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="r-prod" placeholder="Busca el producto…" autocomplete="off" enterkeyhint="search"></div>
+      <div class="r-sel" id="r-prod-sel" hidden></div>
+      <div class="q-res r-res" id="r-prod-res" hidden></div>
+      <input type="hidden" id="r-prod-id">
+    </div>
+    <fieldset class="r-campo"><legend>Tu calificación</legend><div class="r-est" id="r-est"><input type="radio" name="estrellas" id="r-e1" value="1"><label for="r-e1" data-v="1" title="1 de 5" aria-label="1 estrella">★</label><input type="radio" name="estrellas" id="r-e2" value="2"><label for="r-e2" data-v="2" title="2 de 5" aria-label="2 estrellas">★</label><input type="radio" name="estrellas" id="r-e3" value="3"><label for="r-e3" data-v="3" title="3 de 5" aria-label="3 estrellas">★</label><input type="radio" name="estrellas" id="r-e4" value="4"><label for="r-e4" data-v="4" title="4 de 5" aria-label="4 estrellas">★</label><input type="radio" name="estrellas" id="r-e5" value="5"><label for="r-e5" data-v="5" title="5 de 5" aria-label="5 estrellas">★</label></div></fieldset>
+    <div class="r-campo"><label for="r-nom">Nombre</label><input class="r-in" id="r-nom" name="nombre" maxlength="40" autocomplete="given-name"></div>
+    <div class="r-campo"><label for="r-txt">Reseña</label><textarea class="r-in" id="r-txt" name="resena" rows="4" maxlength="400" placeholder="¿Cómo te fue con tu detalle?"></textarea></div>
+    <input class="r-trampa" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="r-err" id="r-err" role="alert"></p>
+    <button class="btn" type="submit">Enviar <span class="fl" aria-hidden="true">→</span></button>
+  </form>
+</dialog>
+
+<a class="kit-flot" id="kit-flot" href="#kit" hidden><svg aria-hidden="true"><use href="#i-kit"/></svg>Mi kit <b class="kit-n">0</b></a>
+
 <!-- datos del catálogo (en la web final saldrá de productos.json) -->
 <script type="application/json" id="productos">
 {
 "categorias": [
 {
-"id": "papa",
-"nombre": "Regalos para papá",
-"texto": "Perfumes, tazas, tarjetas y cajitas para papá.",
-"img": "img/camiseta-1.jpg",
-"color": "ox"
-},
-{
-"id": "mama",
-"nombre": "Regalos para mamá",
-"texto": "Ramos perfumados, cajas sorpresa y mimos.",
-"img": "img/ramo-4.jpg",
-"color": "m"
+"id": "fechas",
+"nombre": "Regalos fechas especiales",
+"texto": "Papá, mamá, amor y amistad, Navidad, Día del Maestro y Día de la Mujer.",
+"color": "m",
+"img": "perfume-esmoquin-1"
 },
 {
 "id": "corporativos",
-"nombre": "Regalos corporativos",
-"texto": "Detalles para equipos y clientes, con tu logo.",
-"img": "img/ingeniero-1.jpg",
-"color": "v"
+"nombre": "Regalos Corporativos y Souvenirs",
+"texto": "Detalles con tu logo para equipos, clientes, eventos y recordatorios por cantidad.",
+"color": "v",
+"img": "kit-corporativo-1"
 },
 {
 "id": "papeleria",
 "nombre": "Papelería y diseños",
-"texto": "Tarjetas, cajas personalizadas, libretas y calendarios.",
-"img": "img/maestro-1.jpg",
+"texto": "Tarjetería, cajitas, diseños por pedido, agendas e insumos para emprendedores.",
 "color": "ox",
 "subs": [
 {
-"id": "infantiles",
-"nombre": "Infantiles",
-"texto": "Libritos y kits para colorear con el nombre del peque y la temática de su fiesta."
-},
-{
-"id": "fechas",
-"nombre": "Fechas especiales",
-"texto": "Día del Maestro, cumpleaños, amor y amistad y Día del Padre."
-},
-{
-"id": "empresas",
-"nombre": "Empresas",
-"texto": "Detalles para equipos, clientes y profesiones, con tu logo o tu mensaje."
+"id": "tarjeteria",
+"nombre": "Tarjetería",
+"texto": "Tarjetas de presentación, cumpleaños, días especiales, dedicatorias y fechas especiales."
 },
 {
 "id": "cajas",
-"nombre": "Cajas y empaques",
-"texto": "Cajas decoradas, dulceras y empaques a tu medida."
+"nombre": "Cajitas personalizadas",
+"texto": "Cajitas con forma, con lettering o impresas, listas para llenar de detalles."
 },
 {
-"id": "calendarios",
-"nombre": "Calendarios y libretas",
-"texto": "Calendarios 2027, libretas y planificadores con tu diseño."
+"id": "disenos",
+"nombre": "Diseños por pedido",
+"texto": "Diseñamos lo que tienes en mente: invitaciones, etiquetas, artes y piezas para tu marca."
+},
+{
+"id": "agendas",
+"nombre": "Agendas para empresas",
+"texto": "Agendas, libretas y calendarios con el logo y los colores de tu empresa."
+},
+{
+"id": "insumos",
+"nombre": "Insumos para emprendedores",
+"texto": "Tarjetas de agradecimiento, etiquetas y empaques para que tu marca se vea profesional."
 }
-]
+],
+"img": "tarjetas-bienvenida-1"
 },
 {
 "id": "infantiles",
 "nombre": "Regalos infantiles",
-"texto": "Libritos y kits para colorear con su nombre.",
-"img": "img/hd5.jpg",
-"color": "b"
-},
-{
-"id": "amor",
-"nombre": "Amor y amistad",
-"texto": "Tarjetas con foto, perfumes con nombre y cajas rotuladas.",
-"img": "img/amor-1.jpg",
-"color": "m"
-},
-{
-"id": "navidad",
-"nombre": "Regalos de Navidad",
-"texto": "Calendarios del nuevo año y velas para regalar.",
-"img": "img/hd8.jpg",
-"color": "v"
+"texto": "Libritos para colorear, pizarritas y recordatorios con el nombre del peque.",
+"color": "b",
+"img": "libritos-colorear-1"
 },
 {
 "id": "combos",
 "nombre": "Combos y anchetas",
-"texto": "Cajas y anchetas llenas de detalles, listas para entregar.",
-"img": "img/ancheta-1.jpg",
-"color": "ox"
+"texto": "Cajas, anchetas y combos con bolso, llenos de detalles y listos para entregar.",
+"color": "ox",
+"img": "combo-bolso-1"
 },
 {
-"id": "souvenirs",
-"nombre": "Souvenirs para negocios",
-"texto": "Recordatorios y detalles por cantidad para tu negocio o evento.",
-"img": "img/hd12.jpg",
-"color": "b"
+"id": "unidad",
+"nombre": "Regalos por unidad",
+"texto": "Cada artículo suelto, personalizable, para cotizar o sumar a tu kit o combo.",
+"color": "m",
+"img": "u-perfume"
 },
 {
 "id": "toda",
 "nombre": "Detalles para toda ocasión",
-"texto": "Cumpleaños, Día del Maestro y todo lo demás.",
-"img": "img/tflor-1.jpg",
-"color": "v"
+"texto": "Cumpleaños, bautizos, baby shower, grados y cualquier día para sorprender.",
+"color": "v",
+"img": "botiquin-amor-1"
+}
+],
+"ocasiones": {
+"papa": "Día del Padre",
+"mama": "Día de la Madre",
+"amor": "Amor y amistad",
+"navidad": "Navidad",
+"maestro": "Día del Maestro",
+"mujer": "Día de la Mujer",
+"cumple": "Cumpleaños",
+"bebe": "Baby shower y bautizo",
+"grado": "Grados",
+"empresa": "Empresas y eventos"
+},
+"bolsos": [
+{
+"nombre": "Bolso candado",
+"precio": 43000,
+"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado. En blanco y negro.",
+"foto": "u-bolso-negro"
+},
+{
+"nombre": "Bolso café",
+"precio": 45000,
+"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado.",
+"foto": "u-bolso-camel"
+},
+{
+"nombre": "Bolso blanco",
+"precio": null,
+"detalle": "Bolso blanco con cadena, como el de la foto.",
+"foto": "u-bolso-blanco"
+},
+{
+"nombre": "Bolso gris dos corazones",
+"precio": 38000,
+"detalle": "Cadena movible, tapa con torniquete, un compartimiento, bolsillo para tarjetas y detalles bordados.",
+"foto": null
+},
+{
+"nombre": "Bolso negro con gris",
+"precio": 46000,
+"detalle": "Un compartimiento, tapa con torniquete, bolsillo delantero y correa ajustable.",
+"foto": null
+},
+{
+"nombre": "Bolso corazón",
+"precio": 48000,
+"detalle": "Dos correas (larga y corta), tapa con broche imantado, cierre, un compartimiento y bolsillo con cierre.",
+"foto": null
+},
+{
+"nombre": "Bolso beige",
+"precio": 45000,
+"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado.",
+"foto": null
+},
+{
+"nombre": "Caja sencilla",
+"precio": 33000,
+"detalle": "Incluye correa y tapa con broche imantado. Sintético con forro interno en poliéster.",
+"foto": null
+},
+{
+"nombre": "Caja sencilla con pompón",
+"precio": 33000,
+"detalle": "Incluye correa y pompón, tapa con broche imantado. Solo en negro.",
+"foto": null
+},
+{
+"nombre": "Bolso flor",
+"precio": 42000,
+"detalle": "Correa ajustable, tapa con broche imantado, un compartimiento con cierre y bolsillo delantero grande.",
+"foto": null
+},
+{
+"nombre": "Bolso rojo de cadena",
+"precio": 43000,
+"detalle": "Cadena movible, tapa con broche imantado, bolsillo trasero con cierre y dos bolsillos internos.",
+"foto": null
+},
+{
+"nombre": "Bolso con cadena",
+"precio": 32000,
+"detalle": "Tapa con broche imantado, un compartimiento y correa ajustable.",
+"foto": null
+},
+{
+"nombre": "Cajita doble cierre",
+"precio": 32000,
+"detalle": "Cajita pequeña con un compartimiento, doble cierre y reata ajustable.",
+"foto": null
+},
+{
+"nombre": "Bolso negro",
+"precio": 45000,
+"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado. En blanco y negro.",
+"foto": null
+},
+{
+"nombre": "Bolso pequeño",
+"precio": 35000,
+"detalle": "Efecto piel de cocodrilo, tapa con torniquete y correa ajustable.",
+"foto": null
+},
+{
+"nombre": "Bolso II",
+"precio": 35000,
+"detalle": "Un compartimiento, tapa con broche imantado y correa ajustable.",
+"foto": null
+},
+{
+"nombre": "Bolso corazón grande",
+"precio": 60000,
+"detalle": "Estampado combinado, napa garantizada. 37 cm de ancho × 22 cm de alto.",
+"foto": null
 }
 ],
 "productos": [
 {
+"id": "pinza-flor",
+"nombre": "Pinza flor en tarjeta",
+"cats": [
+"fechas",
+"corporativos",
+"toda",
+"papeleria"
+],
+"desde": 1600,
+"unidad": "ud",
+"minimo": "Desde 3 unidades",
+"descripcion": "Pinza para el cabello en forma de flor, nacarada o de color, montada en una tarjeta con tu mensaje y un chocolate. Un detalle pequeño que se luce a diario y le recuerda a mamá, a la profe o a tu amiga cuánto la quieres.",
+"personaliza": [
+"Color de la flor",
+"Mensaje de la tarjeta",
+"Chocolate o dulce"
+],
+"tags": "pinza pinzas cabello pelo flor madre maestra mujer souvenir",
+"oc": [
+"mama",
+"maestro",
+"mujer",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"pinza-flor-1",
+"pinza-flor-2",
+"pinza-flor-3",
+"pinza-flor-4",
+"pinza-flor-5",
+"pinza-flor-6"
+],
+"incluye": [
+"Tarjeta con mensaje personalizado",
+"Pinza pequeña, mediana o grande (colores y diseños según disponibilidad)",
+"Chocolate cuadrado o en forma de corazón",
+"Empacado en bolsa"
+],
+"tamano": "Pequeña 13 × 7 cm · mediana 16 × 9 cm · grande 20 × 10 cm",
+"precios": [
+[
+"Pequeña con chocolate (6–30 / 31+)",
+"$2.200 / $1.800"
+],
+[
+"Pequeña sin chocolate (6–30 / 31+)",
+"$1.800 / $1.600"
+],
+[
+"Mediana con chocolate corazón (4–24 / 25+)",
+"$4.000 / $3.700"
+],
+[
+"Mediana sin chocolate (4–24 / 25+)",
+"$3.500 / $3.200"
+],
+[
+"Grande con chocolate corazón (3–12 / 13+)",
+"$5.000 / $4.600"
+],
+[
+"Grande sin chocolate (3–12 / 13+)",
+"$4.400 / $4.000"
+]
+],
+"nota": "Mínimo: pequeña 6, mediana 4 y grande 3 unidades. El chocolate en forma de corazón en la pinza pequeña tiene costo adicional."
+},
+{
+"id": "lapicero-tarjeta",
+"nombre": "Lapicero con Post-it",
+"cats": [
+"corporativos",
+"papeleria",
+"toda"
+],
+"desde": 4500,
+"unidad": "ud",
+"minimo": "Desde 2 unidades",
+"descripcion": "Lapicero metálico o de bambú en una tarjeta diseñada a tu gusto, con notas adhesivas y bolsita. Una forma sencilla de decir gracias, dar la bienvenida o celebrar a tu equipo con tu sello.",
+"personaliza": [
+"Diseño y frase de la tarjeta",
+"Color del lapicero",
+"Logo o nombre"
+],
+"tags": "lapicero lapiceros esfero boligrafo post-it notas gracias empresa",
+"oc": [
+"empresa",
+"cumple",
+"maestro"
+],
+"destacado": true,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"lapicero-tarjeta-1",
+"lapicero-tarjeta-2",
+"lapicero-tarjeta-3",
+"lapicero-tarjeta-4",
+"lapicero-tarjeta-5",
+"lapicero-tarjeta-6"
+],
+"incluye": [
+"Tarjeta personalizada",
+"Lapicero (colores y diseños según disponibilidad)",
+"Notas adhesivas",
+"Empacado en bolsa"
+],
+"tamano": "21 cm de alto × 11 cm de ancho",
+"precios": [
+[
+"Lapicero personalizado, de 2 a 12",
+"$6.500"
+],
+[
+"Lapicero personalizado, desde 13",
+"$6.000"
+],
+[
+"Sin personalizar, de 2 a 12",
+"$5.000"
+],
+[
+"Sin personalizar, desde 13",
+"$4.500"
+]
+]
+},
+{
 "id": "ramo-perfumado",
 "nombre": "Ramo perfumado",
 "cats": [
-"mama"
+"fechas",
+"toda"
 ],
-"destacado": true,
 "desde": 17000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Perfume de 30 ml con tarjeta en forma de ramo y lazo de satén. Elige tulipanes, flores azules o violetas.",
+"descripcion": "Un ramo que no se marchita: perfume de 30 ml dentro de una tarjeta con forma de tulipanes, flores azules o violetas, con lazo de satén. Flores y aroma en un solo detalle para mamá, tu pareja o tu amiga.",
 "personaliza": [
 "Flor y color del ramo",
 "Mensaje de la tarjeta",
-"Fragancia a elegir"
+"Fragancia"
 ],
-"tags": "flores tulipanes mamá madre",
+"tags": "flores tulipanes mamá madre perfume",
+"oc": [
+"mama",
+"amor",
+"mujer"
+],
+"destacado": true,
+"tipo": "producto",
 "fotos": [
-"ramo-1",
-"ramo-2",
-"ramo-3",
-"ramo-4",
-"ramo-5"
-]
+"ramo-perfumado-1",
+"ramo-perfumado-2",
+"ramo-perfumado-3",
+"ramo-perfumado-4"
+],
+"incluye": [
+"Perfume en frasco de vidrio de 30 ml",
+"Tarjeta en forma de ramo con lazo de satén"
+],
+"nota": "Aromas como 212 de Carolina Herrera, 360 de Perry Ellis, Hugo Boss, Chanel y Aqua de Bvlgari, además de perfumes de nicho, de diseñador y árabes (Lattafa, Armaf, Al Haramain, Afnan y más)."
 },
 {
 "id": "perfume-esmoquin",
 "nombre": "Perfume esmoquin",
 "cats": [
-"papa"
+"fechas"
 ],
-"destacado": true,
 "desde": 17000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Perfume vestido con esmoquin de papel y pajarita. En rojo, verde o azul noche.",
+"descripcion": "Un perfume que llega de gala: vestido con esmoquin de papel y corbatín, en rojo, verde, morado o azul noche. Para el papá que siempre se ve impecable, con tu mensaje incluido.",
 "personaliza": [
 "Color del esmoquin",
 "Fragancia",
 "Mensaje para papá"
 ],
-"tags": "traje papá padre",
-"fotos": [
-"esmoquin-1",
-"esmoquin-2",
-"esmoquin-3",
-"esmoquin-4",
-"esmoquin-5"
-]
-},
-{
-"id": "caja-bolso",
-"nombre": "Caja sorpresa con bolso",
-"cats": [
-"mama",
-"combos"
+"tags": "traje papá padre perfume corbatín",
+"oc": [
+"papa"
 ],
 "destacado": true,
-"desde": 71000,
-"unidad": "caja",
-"minimo": "Desde 1 unidad",
-"descripcion": "Caja con papel de seda, bolso, perfume, accesorios para el pelo y tarjeta con dedicatoria.",
-"personaliza": [
-"Modelo y color del bolso",
-"Perfume y accesorios",
-"Tarjeta con tu mensaje"
-],
-"tags": "cartera mamá madre sorpresa",
+"tipo": "producto",
 "fotos": [
-"bolso-1",
-"bolso-2",
-"bolso-3",
-"bolso-4"
-]
+"perfume-esmoquin-1",
+"perfume-esmoquin-2",
+"perfume-esmoquin-3",
+"perfume-esmoquin-4",
+"perfume-esmoquin-5",
+"perfume-esmoquin-6"
+],
+"incluye": [
+"Perfume en frasco de vidrio de 30 ml",
+"Esmoquin de papel con corbatín",
+"Tu mensaje para papá"
+],
+"nota": "Aromas como 212 de Carolina Herrera, 360 de Perry Ellis, Hugo Boss, Chanel y Aqua de Bvlgari, además de perfumes de nicho, de diseñador y árabes (Lattafa, Armaf, Al Haramain, Afnan y más)."
 },
 {
 "id": "perfume-camiseta",
 "nombre": "Perfume camiseta",
 "cats": [
-"papa"
+"fechas",
+"toda"
 ],
-"destacado": true,
-"desde": 17000,
+"desde": 14000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Perfume dentro de una caja con forma de camiseta: la de la Selección, camisa con corbata, traje o polo.",
+"descripcion": "Perfume dentro de una caja con forma de camiseta: la de la Selección, camisa con corbata o polo. ¡Hay una para el hincha, para el ejecutivo y para el más relajado de la casa!",
 "personaliza": [
 "Modelo de camiseta",
 "Fragancia",
 "Frase en la caja"
 ],
-"tags": "camisa selección fútbol papá",
+"tags": "camisa selección colombia fútbol papá perfume",
+"oc": [
+"papa",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
 "fotos": [
-"camiseta-1",
-"camiseta-2",
-"camiseta-3",
-"camiseta-4",
-"camiseta-5"
+"perfume-camiseta-1",
+"perfume-camiseta-2",
+"perfume-camiseta-3",
+"perfume-camiseta-4",
+"perfume-camiseta-5",
+"perfume-camiseta-6"
+],
+"incluye": [
+"Caja en forma de camiseta",
+"Perfume de tu elección en frasco de vidrio de 30 ml",
+"2 dulces",
+"El mensaje que quieras"
+],
+"precios": [
+[
+"De 1 a 4 unidades",
+"$17.000"
+],
+[
+"De 4 a 12 unidades",
+"$16.000"
+],
+[
+"Desde 13 unidades",
+"$14.000"
 ]
+],
+"nota": "Lo adaptamos a tu gusto: más dulces en vez de perfume, caja más pequeña o loción de menor tamaño. Aromas como 212 de Carolina Herrera, 360 de Perry Ellis, Hugo Boss, Chanel y Aqua de Bvlgari, además de perfumes de nicho, de diseñador y árabes (Lattafa, Armaf, Al Haramain, Afnan y más)."
+},
+{
+"id": "combo-bolso",
+"nombre": "Combo con bolso",
+"cats": [
+"combos",
+"fechas"
+],
+"desde": 40000,
+"unidad": "caja",
+"minimo": "Desde 1 unidad",
+"descripcion": "Elige el bolso y lo entregamos en caja decorada con papel de seda, moño y la tarjeta que escojas. Súmale toppings: lapiceros, llaveros, pinzas, dulces, lociones o medias.",
+"personaliza": [
+"Modelo y color del bolso",
+"Artículos que le sumas",
+"Tarjeta con tu mensaje"
+],
+"tags": "bolso cartera mamá madre mujer sorpresa combo",
+"oc": [
+"mama",
+"mujer",
+"amor",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
+"extras": true,
+"fotos": [
+"combo-bolso-1",
+"combo-bolso-2",
+"combo-bolso-3"
+],
+"incluye": [
+"El bolso que quieras",
+"Caja decorada con papel de seda y moño",
+"La tarjeta que elijas: cumpleaños, fechas especiales o sin ocasión",
+"Con toppings: lapiceros, llaveros, pinzas, dulces, lociones o medias"
+],
+"precios": [
+[
+"Combo sencillo",
+"$8.000 + el valor del bolso"
+],
+[
+"Combo con toppings",
+"Varía según lo que escojas"
+]
+],
+"nota": "«¡Arma tu combo! Regala amor con nuestros productos.» Bolsos desde $32.000."
 },
 {
 "id": "ancheta-papa",
-"nombre": "Ancheta para papá",
+"nombre": "Anchetas personalizadas",
 "cats": [
-"papa",
-"combos"
+"combos",
+"fechas",
+"corporativos"
 ],
-"destacado": true,
 "desde": 25000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Bolsa o caja decorada con taza, medias, pasabocas y dulces. Lista para entregar.",
+"descripcion": "Bolsa o caja decorada con taza, medias, pasabocas y dulces, o con termos para los más cafeteros. Llega lista para entregar, sea para papá, para tu equipo o para la Navidad.",
 "personaliza": [
 "Tamaño de la ancheta",
-"Taza con frase",
+"Taza o termo con frase",
 "Dulces y pasabocas"
 ],
-"tags": "cesta canasta padre",
+"tags": "ancheta cesta canasta padre snacks pasabocas termo",
+"oc": [
+"papa",
+"empresa",
+"navidad"
+],
+"destacado": true,
+"tipo": "producto",
 "fotos": [
-"ancheta-1",
-"ancheta-2",
-"ancheta-3",
-"ancheta-4",
-"ancheta-5"
+"ancheta-papa-1",
+"ancheta-papa-2",
+"ancheta-papa-3",
+"ancheta-papa-4",
+"ancheta-papa-5"
 ]
 },
 {
 "id": "caja-mimos",
 "nombre": "Caja de mimos",
 "cats": [
-"mama",
-"combos"
+"combos",
+"fechas"
 ],
-"destacado": true,
 "desde": 40000,
-"unidad": "caja",
+"unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Kit de cuidado personal con cremas, perfume, accesorios y tarjeta «Increíble mamá».",
+"descripcion": "Un rato de consentimiento en una caja: cremas, perfume, accesorios y la tarjeta «Increíble mamá». Para recordarle que ella también merece que la cuiden.",
 "personaliza": [
 "Productos del kit",
 "Color del papel",
 "Tarjeta con tu mensaje"
 ],
-"tags": "spa crema mamá",
+"tags": "spa crema mamá cuidado",
+"oc": [
+"mama",
+"mujer"
+],
+"destacado": false,
+"tipo": "producto",
 "fotos": [
-"mimos-1",
-"mimos-2",
-"mimos-3",
-"mimos-4"
+"caja-mimos-1",
+"caja-mimos-2",
+"caja-mimos-3",
+"caja-mimos-4"
+]
+},
+{
+"id": "botiquin-amor",
+"nombre": "B+tiquín de amor",
+"cats": [
+"toda",
+"fechas",
+"combos"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Botiquín de mentiras con «medicinas» para el corazón: Amorcilina, curitas para el alma y dulces. La receta para alegrar a quien lo necesita o para declarar tu amor con humor.",
+"personaliza": [
+"Nombres de las medicinas",
+"Dulces",
+"Mensaje"
+],
+"tags": "botiquin medicinas curitas amor novio novia amistad enfermo",
+"oc": [
+"amor",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
+"fotos": [
+"botiquin-amor-1",
+"botiquin-amor-2",
+"botiquin-amor-3",
+"botiquin-amor-4",
+"botiquin-amor-5"
+]
+},
+{
+"id": "cajas-sorpresa",
+"nombre": "Cajas sorpresa temáticas",
+"cats": [
+"combos",
+"toda"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Cajas decoradas por dentro y por fuera con lo que más le gusta a quien la recibe: carros clásicos, «edición maravillosa» o la temática que imagines. Al abrirla, sabrá que pensaste en cada detalle.",
+"personaliza": [
+"Temática",
+"Contenido",
+"Mensaje"
+],
+"tags": "caja sorpresa cumpleaños carro tematica",
+"oc": [
+"cumple",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"cajas-sorpresa-1",
+"cajas-sorpresa-2",
+"cajas-sorpresa-3",
+"cajas-sorpresa-4",
+"cajas-sorpresa-5"
+]
+},
+{
+"id": "caja-madera-fotos",
+"nombre": "Caja de madera con fotos",
+"cats": [
+"combos",
+"fechas",
+"toda"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Caja de madera con tus fotos, una carta y dulces. Para aniversarios y cumpleaños que merecen guardarse: un recuerdo que se queda mucho después de la fecha.",
+"personaliza": [
+"Fotos",
+"Carta",
+"Dulces"
+],
+"tags": "madera fotos carta recuerdo aniversario",
+"oc": [
+"amor",
+"cumple",
+"mama"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"caja-madera-fotos-1",
+"caja-madera-fotos-2"
+]
+},
+{
+"id": "cajonera-foto",
+"nombre": "Cajonera con foto",
+"cats": [
+"fechas",
+"toda"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Mini cajonera decorada con tus fotos y una frase especial. Un lugar para guardar pequeños tesoros que, además, se convierte en uno.",
+"personaliza": [
+"Fotos",
+"Frase",
+"Colores"
+],
+"tags": "cajonera tocador foto mamá",
+"oc": [
+"mama",
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"cajonera-foto-1",
+"cajonera-foto-2"
 ]
 },
 {
@@ -1102,50 +1751,186 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "nombre": "Libritos para colorear",
 "cats": [
 "infantiles",
-"papeleria",
-"souvenirs"
+"corporativos"
 ],
-"sub": "infantiles",
-"destacado": true,
 "desde": 3500,
 "unidad": "ud",
-"minimo": "Mínimo 12 unidades",
-"descripcion": "Mini libritos para colorear con el nombre del peque y la temática de su fiesta. Perfectos como recordatorio.",
+"minimo": "Desde 12 unidades",
+"descripcion": "Mini libritos para colorear con el nombre del peque y la temática de su fiesta. El recordatorio que los invitados se llevan a casa y siguen disfrutando después de la piñata.",
 "personaliza": [
 "Nombre y edad",
 "Temática o personaje",
 "Portada a color"
 ],
-"tags": "niños niñas fiesta cumpleaños recordatorio dibujos",
+"tags": "niños niñas fiesta cumpleaños recordatorio dibujos colorear",
+"oc": [
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
 "fotos": [
-"hd0",
-"hd3",
-"hd4"
+"libritos-colorear-1",
+"libritos-colorear-2",
+"libritos-colorear-3",
+"libritos-colorear-4"
 ]
 },
 {
 "id": "kit-colorear",
-"nombre": "Kit para colorear con ceras",
+"nombre": "Kit para colorear con crayones",
 "cats": [
 "infantiles",
-"papeleria",
-"souvenirs"
+"corporativos"
 ],
-"sub": "infantiles",
-"destacado": false,
 "desde": 5000,
 "unidad": "ud",
-"minimo": "Mínimo 12 unidades",
-"descripcion": "Librito, ceras y bolsita o cajita con asa, todo con la temática del cumpleaños.",
+"minimo": "Desde 12 unidades",
+"descripcion": "Librito, crayones y bolsita o cajita con asa, todo con la temática del cumpleaños. Cada invitado sale de la fiesta con su propio kit para crear.",
 "personaliza": [
 "Nombre y edad",
 "Personaje o temática",
 "Bolsita o cajita"
 ],
-"tags": "niños fiesta crayolas cumpleaños",
+"tags": "niños fiesta crayolas crayones cumpleaños",
+"oc": [
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
 "fotos": [
-"hd5",
-"hd6"
+"kit-colorear-1",
+"kit-colorear-2",
+"kit-colorear-3",
+"kit-colorear-4"
+]
+},
+{
+"id": "pizarrita",
+"nombre": "Pizarrita personalizada",
+"cats": [
+"infantiles",
+"corporativos"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Pizarrita borrable con marcador, con el personaje favorito y el nombre del peque. Un recordatorio que no se queda en un cajón: se dibuja, se borra y se vuelve a usar.",
+"personaliza": [
+"Nombre y edad",
+"Personaje",
+"Marcador"
+],
+"tags": "pizarra tablero borrable marcador niños recordatorio",
+"oc": [
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"pizarrita-1",
+"pizarrita-2",
+"pizarrita-3",
+"pizarrita-4"
+]
+},
+{
+"id": "dulces-personalizados",
+"nombre": "Tarjeta con dulce personalizado",
+"cats": [
+"infantiles",
+"corporativos",
+"toda"
+],
+"desde": 1500,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjeta con tu mensaje y diseño, acompañada de un dulce personalizado. Endulza la fiesta, el evento de tu empresa o la atención a tus clientes.",
+"personaliza": [
+"Diseño del empaque",
+"Tipo de dulce",
+"Cantidad"
+],
+"tags": "dulces almohaditas golosinas caricatura fiesta",
+"oc": [
+"cumple",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"dulces-personalizados-1",
+"dulces-personalizados-2",
+"dulces-personalizados-3"
+],
+"incluye": [
+"Tarjeta con el mensaje y el diseño que quieras",
+"Dulce personalizado (puede variar según disponibilidad)"
+],
+"tamano": "10 × 13 cm",
+"precios": [
+[
+"De 6 a 12 unidades",
+"$1.700"
+],
+[
+"Desde 13 unidades",
+"$1.500"
+]
+]
+},
+{
+"id": "tarjetas-agradecimiento",
+"nombre": "Tarjetas de agradecimiento temáticas",
+"cats": [
+"infantiles",
+"papeleria"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjetas «Gracias por venir» con la temática de la fiesta, solas o con dulce. Una despedida bonita para que cada invitado sepa que su presencia contó.",
+"personaliza": [
+"Temática",
+"Nombre",
+"Dulce"
+],
+"tags": "gracias fiesta princesa tarjeta agradecimiento",
+"oc": [
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"tarjetas-agradecimiento-1",
+"tarjetas-agradecimiento-2"
+]
+},
+{
+"id": "rompecabezas",
+"nombre": "Tarjeta rompecabezas",
+"cats": [
+"infantiles",
+"papeleria"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Rompecabezas con el personaje favorito, en bolsita con tarjeta. La fiesta sigue en casa: algo para armar cuando ya se apagaron las velas.",
+"personaliza": [
+"Personaje",
+"Nombre",
+"Mensaje"
+],
+"tags": "rompecabezas puzzle mario niños",
+"oc": [
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"rompecabezas-1"
 ]
 },
 {
@@ -1154,422 +1939,1718 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "cats": [
 "corporativos",
 "papeleria",
-"navidad",
-"souvenirs"
+"fechas"
 ],
-"sub": "calendarios",
-"destacado": true,
 "desde": 6000,
 "unidad": "ud",
-"minimo": "Mínimo 10 unidades",
-"descripcion": "De escritorio, de bolsillo o con imán. Con tus fotos o con el logo de tu empresa.",
+"minimo": "Desde 10 unidades",
+"descripcion": "Calendarios 2027 de escritorio, de bolsillo o con imán, con tus fotos o con el logo de tu empresa. Tus recuerdos o tu marca a la vista los 12 meses del año.",
 "personaliza": [
 "Tus fotos o tu logo",
 "Formato",
 "Colores"
 ],
-"tags": "calendario almanaque año imán foto",
+"tags": "calendario almanaque año imán foto 2027",
+"oc": [
+"navidad",
+"empresa"
+],
+"destacado": true,
+"tipo": "producto",
+"sub": "agendas",
 "fotos": [
-"hd12",
-"hd7",
-"hd8",
-"hd11",
-"hd13"
+"calendarios-1",
+"calendarios-2",
+"calendarios-3",
+"calendarios-4"
+]
+},
+{
+"id": "agendas",
+"nombre": "Agendas y libretas para empresas",
+"cats": [
+"corporativos",
+"papeleria"
+],
+"desde": 5000,
+"unidad": "ud",
+"minimo": "Desde 10 unidades",
+"descripcion": "Agendas, libretas con inicial y planificadores con el logo y los colores de tu empresa. Tu marca acompaña cada reunión, cada idea y cada pendiente de tu equipo.",
+"personaliza": [
+"Logo o inicial",
+"Diseño de la portada",
+"Tamaño"
+],
+"tags": "agenda libreta cuaderno planner planificador empresa",
+"oc": [
+"empresa",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "agendas",
+"fotos": [
+"agendas-1",
+"agendas-2",
+"agendas-3",
+"agendas-4"
 ]
 },
 {
 "id": "taza-dulces",
-"nombre": "Taza con dulces",
+"nombre": "Mug personalizado",
 "cats": [
-"papa"
+"fechas",
+"toda",
+"corporativos"
 ],
-"destacado": true,
-"desde": 15000,
+"desde": 13000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Taza con frase, rellena de chocolates y dulces, con papel de seda.",
+"descripcion": "Mug con tu diseño y tu mensaje: solo, con cajita y tarjeta o en combo con dulces. Primero se disfrutan los dulces; después, el mug se queda para el tinto de cada mañana.",
 "personaliza": [
-"Frase de la taza",
+"Frase o diseño de la taza",
 "Dulces",
 "Color del papel"
 ],
-"tags": "mug pocillo chocolates",
+"tags": "mug pocillo chocolates taza",
+"oc": [
+"maestro",
+"papa",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
 "fotos": [
-"taza-1",
-"taza-2",
-"taza-3"
+"taza-dulces-1",
+"taza-dulces-2",
+"taza-dulces-3",
+"taza-dulces-4"
+],
+"incluye": [
+"Mug con el diseño y el mensaje que quieras",
+"En combo: dulces o el contenido que elijas, tarjeta personalizada y empaque",
+"Mug con caja: cajita y tarjeta, listo para regalar"
+],
+"precios": [
+[
+"Mug solo, de 4 a 6",
+"$17.000"
+],
+[
+"Mug solo, de 7 a 12",
+"$15.000"
+],
+[
+"Mug solo, desde 13",
+"$13.000"
+],
+[
+"Mug con caja, sin personalizar",
+"$13.000 c/u"
+],
+[
+"Mug con caja, personalizado",
+"$19.000 c/u"
 ]
+],
+"nota": "El mug solo se pide desde 4 unidades; el mug con caja, desde 1. El valor del combo varía según lo que elijas."
 },
 {
 "id": "cajita-corazon",
 "nombre": "Cajita corazón",
 "cats": [
-"papa",
+"fechas",
 "papeleria"
 ],
-"sub": "fechas",
-"destacado": true,
-"desde": 2000,
+"desde": 5000,
 "unidad": "ud",
-"minimo": "Mínimo 12 unidades",
-"descripcion": "Cajita con corazón «Feliz día papá», chocolates y una frase bonita.",
+"minimo": "Desde 1 unidad",
+"descripcion": "Cajita en forma de corazón con tu foto y 3 chocolates. Para que nadie de la familia, el colegio o la oficina se quede sin su sorpresa.",
 "personaliza": [
 "Color",
 "Frase",
 "Dulces"
 ],
-"tags": "papá chocolates detalle",
+"tags": "papá chocolates detalle corazon",
+"oc": [
+"papa",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "cajas",
 "fotos": [
-"corazon-1",
-"corazon-2",
-"corazon-3",
-"corazon-4"
+"cajita-corazon-1",
+"cajita-corazon-2",
+"cajita-corazon-3"
+],
+"incluye": [
+"Caja en forma de corazón con foto",
+"3 chocolates"
+],
+"precios": [
+[
+"De 1 a 6 unidades",
+"$5.500"
+],
+[
+"Más de 6 unidades",
+"$5.000"
 ]
+],
+"nota": "Versión mujer en rosado, verde, azul y naranja."
 },
 {
 "id": "caja-rotulada",
 "nombre": "Caja rotulada a mano",
 "cats": [
-"amor",
-"papeleria"
+"papeleria",
+"toda"
 ],
-"sub": "cajas",
-"destacado": true,
 "desde": 8000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Caja blanca con lettering pintado a mano y lazo. Perfecta para armar tu propio regalo.",
+"descripcion": "Caja con lettering pintado a mano y lazo, lista para que armes tu propio regalo. El empaque ya dice lo que sientes; tú solo lo llenas.",
 "personaliza": [
 "Texto",
 "Colores del lettering",
 "Tamaño"
 ],
-"tags": "lettering letras pintada",
+"tags": "lettering letras pintada caja",
+"oc": [
+"cumple",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "cajas",
 "fotos": [
-"rotulada-1",
-"rotulada-2",
-"rotulada-3",
-"rotulada-4"
+"caja-rotulada-1",
+"caja-rotulada-2",
+"caja-rotulada-3"
 ]
 },
 {
-"id": "libretas",
-"nombre": "Libretas y planificadores",
+"id": "cajita-zapatilla",
+"nombre": "Zapatico sorpresa",
 "cats": [
 "papeleria",
-"corporativos",
-"souvenirs"
+"fechas"
 ],
-"sub": "calendarios",
-"destacado": true,
 "desde": 5000,
 "unidad": "ud",
-"minimo": "Mínimo 10 unidades",
-"descripcion": "Libretas con formas divertidas, planificadores semanales y pizarras borrables.",
+"minimo": "Desde 2 unidades",
+"descripcion": "Caja en forma de tenis con tu mensaje, medias tobilleras y un chocolate. Un detalle divertido que se ve tan bien como lo que lleva dentro.",
 "personaliza": [
-"Nombre o logo",
-"Diseño",
-"Tamaño"
+"Color",
+"Con o sin medias",
+"Mensaje"
 ],
-"tags": "cuaderno agenda planner pizarra animales",
+"tags": "tenis zapato medias zapatilla",
+"oc": [
+"papa",
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "cajas",
 "fotos": [
-"hd9",
-"hd14",
-"hd2",
-"hd1"
+"cajita-zapatilla-1",
+"cajita-zapatilla-2",
+"cajita-zapatilla-3",
+"cajita-zapatilla-4",
+"cajita-zapatilla-5"
+],
+"incluye": [
+"Caja en forma de tenis con el mensaje que quieras",
+"Medias tobilleras",
+"Chocolate pequeño"
+],
+"precios": [
+[
+"De 2 a 12 unidades",
+"$5.500"
+],
+[
+"Desde 13 unidades",
+"$5.000"
 ]
+],
+"nota": "Disponible en tenis blanco y zapato azul."
 },
 {
-"id": "perfume-nombre",
-"nombre": "Perfume con tu nombre",
-"cats": [
-"amor",
-"souvenirs"
-],
-"destacado": true,
-"desde": 10000,
-"unidad": "ud",
-"minimo": "Desde 1 unidad",
-"descripcion": "Perfume en bolsita con tarjeta floral y el nombre de quien lo recibe.",
-"personaliza": [
-"Nombre",
-"Mensaje",
-"Fragancia"
-],
-"tags": "fragancia colonia",
-"fotos": [
-"nombre-1",
-"nombre-2",
-"nombre-3"
-]
-},
-{
-"id": "tarjeta-maestro",
-"nombre": "Tarjeta lápiz para profes",
+"id": "camara-dulcera",
+"nombre": "Cámara y portátil dulcera",
 "cats": [
 "papeleria",
 "toda"
 ],
-"sub": "fechas",
-"destacado": true,
-"desde": 4500,
+"desde": 15000,
 "unidad": "ud",
-"minimo": "Mínimo 6 unidades",
-"descripcion": "Tarjeta con forma de lápiz, notas adhesivas, bolígrafo y mensaje de agradecimiento para el Día del Maestro.",
+"minimo": "Desde 1 unidad",
+"descripcion": "Cajitas con forma de cámara de fotos o de portátil, rellenas de dulces. Celebran grados y cumpleaños, y también lucen como centro de mesa.",
+"personaliza": [
+"Nombre",
+"Dulces",
+"Mensaje"
+],
+"tags": "camara fotos laptop portatil dulces centro de mesa",
+"oc": [
+"cumple",
+"grado"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "cajas",
+"fotos": [
+"camara-dulcera-1",
+"camara-dulcera-2",
+"camara-dulcera-3",
+"camara-dulcera-4",
+"camara-dulcera-5"
+]
+},
+{
+"id": "cajas-feliz-dia",
+"nombre": "Loncheras y cajas «Feliz día»",
+"cats": [
+"toda",
+"papeleria",
+"infantiles"
+],
+"desde": 15000,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Loncheras y cajas impresas con nombre, rellenas de dulces, taza, llavero o mini perfume. Para cumpleaños, grados o cualquier día que merezca un «feliz día».",
+"personaliza": [
+"Diseño y nombre",
+"Contenido",
+"Mensaje"
+],
+"tags": "lonchera dulces snacks graduacion feliz dia",
+"oc": [
+"cumple",
+"grado"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "cajas",
+"fotos": [
+"cajas-feliz-dia-1",
+"cajas-feliz-dia-2"
+]
+},
+{
+"id": "tarjeta-maestro",
+"nombre": "Detalle maestro",
+"cats": [
+"fechas",
+"papeleria"
+],
+"desde": 4000,
+"unidad": "ud",
+"minimo": "Desde 2 unidades",
+"descripcion": "Tarjeta en forma de lápiz con lapicero, notas adhesivas y tu mensaje de agradecimiento. Un gracias que se usa en clase y se guarda en el corazón.",
 "personaliza": [
 "Nombre de la profe o el profe",
 "Mensaje",
 "Colores"
 ],
 "tags": "maestro maestra profesor profesora docente colegio notas",
-"fotos": [
-"maestro-1",
-"maestro-2",
-"maestro-3",
-"maestro-4"
-]
-},
-{
-"id": "tarjeta-foto",
-"nombre": "Tarjeta corazón con foto",
-"cats": [
-"amor",
-"papeleria"
+"oc": [
+"maestro"
 ],
-"sub": "fechas",
 "destacado": false,
-"desde": 3500,
-"unidad": "ud",
-"minimo": "Mínimo 6 unidades",
-"descripcion": "Tarjeta de corazón con espacio para tu foto, ositos y frase de amor y amistad.",
-"personaliza": [
-"Tu foto",
-"Frase",
-"Colores"
-],
-"tags": "amor amistad novio novia san valentín",
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"amor-1"
+"tarjeta-maestro-1",
+"tarjeta-maestro-2",
+"tarjeta-maestro-3"
+],
+"incluye": [
+"Tarjeta en forma de lápiz con mensaje personalizado",
+"Lapicero (colores y diseños según disponibilidad)",
+"Notas adhesivas",
+"Tarjeta pequeña con mini gancho",
+"Empacado en bolsa"
+],
+"tamano": "21 cm de alto × 11 cm de ancho",
+"precios": [
+[
+"De 2 a 12 unidades",
+"$5.000"
+],
+[
+"Más de 12 unidades",
+"$4.000"
+]
 ]
 },
 {
 "id": "tarjeta-flor",
-"nombre": "Tarjeta flor de cumpleaños",
+"nombre": "Tarjeta flor en domo",
 "cats": [
-"papeleria",
-"toda"
-],
-"sub": "fechas",
-"destacado": false,
-"desde": 4000,
-"unidad": "ud",
-"minimo": "Mínimo 6 unidades",
-"descripcion": "Tarjeta con rosa en relieve, mensaje de cumpleaños y bolsita transparente.",
-"personaliza": [
-"Nombre",
-"Mensaje",
-"Color de la flor"
-],
-"tags": "cumpleaños cumple rosa",
-"fotos": [
-"tflor-1",
-"tflor-2"
-]
-},
-{
-"id": "caja-carino",
-"nombre": "Caja «Con cariño»",
-"cats": [
-"combos",
+"toda",
+"corporativos",
 "papeleria"
 ],
-"sub": "fechas",
-"destacado": false,
-"desde": 25000,
+"desde": 4000,
 "unidad": "ud",
-"minimo": "Desde 1 unidad",
-"descripcion": "Caja palomitera impresa, rellena de pasabocas, bebida, chocolates y medias.",
+"minimo": "Desde 4 unidades",
+"descripcion": "Flor en domo transparente con tarjeta y mensaje. Un recordatorio delicado y elegante para el baby shower, el Día de la Madre o el Día de la Mujer.",
 "personaliza": [
-"Diseño de la caja",
-"Contenido",
-"Tarjeta"
+"Color de la flor",
+"Mensaje",
+"Nombre"
 ],
-"tags": "palomitas snacks ancheta",
+"tags": "flor lirio domo recordatorio souvenir",
+"oc": [
+"mama",
+"mujer",
+"bebe"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"carino-1",
-"carino-2",
-"carino-3",
-"carino-4"
+"tarjeta-flor-1",
+"tarjeta-flor-2",
+"tarjeta-flor-3",
+"tarjeta-flor-4"
 ]
 },
 {
 "id": "tarjeta-boligrafo",
-"nombre": "Tarjeta con bolígrafo",
+"nombre": "Lapicero premium en tarjeta de traje",
 "cats": [
+"fechas",
 "corporativos",
-"papa",
-"papeleria",
-"souvenirs"
+"papeleria"
 ],
-"sub": "empresas",
-"destacado": false,
-"desde": 2800,
+"desde": 4800,
 "unidad": "ud",
-"minimo": "Mínimo 6 unidades",
-"descripcion": "Tarjeta con forma de corbata o de traje y bolígrafo elegante. Ideal para grupos.",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjeta de traje con un lapicero de mina delgada y tinta mojada, en bolsita. Pensada para entregar en grupo: el Día del Padre en el colegio, en la familia o en la oficina.",
 "personaliza": [
 "Diseño",
 "Mensaje",
-"Color del bolígrafo"
+"Color del lapicero"
 ],
-"tags": "lapicero esfero corbata",
+"tags": "lapicero esfero corbata papá",
+"oc": [
+"papa",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"tarjeta-1",
-"tarjeta-2",
-"tarjeta-3"
+"tarjeta-boligrafo-1",
+"tarjeta-boligrafo-2",
+"tarjeta-boligrafo-3",
+"tarjeta-boligrafo-4",
+"tarjeta-boligrafo-5"
+],
+"incluye": [
+"Tarjeta de traje con mensaje personalizado",
+"Lapicero de mina delgada y tinta mojada",
+"Dulce o chocolate",
+"Empacado en bolsa"
+],
+"tamano": "Según lo que necesites",
+"precios": [
+[
+"De 4 a 24 unidades",
+"$5.200"
+],
+[
+"Desde 25 unidades",
+"$4.800"
+]
 ]
 },
 {
 "id": "boligrafo-cumple",
-"nombre": "Bolígrafo «Feliz cumple»",
+"nombre": "Lapicero con tarjeta",
 "cats": [
 "corporativos",
 "papeleria"
 ],
-"sub": "empresas",
-"destacado": false,
-"desde": 3000,
+"desde": 3800,
 "unidad": "ud",
-"minimo": "Mínimo 6 unidades",
-"descripcion": "Bolígrafo elegante en tarjeta con forma de camisa y el mensaje «Gracias por servir con amor».",
+"minimo": "Desde 4 unidades",
+"descripcion": "Lapicero en tarjeta con forma de camisa y mensaje de cumpleaños. Para que cada persona de tu equipo sienta que su día no pasó desapercibido.",
 "personaliza": [
 "Mensaje",
 "Colores",
 "Logo de tu empresa"
 ],
 "tags": "lapicero esfero cumpleaños equipo",
+"oc": [
+"cumple",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"boli-1"
+"boligrafo-cumple-1",
+"boligrafo-cumple-2",
+"boligrafo-cumple-3"
+],
+"incluye": [
+"Tarjeta con mensaje personalizado",
+"Lapicero (colores y diseños según disponibilidad)",
+"Chocolate pequeño cuadrado",
+"Empacado en bolsa"
+],
+"tamano": "19 cm de alto × 10 cm de ancho",
+"precios": [
+[
+"Con dulce o chocolate, de 4 a 16",
+"$4.500"
+],
+[
+"Con dulce o chocolate, desde 17",
+"$4.000"
+],
+[
+"Sin dulce, de 4 a 16",
+"$4.200"
+],
+[
+"Sin dulce, desde 17",
+"$3.800"
 ]
+],
+"nota": "También podemos personalizar el lapicero."
 },
 {
-"id": "caja-ingeniero",
-"nombre": "Caja día del ingeniero",
+"id": "tarjetas-bienvenida",
+"nombre": "Tarjeta con chocolate corazón",
 "cats": [
 "corporativos",
 "papeleria"
 ],
-"sub": "empresas",
-"destacado": true,
-"desde": 25000,
-"unidad": "caja",
-"minimo": "Desde 1 unidad",
-"descripcion": "Caja blanca con lazo, llavero de casco, bolígrafo y tarjeta. La hacemos para cualquier profesión.",
+"desde": 1500,
+"unidad": "ud",
+"minimo": "Desde 6 unidades",
+"descripcion": "Tarjeta con la forma y el mensaje que quieras, chocolate en forma de corazón y moño de tela. Una bienvenida, un gracias o un «te quiero» dulce para clientes, equipos o amigas.",
 "personaliza": [
-"Profesión y mensaje",
-"Color del lazo",
-"Logo de tu empresa"
+"Diseño y logo",
+"Mensaje",
+"Color del moño"
 ],
-"tags": "ingeniera profesión corporativo llavero",
+"tags": "bienvenida chocolate corazon empresa clientes",
+"oc": [
+"empresa",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"ingeniero-1",
-"ingeniero-2"
+"tarjetas-bienvenida-1",
+"tarjetas-bienvenida-2",
+"tarjetas-bienvenida-3",
+"tarjetas-bienvenida-4",
+"tarjetas-bienvenida-5"
+],
+"incluye": [
+"Chocolate en forma de corazón",
+"Moño en cinta de tela",
+"Tarjeta con el mensaje y la forma que quieras"
+],
+"tamano": "12 cm de alto × 7 cm de ancho",
+"precios": [
+[
+"De 6 a 30 unidades",
+"$1.700"
+],
+[
+"Desde 31 unidades",
+"$1.500"
+]
+],
+"nota": "Chocolates en rosado, azul celeste o rojo. La tarjeta puede ir en otros colores, según disponibilidad."
+},
+{
+"id": "tarjeta-foto",
+"nombre": "Tarjetas de amor y amistad",
+"cats": [
+"fechas",
+"papeleria"
+],
+"desde": 3500,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjetas de corazón con foto, ositos y frases de amor y amistad. Para tu pareja o tu mejor amiga, con esa foto que solo ustedes entienden.",
+"personaliza": [
+"Tu foto",
+"Frase",
+"Colores"
+],
+"tags": "amor amistad novio novia san valentín",
+"oc": [
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"tarjeta-foto-1",
+"tarjeta-foto-2",
+"tarjeta-foto-3"
 ]
 },
 {
-"id": "cajas-feliz-dia",
-"nombre": "Cajas «Feliz día»",
+"id": "tarjetas-dedicatoria",
+"nombre": "Tarjetas con dedicatoria",
+"cats": [
+"papeleria",
+"toda"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjetas y cartas impresas con tu dedicatoria: cumpleaños, reserva la fecha, reconocimientos y mensajes para alguien especial. Tus palabras, con el diseño que se merecen.",
+"personaliza": [
+"Texto",
+"Diseño",
+"Tamaño"
+],
+"tags": "dedicatoria carta tarjeta cumpleaños reserva la fecha boda",
+"oc": [
+"cumple",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"tarjetas-dedicatoria-1",
+"tarjetas-dedicatoria-2",
+"tarjetas-dedicatoria-3",
+"tarjetas-dedicatoria-4"
+]
+},
+{
+"id": "baby-shower",
+"nombre": "Detalles para baby shower y bautizo",
 "cats": [
 "toda",
 "papeleria"
 ],
-"sub": "cajas",
-"destacado": false,
-"desde": 15000,
+"desde": null,
 "unidad": "ud",
-"minimo": "Desde 1 unidad",
-"descripcion": "Cajas impresas «Feliz día» y «Para ti», rellenas de dulces y pasabocas. Con globo si quieres.",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjetas con lapicero y moño, corazones de chocolate y velitas con el tema del bebé. Un recuerdo tierno para que tus invitados se lleven un pedacito del baby shower o del bautizo.",
 "personaliza": [
-"Diseño y frase",
-"Contenido",
-"Globo"
+"Tema y colores",
+"Nombre del bebé",
+"Detalle"
 ],
-"tags": "globo trofeo dulces snacks",
+"tags": "baby shower bautizo bebe recordatorio",
+"oc": [
+"bebe"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"feliz-1",
-"feliz-2",
-"feliz-3"
+"baby-shower-1",
+"baby-shower-2",
+"baby-shower-3",
+"baby-shower-4",
+"baby-shower-5"
 ]
 },
 {
-"id": "cajita-zapatilla",
-"nombre": "Cajita zapatilla",
+"id": "separador-chocolate",
+"nombre": "Separador con chocolate",
 "cats": [
-"papa",
-"papeleria"
+"corporativos",
+"papeleria",
+"toda"
 ],
-"sub": "cajas",
-"destacado": false,
-"desde": 6000,
+"desde": 900,
 "unidad": "ud",
-"minimo": "Desde 1 unidad",
-"descripcion": "Caja con forma de zapatilla y cordón de cinta. Perfecta para regalar medias.",
+"minimo": "Desde 6 unidades",
+"descripcion": "Separador de libro con tu mensaje y un chocolate pequeño, en bolsita. Acompaña cada lectura de familias, colegios, iglesias o equipos.",
 "personaliza": [
-"Color",
-"Con o sin medias",
-"Mensaje"
+"Mensaje",
+"Diseño",
+"Con o sin chocolate"
 ],
-"tags": "tenis zapato medias",
+"tags": "separador libro chocolate familia colegio iglesia",
+"oc": [
+"empresa",
+"maestro"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "tarjeteria",
 "fotos": [
-"zapatilla-1",
-"zapatilla-2",
-"zapatilla-3"
+"separador-chocolate-1",
+"separador-chocolate-2",
+"separador-chocolate-3",
+"separador-chocolate-4"
+],
+"incluye": [
+"Tarjeta separador con mensaje personalizado",
+"Chocolate pequeño",
+"Empacado en bolsa"
+],
+"tamano": "17 cm de alto × 5 cm de ancho",
+"precios": [
+[
+"Con chocolate, de 6 a 30",
+"$1.400"
+],
+[
+"Con chocolate, desde 31",
+"$1.200"
+],
+[
+"Solo separador con listón, de 6 a 30",
+"$1.100"
+],
+[
+"Solo separador con listón, desde 31",
+"$900"
+]
 ]
 },
 {
-"id": "camara-dulcera",
-"nombre": "Cámara dulcera",
+"id": "llavero-foto",
+"nombre": "Llavero personalizado",
 "cats": [
 "toda",
-"papeleria"
+"fechas",
+"corporativos"
 ],
-"sub": "cajas",
+"desde": 5500,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Llavero de acrílico con tu foto o tu logo, en tarjeta con mensaje. Tu mascota, tu pareja o tu marca, siempre a la mano.",
+"personaliza": [
+"Foto o logo",
+"Mensaje",
+"Forma"
+],
+"tags": "llavero acrilico foto mascota pareja",
+"oc": [
+"amor",
+"maestro",
+"empresa"
+],
 "destacado": false,
-"desde": 15000,
+"tipo": "producto",
+"fotos": [
+"llavero-foto-1",
+"llavero-foto-2",
+"llavero-foto-3",
+"llavero-foto-4",
+"llavero-foto-5"
+],
+"incluye": [
+"Llavero de acrílico con el diseño o la foto que quieras",
+"Chocolate o dulce",
+"Tarjeta personalizada",
+"Empacado en bolsa"
+],
+"precios": [
+[
+"De 4 a 12 unidades",
+"$6.500"
+],
+[
+"Desde 13 unidades",
+"$5.500"
+]
+]
+},
+{
+"id": "baraja",
+"nombre": "Baraja de cartas personalizada",
+"cats": [
+"toda",
+"corporativos"
+],
+"desde": null,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Caja con forma de cámara de fotos, rellena de dulces y con tarjeta personalizada.",
+"descripcion": "Baraja con tus fotos o tu marca en cada carta, en su cajita. Cada partida se vuelve un recuerdo, en pareja, en familia o con tus clientes.",
+"personaliza": [
+"Fotos o logo",
+"Diseño",
+"Caja"
+],
+"tags": "baraja cartas naipes juego",
+"oc": [
+"amor",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"baraja-1",
+"baraja-2"
+]
+},
+{
+"id": "espejo",
+"nombre": "Espejo de bolsillo",
+"cats": [
+"corporativos",
+"toda"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Espejito de bolsillo con tu diseño, en tarjeta. Un souvenir bonito para eventos y clientas, que viaja en la cartera de quien lo recibe.",
+"personaliza": [
+"Diseño",
+"Mensaje",
+"Tarjeta"
+],
+"tags": "espejo bolsillo souvenir mujer",
+"oc": [
+"mujer",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"espejo-1"
+]
+},
+{
+"id": "mini-perfume",
+"nombre": "Perfume con tarjeta (10 o 5 ml)",
+"cats": [
+"corporativos",
+"toda"
+],
+"desde": 5000,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Perfume de 10 o 5 ml en tarjeta con tu mensaje; el frasco también se puede personalizar. Un recordatorio con aroma que tus invitados sí van a querer llevarse.",
 "personaliza": [
 "Nombre",
-"Dulces",
-"Mensaje"
+"Mensaje",
+"Fragancia"
 ],
-"tags": "fotos dulces",
+"tags": "perfume mini souvenir boda recordatorio",
+"oc": [
+"bebe",
+"cumple",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
 "fotos": [
-"camara-1",
-"camara-2"
+"mini-perfume-1",
+"mini-perfume-2",
+"mini-perfume-3",
+"mini-perfume-4",
+"mini-perfume-5"
+],
+"incluye": [
+"Perfume de tu elección en frasco de vidrio de 10 o 5 ml",
+"Tarjeta personalizada con tu mensaje",
+"Frasco personalizable"
+],
+"precios": [
+[
+"10 ml, de 4 a 12",
+"$8.000"
+],
+[
+"10 ml, desde 13",
+"$7.000"
+],
+[
+"5 ml, de 4 a 12",
+"$5.000"
+]
+],
+"nota": "Aromas como 212 de Carolina Herrera, 360 de Perry Ellis, Hugo Boss, Chanel y Aqua de Bvlgari, además de perfumes de nicho, de diseñador y árabes (Lattafa, Armaf, Al Haramain, Afnan y más)."
+},
+{
+"id": "kit-corporativo",
+"nombre": "Gift box corporativo",
+"cats": [
+"corporativos",
+"combos"
+],
+"desde": 8000,
+"unidad": "ud",
+"minimo": "Desde 6 unidades",
+"descripcion": "Caja decorada en cartón o madera con tarjeta personalizada y el contenido que tu empresa elija, como vasos térmicos con tu logo o kits de bienvenida. Así recibes a quien llega y agradeces a quien confía en ti.",
+"personaliza": [
+"Logo",
+"Contenido",
+"Empaque"
+],
+"tags": "vaso termico kit bienvenida empresa logo",
+"oc": [
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"kit-corporativo-1",
+"kit-corporativo-2",
+"kit-corporativo-3",
+"kit-corporativo-4"
+],
+"incluye": [
+"Caja decorada en cartón o madera",
+"Tarjeta personalizada",
+"Contenido según tus preferencias, necesidades y presupuesto"
+],
+"precios": [
+[
+"Desde",
+"$8.000 por unidad"
+]
+]
+},
+{
+"id": "caja-ingeniero",
+"nombre": "Cajas para profesiones",
+"cats": [
+"corporativos",
+"fechas"
+],
+"desde": 25000,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Caja con termo, chocolates y tarjeta para el Día del Ingeniero, del Abogado o de cualquier profesión. Un reconocimiento que tu equipo o tus clientes reciben con orgullo.",
+"personaliza": [
+"Profesión y mensaje",
+"Contenido",
+"Logo de tu empresa"
+],
+"tags": "ingeniero abogado profesión corporativo termo madera",
+"oc": [
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"caja-ingeniero-1",
+"caja-ingeniero-2",
+"caja-ingeniero-3",
+"caja-ingeniero-4",
+"caja-ingeniero-5"
 ]
 },
 {
 "id": "vela-bolsita",
-"nombre": "Vela en bolsita",
+"nombre": "Velas personalizadas",
 "cats": [
-"navidad",
-"souvenirs"
+"fechas",
+"corporativos"
 ],
-"destacado": false,
 "desde": 5000,
 "unidad": "ud",
-"minimo": "Mínimo 12 unidades",
-"descripcion": "Vela aromática en bolsita de tela con etiqueta personalizada.",
+"minimo": "Desde 4 unidades",
+"descripcion": "Velita en tarjeta o bolsita con etiqueta y mensaje. Una luz para recibir el año nuevo, celebrar un baby shower o agradecer a tus clientes.",
 "personaliza": [
 "Etiqueta",
-"Aroma",
-"Color de la bolsita"
+"Mensaje",
+"Empaque"
 ],
-"tags": "aroma navidad",
+"tags": "vela velita aroma navidad año nuevo",
+"oc": [
+"navidad",
+"bebe"
+],
+"destacado": false,
+"tipo": "producto",
 "fotos": [
-"hd10"
+"vela-bolsita-1",
+"vela-bolsita-2",
+"vela-bolsita-3"
+]
+},
+{
+"id": "dulceros-navidad",
+"nombre": "Dulceros navideños",
+"cats": [
+"fechas",
+"corporativos",
+"infantiles"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Muñecos de nieve, ovejitas y galletas de jengibre rellenos de dulces. Ponen sabor a la novena y alegran el cierre de año con tus clientes.",
+"personaliza": [
+"Personaje",
+"Dulces",
+"Etiqueta"
+],
+"tags": "navidad dulceros novena muñeco nieve jengibre",
+"oc": [
+"navidad"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"dulceros-navidad-1",
+"dulceros-navidad-2",
+"dulceros-navidad-3",
+"dulceros-navidad-4",
+"dulceros-navidad-5"
+]
+},
+{
+"id": "esferas-foto",
+"nombre": "Esferas navideñas con foto",
+"cats": [
+"fechas"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Esferas para el árbol con tu foto y moño rojo. Cada Navidad, al decorar, vuelven a aparecer las caras que más quieres.",
+"personaliza": [
+"Foto",
+"Nombre o año",
+"Color del moño"
+],
+"tags": "esfera bola arbol navidad foto",
+"oc": [
+"navidad"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"esferas-foto-1"
+]
+},
+{
+"id": "cajita-personalizada",
+"nombre": "Cajita personalizada",
+"cats": [
+"papeleria",
+"fechas",
+"corporativos",
+"toda"
+],
+"desde": 5000,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Caja con la forma, el diseño y el mensaje que quieras, o con el logo de tu empresa, llena de dulces. El 8 de marzo, un cumpleaños o un «porque sí» se vuelven inolvidables.",
+"personaliza": [
+"Forma y diseño",
+"Mensaje o logo",
+"Contenido"
+],
+"tags": "cajita caja personalizada logo dulces mujer 8 marzo",
+"oc": [
+"mujer",
+"empresa",
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "cajas",
+"fotos": [
+"cajita-personalizada-1",
+"cajita-personalizada-2"
+],
+"incluye": [
+"Caja con la forma, el diseño y el mensaje que quieras (o el logo de tu empresa)",
+"Dulces o chocolates",
+"Puedes sumarle otros productos"
+],
+"precios": [
+[
+"Cajita personalizada, de 4 a 12",
+"$8.500"
+],
+[
+"Cajita personalizada, desde 13",
+"$7.500"
+],
+[
+"Cajita pequeña con foto o mensaje, de 1 a 4",
+"$6.000"
+],
+[
+"Cajita pequeña, desde 6",
+"$5.000"
+]
+]
+},
+{
+"id": "gift-box-mini-kit",
+"nombre": "Gift box mini kit",
+"cats": [
+"combos",
+"toda",
+"corporativos"
+],
+"desde": 6000,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Caja con papel, tarjeta pequeña y moño que completas con lo que prefieras: llaveros, pinzas, lapiceros, perfumes y mucho más. Creamos una propuesta a la medida de lo que necesitas.",
+"personaliza": [
+"Productos que le agregas",
+"Tarjeta",
+"Versión mujer u hombre"
+],
+"tags": "gift box kit caja regalo mini",
+"oc": [
+"cumple",
+"empresa",
+"amor"
+],
+"destacado": false,
+"tipo": "producto",
+"extras": true,
+"fotos": [
+"gift-box-mini-kit-1",
+"gift-box-mini-kit-2"
+],
+"incluye": [
+"Tarjeta pequeña personalizada",
+"Caja y papel",
+"Empacado en bolsa con moño",
+"Lo que le quieras agregar: llaveros, pinzas, lapiceros, perfumes y más"
+],
+"precios": [
+[
+"Desde",
+"$6.000 por unidad"
+]
+],
+"nota": "Disponible en versión para hombre. El valor varía según los productos que agregues, la personalización y la cantidad."
+},
+{
+"id": "tarjetas-presentacion",
+"nombre": "Tarjetas de presentación",
+"cats": [
+"papeleria"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Diseño e impresión de tarjetas de presentación para tu emprendimiento. Que tu marca deje buena impresión desde el primer saludo.",
+"personaliza": [
+"Diseño",
+"Papel",
+"Cantidad"
+],
+"tags": "tarjetas presentacion negocio emprendimiento",
+"oc": [
+"empresa"
+],
+"destacado": false,
+"tipo": "servicio",
+"sub": "tarjeteria",
+"fotos": [
+"tarjetas-presentacion-1"
+]
+},
+{
+"id": "insumos-gracias",
+"nombre": "Tarjetas de agradecimiento para clientes",
+"cats": [
+"papeleria",
+"corporativos"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Tarjetas y mini calendarios «Gracias por tu compra» con tu logo, para incluir en cada pedido. Ese toque final que hace que tus clientes se acuerden de ti.",
+"personaliza": [
+"Logo",
+"Mensaje",
+"Formato"
+],
+"tags": "gracias por tu compra emprendedores clientes insumos",
+"oc": [
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"sub": "insumos",
+"fotos": [
+"insumos-gracias-1",
+"insumos-gracias-2"
+]
+},
+{
+"id": "diseno-pedido",
+"nombre": "Diseño personalizado por pedido",
+"cats": [
+"papeleria"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Nos cuentas la idea y la convertimos en invitaciones, etiquetas, artes para redes o la pieza que necesites. Diseño con intención, a la medida de tu evento o de tu marca.",
+"personaliza": [
+"Tu idea",
+"Formato",
+"Colores de tu marca"
+],
+"tags": "diseño invitaciones etiquetas artes logo",
+"oc": [],
+"destacado": false,
+"tipo": "servicio",
+"sub": "disenos",
+"fotos": [
+"diseno-pedido-1",
+"diseno-pedido-2"
+]
+},
+{
+"id": "armado-empaque",
+"nombre": "Armado y empaque de regalos",
+"cats": [
+"papeleria"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Armamos y empacamos tus regalos con papel de seda, moños y tarjeta, listos para entregar. Tú eliges qué regalar; nosotros nos encargamos de que se vea precioso.",
+"personaliza": [
+"Empaque",
+"Cantidad",
+"Tarjeta"
+],
+"tags": "empaque armado envolver regalo",
+"oc": [],
+"destacado": false,
+"tipo": "servicio",
+"sub": "insumos",
+"fotos": [
+"armado-empaque-1"
+]
+},
+{
+"id": "personalizacion",
+"nombre": "Personalización con nombre, foto o logo",
+"cats": [
+"papeleria"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Ponemos tu nombre, foto o logo en tazas, llaveros, lapiceros, libretas y más. Así un objeto de todos los días se vuelve tuyo o habla de tu marca.",
+"personaliza": [
+"Nombre, foto o logo",
+"Producto",
+"Cantidad"
+],
+"tags": "personalizar logo nombre foto marca",
+"oc": [],
+"destacado": false,
+"tipo": "servicio",
+"sub": "disenos",
+"fotos": [
+"personalizacion-1"
+]
+},
+{
+"id": "u-perfume",
+"nombre": "Perfume 30 ml",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Perfume de 30 ml con la fragancia que elijas: un clásico que siempre suma.",
+"personaliza": [
+"Fragancia",
+"Empaque"
+],
+"tags": "perfume fragancia por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-perfume"
+]
+},
+{
+"id": "u-mini-perfume",
+"nombre": "Mini perfume",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Mini perfume que le pone aroma a tus souvenirs y combos.",
+"personaliza": [
+"Fragancia",
+"Etiqueta"
+],
+"tags": "perfume mini por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-mini-perfume"
+]
+},
+{
+"id": "u-taza",
+"nombre": "Taza personalizada",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Taza blanca con tu nombre, foto o frase, para el café de cada mañana.",
+"personaliza": [
+"Nombre o frase",
+"Diseño"
+],
+"tags": "taza mug pocillo por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-taza"
+]
+},
+{
+"id": "u-lapicero",
+"nombre": "Lapicero",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Lapicero metálico o de bambú, útil y elegante en cualquier detalle.",
+"personaliza": [
+"Color",
+"Moño"
+],
+"tags": "lapicero esfero por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-lapicero"
+]
+},
+{
+"id": "u-pinza",
+"nombre": "Pinza flor",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Pinza para el cabello en forma de flor, un toque coqueto que se luce.",
+"personaliza": [
+"Color"
+],
+"tags": "pinza cabello flor por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-pinza"
+]
+},
+{
+"id": "u-llavero",
+"nombre": "Llavero acrílico",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Llavero de acrílico con foto o logo, para llevar lo que quieres siempre contigo.",
+"personaliza": [
+"Foto o logo"
+],
+"tags": "llavero acrilico por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-llavero"
+]
+},
+{
+"id": "u-vela",
+"nombre": "Velita",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Velita aromática con etiqueta, para regalar calma y buen aroma.",
+"personaliza": [
+"Etiqueta",
+"Aroma"
+],
+"tags": "vela velita por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-vela"
+]
+},
+{
+"id": "u-vaso",
+"nombre": "Vaso térmico",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Vaso térmico negro con tu logo, sobrio y listo para la jornada.",
+"personaliza": [
+"Logo",
+"Color"
+],
+"tags": "vaso termo termico por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-vaso"
+]
+},
+{
+"id": "u-libreta",
+"nombre": "Libreta",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Libreta con inicial o logo, para apuntar ideas con estilo propio.",
+"personaliza": [
+"Inicial o logo",
+"Color"
+],
+"tags": "libreta cuaderno agenda por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-libreta"
+]
+},
+{
+"id": "u-calendario",
+"nombre": "Calendario",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Calendario de escritorio con foto, para tener un buen recuerdo a la vista todo el año.",
+"personaliza": [
+"Foto o logo"
+],
+"tags": "calendario por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-calendario"
+]
+},
+{
+"id": "u-baraja",
+"nombre": "Baraja de cartas",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Baraja con tus fotos o tu marca, para que cada partida tenga tu sello.",
+"personaliza": [
+"Fotos o logo"
+],
+"tags": "baraja cartas por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-baraja"
+]
+},
+{
+"id": "u-espejo",
+"nombre": "Espejo de bolsillo",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Espejito con tu diseño, pequeño, práctico y fácil de llevar.",
+"personaliza": [
+"Diseño"
+],
+"tags": "espejo por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-espejo"
+]
+},
+{
+"id": "u-librito",
+"nombre": "Librito para colorear",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Mini librito para colorear con nombre y temática, que convierte cualquier rato en juego.",
+"personaliza": [
+"Nombre",
+"Temática"
+],
+"tags": "librito colorear por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-librito"
+]
+},
+{
+"id": "u-pizarrita",
+"nombre": "Pizarrita con marcador",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Pizarrita borrable con nombre, para dibujar, borrar y volver a empezar.",
+"personaliza": [
+"Nombre",
+"Personaje"
+],
+"tags": "pizarra pizarrita por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-pizarrita"
+]
+},
+{
+"id": "u-esfera",
+"nombre": "Esfera con foto",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Esfera navideña con tu foto, para colgar un recuerdo en el árbol.",
+"personaliza": [
+"Foto"
+],
+"tags": "esfera navidad por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-esfera"
+]
+},
+{
+"id": "u-chocolate",
+"nombre": "Corazón de chocolate",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Corazón de chocolate con moño, el toque dulce que completa cualquier detalle.",
+"personaliza": [
+"Color del moño"
+],
+"tags": "chocolate corazon chocolatina por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-chocolate"
+]
+},
+{
+"id": "u-dulces",
+"nombre": "Dulces personalizados",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Dulces con empaque personalizado, para endulzar con tu propio diseño.",
+"personaliza": [
+"Diseño"
+],
+"tags": "dulces golosinas por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-dulces"
+]
+},
+{
+"id": "u-tarjeta",
+"nombre": "Tarjeta con mensaje",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Tarjeta impresa con tu dedicatoria, para decir con palabras lo que sientes.",
+"personaliza": [
+"Texto",
+"Diseño"
+],
+"tags": "tarjeta dedicatoria por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-tarjeta"
+]
+},
+{
+"id": "u-cajita",
+"nombre": "Cajita zapatilla",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Cajita con forma de zapatilla, divertida para sorprender con medias u otro detalle.",
+"personaliza": [
+"Color"
+],
+"tags": "cajita caja zapatilla por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-cajita"
+]
+},
+{
+"id": "u-termo",
+"nombre": "Termo",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Termo con frase o logo que acompaña cada jornada.",
+"personaliza": [
+"Frase o logo"
+],
+"tags": "termo botella por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-termo"
+]
+},
+{
+"id": "u-bolso-camel",
+"nombre": "Bolso café",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Bolso café con compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado.",
+"personaliza": [
+"Modelo"
+],
+"tags": "bolso cartera camel por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-bolso-camel"
+]
+},
+{
+"id": "u-bolso-negro",
+"nombre": "Bolso candado",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Bolso candado con compartimiento con cierre, bolsillo delantero, correa ajustable y tapa imantada. En blanco y negro.",
+"personaliza": [
+"Modelo"
+],
+"tags": "bolso cartera negro por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-bolso-negro"
+]
+},
+{
+"id": "u-bolso-blanco",
+"nombre": "Bolso blanco",
+"cats": [
+"unidad"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Desde 1 unidad",
+"descripcion": "Bolso blanco, fresco y luminoso.",
+"personaliza": [
+"Modelo"
+],
+"tags": "bolso cartera blanco por unidad suelto",
+"oc": [],
+"destacado": false,
+"tipo": "unidad",
+"fotos": [
+"u-bolso-blanco"
 ]
 }
 ]
@@ -1579,9 +3660,9 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 <script>
 (function(){
   var TEL='573043375997',red=false,fino=matchMedia('(pointer:fine)').matches;
-  var D=JSON.parse(document.getElementById('productos').textContent),P=D.productos,C={};
+  var D=JSON.parse(document.getElementById('productos').textContent),P=D.productos,C={},OC=D.ocasiones;
   D.categorias.forEach(function(c){C[c.id]=c});
-  var PAP=C.papeleria;
+  var PAP=C.papeleria,UNI=P.filter(function(p){return p.tipo==='unidad'});
   function waUrl(t){return 'https://api.whatsapp.com/send/?phone='+TEL+'&text='+encodeURIComponent(t).replace(/%20/g,'+')}
   function img(f){return 'img/'+f+'.jpg'}
   function cop(n){return '$'+n.toLocaleString('es-CO')}
@@ -1591,36 +3672,40 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   function cat0(p){return C[p.cats[0]]}
   function de(c){return P.filter(function(p){return en(p,c)})}
   function deSub(s){return P.filter(function(p){return p.sub===s})}
+  function subDe(p){return p.sub?PAP.subs.filter(function(s){return s.id===p.sub})[0]:null}
   function nprod(n){return n+(n===1?' producto':' productos')}
-  function minimo(ps){return Math.min.apply(null,ps.map(function(p){return p.desde}))}
+  function minimo(ps){var v=ps.map(function(p){return p.desde}).filter(function(x){return x!=null});return v.length?Math.min.apply(null,v):null}
+  function precioCorto(p){return p.tipo==='unidad'?'Por unidad · a cotizar':(p.desde!=null?'desde '+cop(p.desde):'Precio a cotizar')}
+  function guarda(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  function lee(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
 
   // cierres con logo
   var tpl=document.getElementById('tpl-final');
   document.querySelectorAll('.final').forEach(function(f){f.appendChild(tpl.content.cloneNode(true))});
-  // hojitas del logo
   document.querySelectorAll('.logo').forEach(function(l){l.innerHTML='<i></i><i></i>'});
 
   // destacados
   var pista=document.getElementById('pista');
   pista.innerHTML=P.filter(function(p){return p.destacado}).map(function(p){
-    return '<figure class="slide"><a class="abre" href="#catalogo/'+p.id+'" aria-label="Ver '+esc(p.nombre)+'"></a><img src="'+img(p.fotos[0])+'" alt="'+esc(p.nombre)+'" loading="lazy"><span class="cat">'+esc(cat0(p).nombre)+'</span><figcaption><span><b>'+esc(p.nombre)+'</b><small>desde '+cop(p.desde)+'</small></span><a href="#catalogo/'+p.id+'">Cotizar</a></figcaption></figure>'}).join('');
+    return '<figure class="slide"><a class="abre" href="#catalogo/'+p.id+'" aria-label="Ver '+esc(p.nombre)+'"></a><img src="'+img(p.fotos[0])+'" alt="'+esc(p.nombre)+'" loading="lazy"><span class="cat">'+esc(cat0(p).nombre)+'</span><figcaption><span><b>'+esc(p.nombre)+'</b><small>'+precioCorto(p)+'</small></span><a href="#catalogo/'+p.id+'">Cotizar</a></figcaption></figure>'}).join('');
 
   // ¿a quién le regalas?
-  var lineas=document.getElementById('lineas');
-  lineas.innerHTML='<a class="linea-pap rev" href="#categorias"><div class="info"><span class="nuevo">'+D.categorias.length+' categorías · '+nprod(P.length)+'</span><h3 class="t">Elige a quién <span class="acento">le regalas</span></h3><p>Toca para abrir todas las categorías y encontrar el detalle perfecto.</p><div class="subs">'+
-    D.categorias.map(function(c){return '<span>'+esc(c.nombre)+'</span>'}).join('')+'</div><span class="ir">Ver categorías <i aria-hidden="true">→</i></span></div><div class="mosaico" aria-hidden="true">'+
-    ['ramo-4','camiseta-1','maestro-1','hd12'].map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('')+'</div></a>';
+  document.getElementById('lineas').innerHTML='<a class="linea-pap rev" href="#categorias"><div class="info"><span class="nuevo">'+D.categorias.length+' categorías · '+nprod(P.length)+'</span><h3 class="t">Elige a quién <span class="acento">le regalas</span></h3><p>Toca para abrir todas las categorías y encontrar el detalle perfecto.</p><div class="subs">'+
+    D.categorias.map(function(c){return '<span>'+esc(c.nombre)+'</span>'}).join('')+'<span>Arma tu kit</span></div><span class="ir">Ver categorías <i aria-hidden="true">→</i></span></div><div class="mosaico" aria-hidden="true">'+
+    ['pinza-flor-1','perfume-camiseta-1','u-taza','calendarios-1'].map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('')+'</div></a>';
 
-  // síguenos en la barra de cada ventana
+  // barra de cada ventana: síguenos + mi kit
   document.querySelectorAll('.vent-barra .cerrar').forEach(function(b){var d=document.createElement('div');d.className='barra-redes';
+    if(!b.closest('#v-kit')){var kp=document.createElement('a');kp.className='kit-pill';kp.href='#kit';kp.setAttribute('aria-label','Mi kit');kp.innerHTML='<svg aria-hidden="true"><use href="#i-kit"/></svg><span>Mi kit</span> <b class="kit-n">0</b>';b.parentNode.insertBefore(kp,b)}
     d.innerHTML='<span>Síguenos</span><div><a href="https://www.instagram.com/morantadetalles/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a><a href="https://www.tiktok.com/@morantadetalles" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a></div>';
     b.parentNode.insertBefore(d,b)});
-  document.querySelectorAll('.barra-redes div').forEach(function(x){x.style.display='flex';x.style.gap='6px'});
 
   // ventana de categorías
   document.getElementById('cats-grid').innerHTML=D.categorias.map(function(c){
-    var ps=de(c.id),fs=ps.slice(0,3).map(function(p){return '<img src="'+img(p.fotos[0])+'" alt="" loading="lazy">'}).join('');
-    return '<a class="cat-card '+c.color+'" href="'+(c.subs?'#papeleria':'#catalogo/c-'+c.id)+'"><div class="info"><span class="cuenta">'+nprod(ps.length)+'</span><h3 class="t">'+esc(c.nombre)+'</h3><p>'+esc(c.texto)+'</p><div class="meta"><span>Desde '+cop(minimo(ps))+'</span><span class="fl" aria-hidden="true">→</span></div></div><div class="fotos" aria-hidden="true">'+fs+'</div></a>'}).join('');
+    var ps=de(c.id),m=minimo(ps),fs=[c.img].concat(ps.filter(function(p){return p.fotos[0]!==c.img}).slice(0,2).map(function(p){return p.fotos[0]})).map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('');
+    return '<a class="cat-card '+c.color+'" href="'+(c.subs?'#papeleria':'#catalogo/c-'+c.id)+'"><div class="info"><span class="cuenta">'+nprod(ps.length)+'</span><h3 class="t">'+esc(c.nombre)+'</h3><p>'+esc(c.texto)+'</p><div class="meta"><span>'+(m!=null?'Desde '+cop(m):'Precio a cotizar')+'</span><span class="fl" aria-hidden="true">→</span></div></div><div class="fotos" aria-hidden="true">'+fs+'</div></a>'}).join('')+
+    '<a class="cat-card ancha kit-card" href="#kit"><div class="info"><span class="cuenta">Especial</span><h3 class="t">Arma tu <span class="acento">kit</span></h3><p>Junta productos, artículos por unidad y servicios en un solo pedido y cotízalo con precio especial.</p><div class="meta"><span>Cotiza todo en un mensaje</span><span class="fl" aria-hidden="true">→</span></div></div><div class="fotos" aria-hidden="true">'+
+    ['u-perfume','u-taza','u-pinza','u-llavero'].map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('')+'</div></a>';
   document.getElementById('cats-subs').innerHTML=PAP.subs.map(function(s){return '<a class="chip-sub" href="#papeleria/'+s.id+'">'+esc(s.nombre)+' <small>'+deSub(s.id).length+'</small></a>'}).join('');
 
   // ventana de papelería
@@ -1633,29 +3718,21 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     [].forEach.call(papNav.children,function(a){var on=a.dataset.s===act;a.setAttribute('aria-current',on);if(on&&papNav.scrollWidth>papNav.clientWidth)papNav.scrollTo({left:a.offsetLeft-16,behavior:'smooth'})})}
   papCuerpo.addEventListener('scroll',espia,{passive:true});
 
-  // testimonios (de muestra hasta tener los reales)
-  var T=[
-    ['ramo-5','Día de la Madre','Mi mamá lloró de la emoción con su ramo.','Laura M.','Ramo perfumado'],
-    ['esmoquin-1','Día del Padre','Pedí para toda la familia y llegó perfecto.','Carlos R.','Perfume esmoquin'],
-    ['hd12','Calendarios','El calendario con nuestras fotos quedó precioso.','Andrea S.','Calendario con tu foto'],
-    ['bolso-2','Cumpleaños','Mi hermana no se lo esperaba. ¡Le encantó el bolso!','Valentina P.','Caja sorpresa con bolso'],
-    ['hd3','Infantil','Los niños se fueron felices con su librito.','Diana G.','Libritos para colorear'],
-    ['ingeniero-1','Corporativos','Todo el equipo quedó encantado con su caja.','Andrés T.','Caja día del ingeniero'],
-    ['maestro-1','Día del Maestro','Las profes del colegio aún guardan sus tarjetas.','Marcela R.','Tarjeta lápiz para profes'],
-    ['ancheta-2','Día del Padre','Llegó a tiempo y con todo lo que pedí.','Jorge L.','Ancheta para papá'],
-    ['nombre-1','Amor y amistad','Ver su nombre en la tarjeta la enamoró.','Camila V.','Perfume con tu nombre'],
-    ['taza-1','Día del Padre','Mi papá usa la taza todos los días.','Sebastián M.','Taza con dulces']];
-  var AV=['var(--verde)','var(--blanco)','var(--morado)'];
-  function testi(t,i){var v=['','v2','v3'][i%3],ini=t[3].split(' ').map(function(x){return x[0]}).join('');
-    return '<figure class="testi '+v+(i%3===1?' dest':'')+'">'+(i%3===1?'<div class="sello" aria-hidden="true"><b>5★</b></div>':'')+'<div class="foto"><img src="'+img(t[0])+'" alt="'+esc(t[4])+'" loading="lazy"><span class="tag"'+(i%3===2?' style="background:var(--blanco)"':'')+'>'+esc(t[1])+'</span></div><div class="cuerpo"><span class="estrellas" aria-label="5 de 5">★★★★★</span><q>'+esc(t[2])+'</q><figcaption class="quien"><span class="av" style="background:'+AV[i%3]+'">'+esc(ini)+'</span><span><b>'+esc(t[3])+'</b>'+esc(t[4])+'</span></figcaption></div></figure>'}
-  ['testi-home','testi-vent'].forEach(function(id){var c=document.getElementById(id),h=T.map(testi).join('');
-    c.innerHTML='<div class="cinta-pista">'+h+'<div style="display:contents" aria-hidden="true">'+h+'</div></div>';
-    c.addEventListener('touchstart',function(){c.classList.add('parada')},{passive:true});
-    c.addEventListener('touchend',function(){setTimeout(function(){c.classList.remove('parada')},2500)})});
   // primeras preguntas en el inicio
   var fq=document.querySelectorAll('#v-preguntas .faq details'),fh=document.getElementById('faq-home');
   for(var k=0;k<4&&k<fq.length;k++){var dd=fq[k].cloneNode(true);if(k)dd.removeAttribute('open');fh.appendChild(dd)}
   document.getElementById('faq-lado-home').appendChild(document.querySelector('#v-preguntas .faq-lado').cloneNode(true));
+
+  // información de la página (también se busca)
+  var INFO=[].map.call(fq,function(d,i){return {id:'i-faq'+i,info:true,nombre:d.querySelector('summary').firstChild.textContent.trim(),texto:d.querySelector('.resp').textContent.trim(),href:'#preguntas/'+i}}).concat([
+    {id:'i-kit',nombre:'Arma tu kit',texto:'Junta varios productos y artículos por unidad y cotízalos con precio especial por WhatsApp.',href:'#kit'},
+    {id:'i-nos',nombre:'Nosotros',texto:'Quiénes somos: detalles personalizados por unidad o en cantidad para personas, empresas y eventos en Medellín.',href:'#nosotros'},
+    {id:'i-testi',nombre:'Testimonios',texto:'Opiniones de clientes y formulario para dejar tu reseña con estrellas.',href:'#testimonios'},
+    {id:'i-cats',nombre:'Categorías',texto:'Fechas especiales, corporativos y souvenirs, papelería, infantiles, combos y anchetas, regalos por unidad.',href:'#categorias'},
+    {id:'i-pap',nombre:'Papelería y diseños',texto:'Tarjetería, cajitas personalizadas, diseños por pedido, agendas para empresas e insumos para emprendedores.',href:'#papeleria'},
+    {id:'i-como',nombre:'Cómo hacer tu pedido',texto:'Elige, lo diseñamos contigo y te llega listo para regalar. Pasos para comprar.',href:'#como'},
+    {id:'i-contacto',nombre:'Contacto y WhatsApp',texto:'Escríbenos al WhatsApp +57 304 337 5997. Instagram y TikTok @morantadetalles. Medellín, Colombia.',href:'#',wa:'Hola, estoy interesado en los detalles'}
+  ]).map(function(x){x.info=true;return x});
 
   // WhatsApp
   function waLinks(root){(root||document).querySelectorAll('[data-wa]').forEach(function(a){a.href=waUrl(a.dataset.wa)})}
@@ -1670,29 +3747,34 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   document.addEventListener('pointerdown',function(e){if(!top.contains(e.target))panel(false)});
   matchMedia('(min-width:981px)').addEventListener('change',function(){panel(false)});
 
-  // ===== buscador (coincidencia mínima del 74 %) =====
-  var UMBRAL=.74,VACIAS={de:1,del:1,la:1,el:1,los:1,las:1,para:1,con:1,y:1,e:1,en:1,un:1,una:1,unos:1,unas:1,mi:1,tu:1,a:1,al:1,por:1,que:1,o:1,su:1,lo:1};
+  // ===== buscador (coincidencia mínima del 47 %) =====
+  var UMBRAL=.47,VACIAS={de:1,del:1,la:1,el:1,los:1,las:1,para:1,con:1,y:1,e:1,en:1,un:1,una:1,unos:1,unas:1,mi:1,tu:1,a:1,al:1,por:1,que:1,o:1,su:1,lo:1,se:1,es:1};
   function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
   function palabras(s){return norm(s).split(' ').filter(function(w){return w.length>1&&!VACIAS[w]})}
   function lev(a,b){var n=b.length,d=[],i,j,prev,t;for(j=0;j<=n;j++)d[j]=j;
     for(i=1;i<=a.length;i++){prev=d[0];d[0]=i;for(j=1;j<=n;j++){t=d[j];d[j]=Math.min(d[j]+1,d[j-1]+1,prev+(a[i-1]===b[j-1]?0:1));prev=t}}return d[n]}
   function sim(q,w){if(q===w)return 1;var r=1-lev(q,w)/Math.max(q.length,w.length);
     if(w.length>q.length){var pre=w.slice(0,q.length);if(pre===q)r=Math.max(r,.96);else if(q.length>=4)r=Math.max(r,(1-lev(q,pre)/q.length)*.94)}return r}
-  P.forEach(function(p){
+  function uniq(a){return a.filter(function(w,i){return a.indexOf(w)===i})}
+  P.forEach(function(p){var s=subDe(p);
     p._n=palabras(p.nombre);
-    p._w=palabras([p.nombre,p.cats.map(function(c){return C[c].nombre}).join(' '),p.sub?PAP.subs.filter(function(s){return s.id===p.sub})[0].nombre:'',p.descripcion,p.personaliza.join(' '),p.tags||''].join(' '))
-      .filter(function(w,i,a){return a.indexOf(w)===i})});
-  function buscar(txt){var qs=palabras(txt);if(!qs.length)return [];
-    return P.map(function(p){var s=0,sn=0;qs.forEach(function(q){var b=0,bn=0;p._w.forEach(function(w){var v=sim(q,w);if(v>b)b=v});p._n.forEach(function(w){var v=sim(q,w);if(v>bn)bn=v});s+=b;sn+=bn});
+    p._w=uniq(palabras([p.nombre,p.cats.map(function(c){return C[c].nombre}).join(' '),s?s.nombre:'',p.descripcion,(p.incluye||[]).join(' '),p.nota||'',p.personaliza.join(' '),p.oc.map(function(o){return OC[o]}).join(' '),p.tags||'',p.tipo==='servicio'?'servicio':''].join(' ')))});
+  INFO.forEach(function(x){x._n=palabras(x.nombre);x._w=uniq(palabras(x.nombre+' '+x.texto+' informacion'))});
+  var TODO=P.concat(INFO);
+  function buscar(txt,solo){var qs=palabras(txt);if(!qs.length)return [];
+    return (solo||TODO).map(function(p){var s=0,sn=0;qs.forEach(function(q){var b=0,bn=0;p._w.forEach(function(w){var v=sim(q,w);if(v>b)b=v});p._n.forEach(function(w){var v=sim(q,w);if(v>bn)bn=v});s+=b;sn+=bn});
       return {p:p,s:s/qs.length,n:sn/qs.length}})
-      .filter(function(x){return x.s>=UMBRAL}).sort(function(a,b){return (b.s-a.s)||(b.n-a.n)})}
+      .filter(function(x){return x.s>=UMBRAL}).sort(function(a,b){return (b.s-a.s)||(b.n-a.n)||((a.p.info?1:0)-(b.p.info?1:0))})}
+  function hrefDe(x){return x.info?x.href:'#catalogo/'+x.id}
   var q=document.getElementById('q'),qres=document.getElementById('q-res'),qsel=-1;
   function ph(){q.placeholder=innerWidth<=980?'Busca tu detalle…':'Busca tu detalle: ramo, taza, tarjeta…'}ph();addEventListener('resize',ph);
   function cierraQ(){qres.hidden=true;q.setAttribute('aria-expanded','false');qsel=-1}
+  function itemQ(x){var p=x.p;
+    if(p.info)return '<a class="q-it" href="'+esc(p.href)+'"'+(p.wa?' data-wa="'+esc(p.wa)+'" target="_blank" rel="noopener"':'')+'><span class="q-ico" aria-hidden="true">i</span><span><b>'+esc(p.nombre)+'</b><small>Información de la página</small></span><span class="pct">'+Math.round(x.s*100)+' %</span></a>';
+    return '<a class="q-it" href="#catalogo/'+p.id+'"><img src="'+img(p.fotos[0])+'" alt=""><span><b>'+esc(p.nombre)+'</b><small>'+esc(cat0(p).nombre)+' · '+precioCorto(p)+'</small></span><span class="pct">'+Math.round(x.s*100)+' %</span></a>'}
   function pintaQ(){var v=q.value.trim();if(v.length<2){cierraQ();return}
     var r=buscar(v);qsel=-1;
-    qres.innerHTML=r.length?'<p class="q-cab">'+nprod(r.length)+' con un 74 % o más de coincidencia</p>'+r.slice(0,6).map(function(x){var p=x.p;
-        return '<a class="q-it" href="#catalogo/'+p.id+'"><img src="'+img(p.fotos[0])+'" alt=""><span><b>'+esc(p.nombre)+'</b><small>'+esc(cat0(p).nombre)+' · desde '+cop(p.desde)+'</small></span><span class="pct">'+Math.round(x.s*100)+' %</span></a>'}).join('')+
+    qres.innerHTML=r.length?'<p class="q-cab">'+r.length+(r.length===1?' resultado':' resultados')+' con un 47 % o más de coincidencia</p>'+r.slice(0,6).map(itemQ).join('')+
         '<a class="q-todo" href="#catalogo/b-'+encodeURIComponent(v)+'">'+(r.length>6?'Ver los '+r.length+' resultados':'Ver en el catálogo')+' →</a>'
       :'<div class="q-nada">No encontramos nada parecido a «'+esc(v)+'». <a data-wa="Hola, busco: '+esc(v)+'" target="_blank" rel="noopener">Pregúntanos por WhatsApp</a> y te lo hacemos.</div>';
     waLinks(qres);qres.hidden=false;q.setAttribute('aria-expanded','true')}
@@ -1704,6 +3786,7 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     else if(e.key==='Escape'){cierraQ()}});
   document.getElementById('buscador').addEventListener('submit',function(e){e.preventDefault();var v=q.value.trim();if(!v)return;cierraQ();q.blur();panel(false);nav('#catalogo/b-'+encodeURIComponent(v),!!abierta)});
   document.addEventListener('pointerdown',function(e){if(!e.target.closest('#buscador'))cierraQ()});
+  document.getElementById('q-fil').addEventListener('click',function(){var v=q.value.trim();cierraQ();panel(false);nav(v.length>=2?'#catalogo/b-'+encodeURIComponent(v):'#catalogo',!!abierta);abreFil(true)});
 
   // carrusel automático de destacados
   var slides=[].slice.call(pista.children),pts=document.getElementById('puntos'),pausa=false;
@@ -1720,26 +3803,108 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   pista.addEventListener('touchend',function(){setTimeout(function(){pausa=false},4000)});
   if(!red)setInterval(function(){if(!pausa&&!document.hidden&&!document.querySelector('dialog[open]'))ir(actual()+1)},3200);
 
+  // ===== mi kit =====
+  var KIT=lee('moranta-kit',[]).filter(function(x){return x&&prodPor(x.id)});
+  function kitN(){return KIT.reduce(function(a,x){return a+x.qty},0)}
+  function claveKit(id,ex){return id+'|'+(ex||[]).slice().sort().join(',')}
+  function agregaKit(id,ex,qty){var k=claveKit(id,ex),it=KIT.filter(function(x){return claveKit(x.id,x.extras)===k})[0];
+    if(it)it.qty+=qty||1;else KIT.push({id:id,qty:qty||1,extras:ex||[]});
+    guarda('moranta-kit',KIT);pintaKit();var p=prodPor(id);toast('«'+esc(p.nombre)+'» se agregó a tu kit. <a href="#kit">Ver mi kit ('+kitN()+')</a>')}
+  function toast(h){var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.innerHTML=h;(abierta||document.body).appendChild(t);
+    setTimeout(function(){t.classList.add('va')},2600);setTimeout(function(){t.remove()},3100)}
+  function nombreExtras(ex){return (ex||[]).map(function(e){if(/^b\d+$/.test(e)){var b=D.bolsos[+e.slice(1)];return b?b.nombre:e}var u=prodPor(e);return u?u.nombre:e}).join(', ')}
+  function msgKit(){var notas=document.getElementById('kit-notas').value.trim();
+    return 'Hola, quiero cotizar este kit con precio especial:\n'+KIT.map(function(x){var p=prodPor(x.id);return '• '+x.qty+' × '+p.nombre+(x.extras&&x.extras.length?' (con '+nombreExtras(x.extras)+')':'')}).join('\n')+(notas?'\nNotas: '+notas:'')}
+  var kitLista=document.getElementById('kit-lista'),kitBtn=document.getElementById('kit-cotizar');
+  function pintaKit(){var n=kitN();
+    document.querySelectorAll('.kit-n').forEach(function(b){b.textContent=n});
+    document.getElementById('kit-flot').hidden=n===0;
+    kitLista.innerHTML=KIT.length?KIT.map(function(x,i){var p=prodPor(x.id);
+      return '<li class="kit-it"><img src="'+img(p.fotos[0])+'" alt=""><div><b>'+esc(p.nombre)+'</b><small>'+(x.extras&&x.extras.length?'Con '+esc(nombreExtras(x.extras)):esc(precioCorto(p)))+'</small></div><div class="paso-n" role="group" aria-label="Cantidad de '+esc(p.nombre)+'"><button type="button" data-k="'+i+'" data-d="-1" aria-label="Quitar uno">−</button><output>'+x.qty+'</output><button type="button" data-k="'+i+'" data-d="1" aria-label="Agregar uno">+</button></div><button type="button" class="kit-x" data-k="'+i+'" aria-label="Quitar '+esc(p.nombre)+' del kit">✕</button></li>'}).join('')
+      :'<li class="kit-vacio">Tu kit está vacío. Agrega productos con el botón <b>+</b> del catálogo o aquí abajo.</li>';
+    document.getElementById('kit-cuenta').textContent=n?n+(n===1?' artículo':' artículos'):'Sin artículos';
+    kitBtn.classList.toggle('off',!n);kitBtn.setAttribute('aria-disabled',!n);
+    if(n)kitBtn.href=waUrl(msgKit());else kitBtn.removeAttribute('href')}
+  kitLista.addEventListener('click',function(e){var b=e.target.closest('button[data-k]');if(!b)return;var i=+b.dataset.k;
+    if(b.classList.contains('kit-x'))KIT.splice(i,1);else{KIT[i].qty+=+b.dataset.d;if(KIT[i].qty<1)KIT.splice(i,1)}
+    guarda('moranta-kit',KIT);pintaKit()});
+  document.getElementById('kit-notas').addEventListener('input',function(){if(kitN())kitBtn.href=waUrl(msgKit())});
+  document.getElementById('kit-vaciar').addEventListener('click',function(){KIT=[];guarda('moranta-kit',KIT);pintaKit()});
+  kitBtn.addEventListener('click',function(e){if(!kitN()){e.preventDefault();document.getElementById('kq').focus()}});
+  // agregar desde el kit
+  var kq=document.getElementById('kq'),kitCat=document.getElementById('kit-cat'),kitF='unidad';
+  var kitFil=document.getElementById('kit-fil');
+  kitFil.innerHTML=[['unidad','Por unidad'],['producto','Productos'],['servicio','Servicios'],['todo','Todo']].map(function(f){return '<button class="filtro" type="button" data-kf="'+f[0]+'" aria-pressed="'+(f[0]===kitF)+'">'+f[1]+'</button>'}).join('');
+  kitFil.addEventListener('click',function(e){var b=e.target.closest('[data-kf]');if(!b)return;kitF=b.dataset.kf;[].forEach.call(kitFil.children,function(x){x.setAttribute('aria-pressed',x===b)});pintaKitCat()});
+  function pintaKitCat(){var v=kq.value.trim(),arr=v.length>=2?buscar(v,P).map(function(x){return x.p}):P.filter(function(p){return kitF==='todo'||(kitF==='producto'?p.tipo==='producto':p.tipo===kitF)});
+    kitCat.innerHTML=arr.length?arr.map(function(p){return '<div class="kmini"><img src="'+img(p.fotos[0])+'" alt="" loading="lazy"><span><b>'+esc(p.nombre)+'</b><small>'+precioCorto(p)+'</small></span><a class="kmini-ver" href="#catalogo/'+p.id+'" aria-label="Ver '+esc(p.nombre)+'">Ver</a><button type="button" class="kit-mas" data-kit="'+p.id+'" aria-label="Agregar '+esc(p.nombre)+' a mi kit">+</button></div>'}).join('')
+      :'<p class="vacio">Nada con un 47 % o más de coincidencia. <a data-wa="Hola, para mi kit busco: '+esc(v)+'" target="_blank" rel="noopener">Pregúntanos por WhatsApp</a>.</p>';
+    waLinks(kitCat)}
+  kq.addEventListener('input',pintaKitCat);
+  document.getElementById('kit-busca').addEventListener('submit',function(e){e.preventDefault();kq.blur()});
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-kit]');if(!b)return;e.preventDefault();e.stopPropagation();
+    var ex=prodPor(b.dataset.kit).extras&&b.closest('#det')?extrasSel():[];agregaKit(b.dataset.kit,ex);
+    b.classList.add('ok');setTimeout(function(){b.classList.remove('ok')},1200)},true);
+
   // ===== catálogo =====
-  var filtros=document.getElementById('filtros'),prods=document.getElementById('prods'),cq=document.getElementById('cq'),aviso=document.getElementById('cat-aviso'),filtro='todo';
+  var filtros=document.getElementById('filtros'),prods=document.getElementById('prods'),cq=document.getElementById('cq'),aviso=document.getElementById('cat-aviso'),fres=document.getElementById('f-res'),filtro='todo',ultimo='todo';
   var cats=[{id:'todo',nombre:'Todo'}].concat(D.categorias);
-  filtros.innerHTML=cats.map(function(c){return '<button class="filtro" type="button" data-f="'+c.id+'" aria-pressed="false">'+esc(c.nombre)+'</button>'}).join('');
+  filtros.innerHTML=cats.map(function(c){return '<button class="filtro" type="button" data-f="'+c.id+'" aria-pressed="false">'+esc(c.nombre)+'</button>'}).join('')+'<a class="filtro kit-chip" href="#kit">Arma tu kit +</a>';
   filtros.addEventListener('click',function(e){var b=e.target.closest('[data-f]');if(b)nav('#catalogo'+(b.dataset.f==='todo'?'':'/c-'+b.dataset.f),true)});
   cq.addEventListener('input',function(){var v=cq.value.trim();nav(v.length>=2?'#catalogo/b-'+encodeURIComponent(v):'#catalogo'+(filtro==='todo'?'':'/c-'+filtro),true)});
   document.getElementById('cat-busca').addEventListener('submit',function(e){e.preventDefault();cq.blur()});
-  function tarjeta(p,i){return '<a class="prod tilt" href="#catalogo/'+p.id+'" style="animation-delay:'+(i*40)+'ms"><div class="img"><img src="'+img(p.fotos[0])+'" alt="'+esc(p.nombre)+'" loading="lazy"><span class="pers">Personalizable</span>'+(p.fotos.length>1?'<span class="nfotos">'+p.fotos.length+' fotos</span>':'')+'</div><div class="info"><h4>'+esc(p.nombre)+'</h4><p class="desde">desde <b>'+cop(p.desde)+'</b></p><span class="ver">Ver detalles <i aria-hidden="true">→</i></span></div></a>'}
+  function tarjeta(p,i){return '<div class="prod tilt'+(p.tipo==='unidad'?' uni':'')+'" style="animation-delay:'+(i*40)+'ms"><a class="abre" href="#catalogo/'+p.id+'" aria-label="Ver '+esc(p.nombre)+'"></a><div class="img"><img src="'+img(p.fotos[0])+'" alt="'+esc(p.nombre)+'" loading="lazy"><span class="pers">'+(p.tipo==='servicio'?'Servicio':'Personalizable')+'</span>'+(p.fotos.length>1?'<span class="nfotos">'+p.fotos.length+' fotos</span>':'')+'</div><button type="button" class="kit-mas" data-kit="'+p.id+'" aria-label="Agregar '+esc(p.nombre)+' a mi kit" title="Agregar a mi kit">+</button><div class="info"><h4>'+esc(p.nombre)+'</h4><p class="desde">'+(p.tipo==='unidad'?'Por unidad · <b class="cot">a cotizar</b>':p.desde!=null?'desde <b>'+cop(p.desde)+'</b>':'Precio <b class="cot">a cotizar</b>')+'</p><span class="ver">Ver detalles <i aria-hidden="true">→</i></span></div></div>'}
+  function tarjetaInfo(x,i){return '<a class="prod info-c" href="'+esc(x.href)+'"'+(x.wa?' data-wa="'+esc(x.wa)+'" target="_blank" rel="noopener"':'')+' style="animation-delay:'+(i*40)+'ms"><div class="img"><span class="ico" aria-hidden="true">i</span><span class="pers">Información</span></div><div class="info"><h4>'+esc(x.nombre)+'</h4><p class="txt">'+esc(x.texto)+'</p><span class="ver">Ver <i aria-hidden="true">→</i></span></div></a>'}
+
+  // filtros (embudo)
+  var FG=[
+    {id:'tipo',nombre:'Tipo',ops:[['producto','Productos'],['unidad','Por unidad'],['combo','Combos y kits'],['servicio','Servicios'],['info','Información']]},
+    {id:'cat',nombre:'Categoría',ops:D.categorias.map(function(c){return [c.id,c.nombre]})},
+    {id:'sub',nombre:'Papelería y diseños',ops:PAP.subs.map(function(s){return [s.id,s.nombre]})},
+    {id:'oc',nombre:'Ocasión',ops:Object.keys(OC).map(function(o){return [o,OC[o]]})},
+    {id:'precio',nombre:'Precio',ops:[['p1','Hasta $5.000'],['p2','$5.000 a $15.000'],['p3','Más de $15.000'],['cot','A cotizar']]},
+    {id:'min',nombre:'Pedido mínimo',ops:[['m1','Desde 1 unidad'],['m4','Desde 2 a 4 unidades'],['m10','Desde 6 o más'],['mc','Se confirma al cotizar']]},
+    {id:'pers',nombre:'Personalizable con',ops:[['nombre','Nombre'],['foto','Foto'],['logo','Logo'],['mensaje','Mensaje o frase'],['color','Colores']]}];
+  var FS={};FG.forEach(function(g){FS[g.id]=[]});
+  var PERS={nombre:/nombre|inicial/,foto:/foto/,logo:/logo|marca/,mensaje:/mensaje|frase|texto|dedicatoria|carta|etiqueta/,color:/color/};
+  function pasa(p){
+    if(p.info){for(var g in FS)if(g!=='tipo'&&FS[g].length)return false;return !FS.tipo.length||FS.tipo.indexOf('info')>-1}
+    var t=FS.tipo;if(t.length&&!t.some(function(x){return x==='combo'?en(p,'combos'):p.tipo===x}))return false;
+    if(FS.cat.length&&!FS.cat.some(function(c){return en(p,c)}))return false;
+    if(FS.sub.length&&FS.sub.indexOf(p.sub)<0)return false;
+    if(FS.oc.length&&!FS.oc.some(function(o){return p.oc.indexOf(o)>-1}))return false;
+    if(FS.precio.length&&!FS.precio.some(function(r){var d=p.desde;return r==='cot'?d==null:d!=null&&(r==='p1'?d<=5000:r==='p2'?d>5000&&d<=15000:d>15000)}))return false;
+    if(FS.min.length){var mm=/(\d+)/.exec(p.minimo),mn=mm?+mm[1]:0;if(!FS.min.some(function(m){return m==='m1'?mn===1:m==='m4'?mn>=2&&mn<=4:m==='m10'?mn>=6:!mn}))return false}
+    if(FS.pers.length){var tx=norm(p.personaliza.join(' '));if(!FS.pers.some(function(k){return PERS[k].test(tx)}))return false}
+    return true}
+  function nFil(){var n=0;for(var g in FS)n+=FS[g].length;return n}
+  var fpan=document.getElementById('fpan'),fbtn=document.getElementById('fbtn');
+  fpan.innerHTML=FG.map(function(g){return '<fieldset class="fgrupo"><legend>'+esc(g.nombre)+'</legend><div>'+g.ops.map(function(o){return '<button type="button" class="fchip" data-g="'+g.id+'" data-v="'+o[0]+'" aria-pressed="false">'+esc(o[1])+'</button>'}).join('')+'</div></fieldset>'}).join('')+
+    '<div class="fpie"><button type="button" class="bsec" id="f-limpia">Limpiar filtros</button><button type="button" class="btn sm" id="f-listo">Ver resultados <span class="fl" aria-hidden="true">→</span></button></div>';
+  fpan.addEventListener('click',function(e){var b=e.target.closest('.fchip');if(!b)return;var a=FS[b.dataset.g],i=a.indexOf(b.dataset.v);if(i>-1)a.splice(i,1);else a.push(b.dataset.v);b.setAttribute('aria-pressed',i<0);relista()});
+  function limpiaFil(){for(var g in FS)FS[g]=[];fpan.querySelectorAll('.fchip').forEach(function(b){b.setAttribute('aria-pressed','false')});relista()}
+  document.getElementById('f-limpia').onclick=limpiaFil;
+  document.getElementById('f-listo').onclick=function(){abreFil(false);prods.scrollIntoView({behavior:red?'auto':'smooth',block:'start'})};
+  function abreFil(si){fpan.hidden=!si;fbtn.setAttribute('aria-expanded',si);if(si)setTimeout(function(){fpan.scrollIntoView({behavior:red?'auto':'smooth',block:'nearest'})},80)}
+  fbtn.onclick=function(){abreFil(fpan.hidden)};
+  function relista(){lista(ultimo)}
   function lista(f){
-    var busca=f.charAt(0)==='?',v=busca?f.slice(1):'';
+    ultimo=f;var busca=f.charAt(0)==='?',v=busca?f.slice(1):'';
     if(!busca)filtro=f;
-    [].forEach.call(filtros.children,function(b){b.setAttribute('aria-pressed',!busca&&b.dataset.f===f)});
+    [].forEach.call(filtros.querySelectorAll('[data-f]'),function(b){b.setAttribute('aria-pressed',!busca&&b.dataset.f===f)});
     if(busca){if(cq.value.trim()!==v)cq.value=v}else if(document.activeElement!==cq)cq.value='';
-    var arr=busca?buscar(v).map(function(x){return x.p}):P.filter(function(p){return f==='todo'||en(p,f)});
-    prods.innerHTML=arr.length?arr.map(tarjeta).join(''):'<p class="vacio">No hay productos con un 74 % o más de coincidencia con «'+esc(v)+'». Prueba con otra palabra o <a data-wa="Hola, busco: '+esc(v)+'" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.</p>';
+    var arr=busca?buscar(v).map(function(x){return x.p}):(f==='todo'&&(FS.tipo.indexOf('info')>-1)?TODO:P).filter(function(p){return f==='todo'||en(p,f)});
+    var nf=nFil();arr=arr.filter(pasa);
+    prods.innerHTML=arr.length?arr.map(function(x,i){return x.info?tarjetaInfo(x,i):tarjeta(x,i)}).join(''):(busca?'<p class="vacio">No hay nada con un 47 % o más de coincidencia con «'+esc(v)+'»'+(nf?' y los filtros elegidos':'')+'. Prueba con otra palabra'+(nf?', <button type="button" class="link" data-limpia>quita los filtros</button>':'')+' o <a data-wa="Hola, busco: '+esc(v)+'" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.</p>'
+      :'<p class="vacio">Ningún producto cumple todos los filtros. <button type="button" class="link" data-limpia>Quitar filtros</button></p>');
     waLinks(prods);tilts(prods);
+    fbtn.querySelector('.fcount').textContent=nf;fbtn.classList.toggle('activo',nf>0);
+    fres.textContent=arr.length+(arr.length===1?' resultado':' resultados')+(nf?' · '+nf+(nf===1?' filtro activo':' filtros activos'):'');
     aviso.hidden=f!=='papeleria';
     document.getElementById('cat-lista').hidden=false;document.getElementById('cat-ficha').hidden=true;
     document.getElementById('cat-tit').textContent=busca?'Búsqueda: '+v:(f==='todo'?'Catálogo':C[f].nombre);
   }
+  prods.addEventListener('click',function(e){if(e.target.closest('[data-limpia]'))limpiaFil()});
   // carrusel 3D
   var c3d=document.getElementById('c3d'),minis=document.getElementById('minis'),k3=0,items=[],auto3;
   function pinta3(){var n=items.length,w=c3d.clientWidth,sep=Math.min(w*.3,240);
@@ -1758,6 +3923,10 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   c3d.addEventListener('pointerleave',function(){pinta3()});
   addEventListener('resize',function(){if(items.length)pinta3()});
   function para3(){clearInterval(auto3)}
+  // combo con bolso: artículos que se le suman
+  var SUMA=UNI.filter(function(u){return !/^u-bolso/.test(u.id)});
+  function extrasSel(){return [].map.call(document.querySelectorAll('#det .ex-op[aria-pressed="true"]'),function(b){return b.dataset.ex})}
+  function msgFicha(p){var ex=p.extras?extrasSel():[];return 'Hola, quiero cotizar: '+p.nombre+(ex.length?' (con '+nombreExtras(ex)+')':'')}
   function ficha(p){
     c3d.innerHTML=p.fotos.map(function(f,i){return '<figure class="it"><img src="'+img(f)+'" alt="'+esc(p.nombre)+', foto '+(i+1)+'"></figure>'}).join('');
     items=[].slice.call(c3d.children);k3=0;
@@ -1765,17 +3934,26 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     [].forEach.call(minis.children,function(b,i){b.onclick=function(){va3(i);para3()}});
     document.querySelector('.c3d-ctrl').hidden=p.fotos.length<2;
     pinta3();clearInterval(auto3);if(!red&&p.fotos.length>1)auto3=setInterval(function(){va3(k3+1)},3600);
-    var det=document.getElementById('det'),sub=p.sub?PAP.subs.filter(function(s){return s.id===p.sub})[0]:null;
+    var det=document.getElementById('det'),sub=subDe(p),uni=p.tipo==='unidad';
+    var bol=p.id==='combo-bolso';
+    var ex=p.extras?'<div class="extras">'+(bol?'<p class="ex-t">1. Elige el bolso</p><div class="ex-ops" data-uno>'+D.bolsos.map(function(b,i){return '<button type="button" class="ex-op" data-ex="b'+i+'" data-det="'+esc(b.detalle)+'" aria-pressed="'+(i===0)+'">'+(b.foto?'<img src="'+img(b.foto)+'" alt="">':'<i class="ex-ico" aria-hidden="true"></i>')+esc(b.nombre)+(b.precio?' <small>'+cop(b.precio)+'</small>':'')+'</button>'}).join('')+'</div><p class="ex-det" id="ex-det">'+esc(D.bolsos[0].detalle)+'</p>':'')+
+      '<p class="ex-t">'+(bol?'2. Súmale toppings':'Complétalo con artículos por unidad')+'</p><div class="ex-ops">'+SUMA.map(function(u){return '<button type="button" class="ex-op" data-ex="'+u.id+'" aria-pressed="false"><img src="'+img(u.fotos[0])+'" alt="">'+esc(u.nombre)+'</button>'}).join('')+'</div></div>':'';
+    var detalles=(p.incluye?'<h3 class="det-h">Qué incluye</h3><ul class="incluye">'+p.incluye.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>':'')+(p.tamano?'<p class="det-p"><b>Tamaño:</b> '+esc(p.tamano)+'</p>':'')+(p.nota?'<p class="det-p">'+esc(p.nota)+'</p>':'');
     det.innerHTML='<p class="eyebrow">'+esc(cat0(p).nombre)+(sub?' · '+esc(sub.nombre):'')+'</p><h2 class="t">'+esc(p.nombre)+'</h2>'+
-      '<div class="chips"><span class="chip v">Personalizable</span><span class="chip">'+p.fotos.length+(p.fotos.length>1?' fotos':' foto')+'</span>'+(sub?'<span class="chip">Papelería y diseños</span>':'')+'</div>'+
-      '<p class="desc">'+esc(p.descripcion)+'</p>'+
-      '<div class="precio-box"><div><span class="nota">Precio desde</span><div class="cifra">'+cop(p.desde)+'<small>/ '+esc(p.unidad)+'</small></div></div><span class="min">'+esc(p.minimo)+'</span>'+
-      '<ul class="incluye">'+p.personaliza.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'+
-      '<a class="btn mag" data-wa="Hola, quiero cotizar: '+esc(p.nombre)+'" target="_blank" rel="noopener">Cotizar por WhatsApp <span class="fl wa-i" aria-hidden="true"><svg><use href="#i-wa"/></svg></span></a>'+
-      '<p class="nota">El precio final depende de la cantidad y de lo que personalices.</p></div>';
+      '<div class="chips"><span class="chip v">'+(p.tipo==='servicio'?'Servicio':'Personalizable')+'</span>'+(uni?'<span class="chip">Se suma a kits y combos</span>':'<span class="chip">'+p.fotos.length+(p.fotos.length>1?' fotos':' foto')+'</span>')+p.oc.slice(0,3).map(function(o){return '<span class="chip b">'+esc(OC[o])+'</span>'}).join('')+'</div>'+
+      '<p class="desc">'+esc(p.descripcion)+'</p>'+detalles+ex+
+      '<div class="precio-box"><div><span class="nota">'+(p.desde!=null?'Precio desde':'Precio')+'</span><div class="cifra'+(p.desde!=null?'':' cot')+'">'+(p.desde!=null?cop(p.desde)+'<small>/ '+esc(p.unidad)+'</small>':'A cotizar')+'</div></div><span class="min">'+esc(p.minimo)+'</span>'+
+      (p.precios?'<table class="tarifas"><caption>Precios por cantidad</caption>'+p.precios.map(function(r){return '<tr><th scope="row">'+esc(r[0])+'</th><td>'+esc(r[1])+'</td></tr>'}).join('')+'</table>':'')+
+      '<p class="det-h">Puedes personalizar</p><ul class="incluye">'+p.personaliza.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'+
+      '<a class="btn mag" id="ficha-wa" data-wa="'+esc(msgFicha(p))+'" target="_blank" rel="noopener">Cotizar por WhatsApp <span class="fl wa-i" aria-hidden="true"><svg><use href="#i-wa"/></svg></span></a>'+
+      '<button type="button" class="btn sm blanco" data-kit="'+p.id+'">Agregar a mi kit <span class="fl" aria-hidden="true">+</span></button>'+
+      '<p class="nota">'+(uni?'Lo personalizamos y te damos el precio según la cantidad.':'El precio final depende de la cantidad y de lo que personalices.')+'</p></div>';
+    if(p.extras)det.querySelectorAll('.ex-ops').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('.ex-op');if(!b)return;
+      if(g.hasAttribute('data-uno')){g.querySelectorAll('.ex-op').forEach(function(x){x.setAttribute('aria-pressed',x===b)});var dt=document.getElementById('ex-det');if(dt)dt.textContent=b.dataset.det}else b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');
+      var a=document.getElementById('ficha-wa');a.dataset.wa=msgFicha(p);a.href=waUrl(a.dataset.wa)})});
     waLinks(det);mags(det);
-    var rel=P.filter(function(q){return q.id!==p.id&&(p.sub?q.sub===p.sub:en(q,p.cats[0]))});
-    if(rel.length<4)rel=rel.concat(P.filter(function(q){return q.id!==p.id&&rel.indexOf(q)<0&&en(q,p.cats[0])}));
+    var rel=uni?UNI.filter(function(q){return q.id!==p.id}).slice(0,3).concat([prodPor('combo-bolso')]):P.filter(function(q){return q.id!==p.id&&q.tipo!=='unidad'&&(p.sub?q.sub===p.sub:en(q,p.cats[0]))});
+    if(rel.length<4)rel=rel.concat(P.filter(function(q){return q.id!==p.id&&q.tipo!=='unidad'&&rel.indexOf(q)<0&&en(q,p.cats[0])}));
     if(rel.length<4)rel=rel.concat(P.filter(function(q){return q.id!==p.id&&rel.indexOf(q)<0&&q.destacado}));
     var relac=document.getElementById('relac');relac.innerHTML=rel.slice(0,4).map(tarjeta).join('');tilts(relac);
     document.getElementById('cat-lista').hidden=true;document.getElementById('cat-ficha').hidden=false;
@@ -1783,40 +3961,102 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   }
   document.getElementById('volver').onclick=function(){nav('#catalogo'+(filtro==='todo'?'':'/c-'+filtro),false)};
 
-  // ===== ventanas por enlace (#catalogo, #catalogo/id, #categorias, #papeleria/sub…) =====
-  var V={catalogo:'v-catalogo',categorias:'v-categorias',papeleria:'v-papeleria',testimonios:'v-testimonios',preguntas:'v-preguntas',nosotros:'v-nosotros'},abierta=null;
+  // ===== testimonios =====
+  var T0=[
+    ['ramo-perfumado-1','Día de la Madre','Mi mamá lloró de la emoción con su ramo.','Laura M.','ramo-perfumado'],
+    ['perfume-esmoquin-1','Día del Padre','Pedí para toda la familia y llegó perfecto.','Carlos R.','perfume-esmoquin'],
+    ['calendarios-1','Calendarios','El calendario con nuestras fotos quedó precioso.','Andrea S.','calendarios'],
+    ['combo-bolso-1','Cumpleaños','Mi hermana no se lo esperaba. ¡Le encantó el bolso!','Valentina P.','combo-bolso'],
+    ['libritos-colorear-1','Infantil','Los niños se fueron felices con su librito.','Diana G.','libritos-colorear'],
+    ['caja-ingeniero-1','Corporativos','Todo el equipo quedó encantado con su caja.','Andrés T.','caja-ingeniero'],
+    ['pinza-flor-1','Día del Maestro','Las profes del colegio aún usan sus pinzas.','Marcela R.','pinza-flor'],
+    ['ancheta-papa-1','Día del Padre','Llegó a tiempo y con todo lo que pedí.','Jorge L.','ancheta-papa'],
+    ['botiquin-amor-1','Amor y amistad','El B+tiquín le sacó una carcajada. ¡Lo amó!','Camila V.','botiquin-amor'],
+    ['taza-dulces-1','Día del Padre','Mi papá usa la taza todos los días.','Sebastián M.','taza-dulces']].map(function(t,i){return {id:'m'+i,foto:t[0],tag:t[1],resena:t[2],nombre:t[3],producto:t[4],estrellas:5,fecha:'2026-10-0'+(i%9+1)}});
+  var MIAS=lee('moranta-resenas',[]),SRV=[];
+  function todas(){var vistos={},out=[];SRV.concat(MIAS,T0).forEach(function(r){if(r&&!vistos[r.id]){vistos[r.id]=1;out.push(r)}});
+    return out.sort(function(a,b){return (b.estrellas-a.estrellas)||String(b.fecha).localeCompare(String(a.fecha))})}
+  var AV=['var(--verde)','var(--blanco)','var(--morado)'];
+  function testi(r,i){var p=prodPor(r.producto),v=['','v2','v3'][i%3],ini=String(r.nombre).split(/\s+/).map(function(x){return x.charAt(0)}).join('').slice(0,2).toUpperCase(),s=Math.max(1,Math.min(5,r.estrellas|0));
+    return '<figure class="testi '+v+(s===5&&i%3===1?' dest':'')+'">'+(s===5&&i%3===1?'<div class="sello" aria-hidden="true"><b>5★</b></div>':'')+'<div class="foto"><img src="'+img(r.foto||(p?p.fotos[0]:'combo-bolso-1'))+'" alt="'+esc(p?p.nombre:'')+'" loading="lazy"><span class="tag"'+(i%3===2?' style="background:var(--blanco)"':'')+'>'+esc(r.tag||(p?cat0(p).nombre:'Moranta'))+'</span></div><div class="cuerpo"><span class="estrellas" aria-label="'+s+' de 5 estrellas">'+'★★★★★'.slice(0,s)+'<span class="apag">'+'★★★★★'.slice(s)+'</span></span><q>'+esc(r.resena)+'</q><figcaption class="quien"><span class="av" style="background:'+AV[i%3]+'">'+esc(ini)+'</span><span><b>'+esc(r.nombre)+'</b>'+esc(p?p.nombre:'')+'</span></figcaption></div></figure>'}
+  function cinta(id,lst){var c=document.getElementById(id),h=lst.map(testi).join('');
+    c.innerHTML='<div class="cinta-pista" style="--dur:'+Math.max(40,lst.length*7)+'s">'+h+'<div style="display:contents" aria-hidden="true">'+h+'</div></div>'}
+  function pintaTesti(){var t=todas();cinta('testi-home',t.filter(function(r){return r.estrellas>=4}));cinta('testi-vent',t);
+    var n=t.length,prom=t.reduce(function(a,r){return a+r.estrellas},0)/(n||1);
+    document.querySelectorAll('.testi-prom').forEach(function(e){e.textContent=prom.toFixed(1).replace('.',',')+' de 5 · '+n+' opiniones'})}
+  ['testi-home','testi-vent'].forEach(function(id){var c=document.getElementById(id);
+    c.addEventListener('touchstart',function(){c.classList.add('parada')},{passive:true});
+    c.addEventListener('touchend',function(){setTimeout(function(){c.classList.remove('parada')},2500)})});
+  pintaTesti();
+  try{fetch('/api/testimonios',{headers:{accept:'application/json'}}).then(function(r){return r.ok&&/json/.test(r.headers.get('content-type')||'')?r.json():null}).then(function(l){if(Array.isArray(l)){SRV=l;pintaTesti()}}).catch(function(){})}catch(e){}
+  // formulario
+  var dr=document.getElementById('d-resena'),fr=document.getElementById('f-resena'),rp=document.getElementById('r-prod'),rpRes=document.getElementById('r-prod-res'),rpId=document.getElementById('r-prod-id'),rpSel=document.getElementById('r-prod-sel'),rEst=document.getElementById('r-est'),rErr=document.getElementById('r-err');
+  function abreResena(){fr.reset();rpId.value='';rpSel.hidden=true;rp.parentNode.hidden=false;rpRes.hidden=true;rErr.textContent='';pintaEst(0);dr.showModal();rp.focus()}
+  document.addEventListener('click',function(e){if(e.target.closest('[data-resena]')){e.preventDefault();abreResena()}});
+  dr.querySelector('.cerrar').onclick=function(){dr.close()};
+  var abajo=null;document.addEventListener('pointerdown',function(e){abajo=e.target},true);
+  dr.addEventListener('click',function(e){if(e.target===dr&&abajo===dr)dr.close()});
+  function pintaProd(){var v=rp.value.trim(),r=v.length>=2?buscar(v,P).slice(0,6):P.filter(function(p){return p.destacado}).slice(0,6).map(function(p){return {p:p}});
+    rpRes.innerHTML=r.length?r.map(function(x){var p=x.p;return '<button type="button" class="q-it" data-p="'+p.id+'"><img src="'+img(p.fotos[0])+'" alt=""><span><b>'+esc(p.nombre)+'</b><small>'+esc(cat0(p).nombre)+'</small></span>'+(x.s?'<span class="pct">'+Math.round(x.s*100)+' %</span>':'<span></span>')+'</button>'}).join(''):'<div class="q-nada">No encontramos ese producto. Prueba con otra palabra.</div>';
+    rpRes.hidden=false}
+  rp.addEventListener('input',pintaProd);rp.addEventListener('focus',pintaProd);
+  rpRes.addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(!b)return;var p=prodPor(b.dataset.p);rpId.value=p.id;
+    rpSel.innerHTML='<img src="'+img(p.fotos[0])+'" alt=""><b>'+esc(p.nombre)+'</b><button type="button" class="bsec" id="r-cambia">Cambiar</button>';rpSel.hidden=false;rp.parentNode.hidden=true;rpRes.hidden=true;
+    document.getElementById('r-cambia').onclick=function(){rpId.value='';rpSel.hidden=true;rp.parentNode.hidden=false;rp.value='';rp.focus()};rEst.querySelector('input').focus()});
+  rp.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();rpRes.hidden=true}});
+  function pintaEst(n){rEst.querySelectorAll('label').forEach(function(l,i){l.classList.toggle('on',i<n)});rEst.dataset.n=n}
+  rEst.addEventListener('change',function(e){pintaEst(+e.target.value)});
+  rEst.addEventListener('pointerover',function(e){var l=e.target.closest('label');if(l)pintaEst(+l.dataset.v)});
+  rEst.addEventListener('pointerleave',function(){var c=rEst.querySelector('input:checked');pintaEst(c?+c.value:0)});
+  fr.addEventListener('submit',function(e){e.preventDefault();var fd=new FormData(fr);
+    if(fd.get('web'))return dr.close();
+    var est=+(fd.get('estrellas')||0),nom=String(fd.get('nombre')||'').trim(),res=String(fd.get('resena')||'').trim();
+    rErr.textContent=!rpId.value?'Elige el producto que recibiste.':!est?'Elige de 1 a 5 estrellas.':!nom?'Escribe tu nombre.':res.length<3?'Cuéntanos un poco más en tu reseña.':'';
+    if(rErr.textContent)return;
+    var r={id:'r'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),nombre:nom.slice(0,40),resena:res.slice(0,400),producto:rpId.value,estrellas:est,fecha:new Date().toISOString()};
+    MIAS.unshift(r);guarda('moranta-resenas',MIAS.slice(0,30));pintaTesti();dr.close();
+    toast('¡Gracias, '+esc(r.nombre)+'! Tu testimonio ya está publicado'+(est>=4?' en el inicio y en Testimonios.':' en Testimonios.'));
+    try{fetch('/api/testimonios',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(r)}).catch(function(){})}catch(x){}});
+
+  // ===== ventanas por enlace (#catalogo, #catalogo/id, #categorias, #papeleria/sub, #kit…) =====
+  var V={catalogo:'v-catalogo',categorias:'v-categorias',papeleria:'v-papeleria',testimonios:'v-testimonios',preguntas:'v-preguntas',nosotros:'v-nosotros',kit:'v-kit'},abierta=null;
   function nav(h,reemplaza){if(reemplaza)history.replaceState(null,'',h);else history.pushState(null,'',h);ruta()}
   function cierra(){if(abierta){abierta.close();abierta=null}document.documentElement.classList.remove('bloq');clearInterval(auto3)}
   function ruta(){
     var h=location.hash.slice(1),partes=h.split('/'),v=V[partes[0]];
     if(!v){cierra();return}
-    panel(false);cierraQ();
+    panel(false);cierraQ();if(dr.open)dr.close();
     var dlg=document.getElementById(v),nueva=abierta!==dlg;
     if(nueva){cierra();dlg.showModal();dlg.tabIndex=-1;dlg.focus({preventScroll:true});abierta=dlg;document.documentElement.classList.add('bloq')}
     var cuerpo=dlg.querySelector('.vent-cuerpo'),s=partes[1]||'';
     if(partes[0]==='catalogo'){
+      if(nueva)abreFil(false);
       if(s.indexOf('b-')===0){var t='';try{t=decodeURIComponent(s.slice(2))}catch(e){t=s.slice(2)}lista('?'+t)}
       else if(s.indexOf('c-')===0&&C[s.slice(2)])lista(s.slice(2));else if(prodPor(s))ficha(prodPor(s));else lista('todo');
       if(s.indexOf('b-')!==0)cuerpo.scrollTop=0;else if(nueva)cuerpo.scrollTop=0;
     }else if(partes[0]==='papeleria'&&document.getElementById('pap-'+s)){
       var sec=document.getElementById('pap-'+s);if(nueva){cuerpo.style.scrollBehavior='auto';cuerpo.scrollTop=0}
       cuerpo.scrollTop+=sec.getBoundingClientRect().top-cuerpo.getBoundingClientRect().top-64;cuerpo.style.scrollBehavior='';
+    }else if(partes[0]==='preguntas'&&s!==''&&fq[+s]){
+      fq.forEach(function(d,i){d.open=i===+s});cuerpo.style.scrollBehavior='auto';cuerpo.scrollTop=0;cuerpo.scrollTop=fq[+s].getBoundingClientRect().top-cuerpo.getBoundingClientRect().top-20;cuerpo.style.scrollBehavior='';
     }else{cuerpo.style.scrollBehavior='auto';cuerpo.scrollTop=0;cuerpo.style.scrollBehavior=''}
     if(partes[0]==='papeleria')setTimeout(espia,50);
+    if(partes[0]==='kit'){pintaKit();pintaKitCat()}
   }
   function sal(){history.replaceState(null,'',location.pathname+location.search);ruta()}
   function alInicio(){panel(false);cierraQ();if(abierta)cierra();if(location.hash)history.pushState(null,'',location.pathname+location.search);scrollTo({top:0,behavior:red?'auto':'smooth'})}
   document.querySelectorAll('dialog.vent').forEach(function(d){
     d.querySelector('.cerrar').onclick=sal;
     d.addEventListener('cancel',function(e){e.preventDefault();sal()});
-    d.addEventListener('click',function(e){if(e.target===d)sal()});
+    d.addEventListener('click',function(e){if(e.target===d&&abajo===d)sal()});
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&top.classList.contains('abierto')){panel(false);hamb.focus()}});
-  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a)return;var h=a.getAttribute('href'),k=h.slice(1).split('/')[0];
+  document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a||a.hasAttribute('data-wa'))return;var h=a.getAttribute('href'),k=h.slice(1).split('/')[0];
     if(h==='#inicio'||h==='#'){e.preventDefault();alInicio();return}
-    if(V[k]){e.preventDefault();nav(h,!!abierta)}
+    if(V[k]){e.preventDefault();if(dr.open)dr.close();nav(h,!!abierta)}
     else{panel(false);if(abierta){e.preventDefault();sal();var t=document.getElementById(h.slice(1));if(t)t.scrollIntoView({behavior:red?'auto':'smooth'})}}});
   addEventListener('popstate',ruta);addEventListener('hashchange',ruta);
+  pintaKit();
   ruta();
 
   // efectos
@@ -1829,8 +4069,8 @@ dialog.vent::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     b.addEventListener('pointerleave',function(){b.style.translate=''})})}
   mags(document);
   if(!red){
-    document.addEventListener('click',function(e){var b=e.target.closest('.btn:not(.sec),.wa,.mbtn,.hamb,.ini,.marca');if(!b)return;var cs=['#E6F597','#839AEA','#9DB6F9','#FFFFFF'];
-      for(var j=0;j<12;j++){var s=document.createElement('i');s.className='chispa';var a=Math.random()*Math.PI*2,d=40+Math.random()*60;s.style.left=e.clientX-6+'px';s.style.top=e.clientY-6+'px';s.style.background=cs[j%4];s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',Math.sin(a)*d+'px');(abierta||document.body).appendChild(s);setTimeout(s.remove.bind(s),850)}});
+    document.addEventListener('click',function(e){var b=e.target.closest('.btn:not(.sec),.wa,.mbtn,.hamb,.ini,.marca,.kit-mas');if(!b)return;var cs=['#E6F597','#839AEA','#9DB6F9','#FFFFFF'];
+      for(var j=0;j<12;j++){var s=document.createElement('i');s.className='chispa';var a=Math.random()*Math.PI*2,d=40+Math.random()*60;s.style.left=e.clientX-6+'px';s.style.top=e.clientY-6+'px';s.style.background=cs[j%4];s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',Math.sin(a)*d+'px');(document.querySelector('dialog[open]:last-of-type')||abierta||document.body).appendChild(s);setTimeout(s.remove.bind(s),850)}});
   }
 })();
 </script>
