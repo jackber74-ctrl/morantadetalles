@@ -715,6 +715,19 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 .ex-op small{font-weight:800;opacity:.75}
 .ex-ico{width:30px;height:30px;border-radius:50%;background:var(--morado);clip-path:var(--flor);flex:none}
 .ex-det{font-size:13px;color:#4A4770;margin-top:-2px}
+/* v8: fondos de fotos en morado claro del logo */
+.escena{background:var(--morado)}
+.escena .sol{opacity:.45;background:repeating-conic-gradient(var(--morado-2) 0 7.5deg,transparent 7.5deg 15deg)}
+.c3d .it{background:var(--morado);box-shadow:0 26px 44px -22px rgba(23,20,58,.55)}
+.slide,.prod .img{background:var(--morado)}
+.miniaturas button{box-shadow:0 4px 12px -6px rgba(23,20,58,.5)}
+.miniaturas button[aria-current="true"]{box-shadow:0 0 0 3px var(--tinta)}
+/* v8: ventanas más amplias en PC y apertura más suave */
+dialog.vent{width:min(1480px,calc(100vw - 64px));height:calc(100dvh - 48px);transform-origin:50% 40%}
+dialog.vent[open]{animation:vent-in8 .6s var(--ease)}
+@keyframes vent-in8{from{transform:translateY(24px) scale(.97);opacity:0;clip-path:inset(6% 4% round 28px)}to{clip-path:inset(0 0 round 0)}}
+dialog.vent::backdrop{cursor:pointer}
+@media (max-width:640px){dialog.vent{width:100vw;height:100dvh}}
 </style>
 </head>
 <body>
@@ -766,7 +779,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     </div>
     <div class="pila">
       <a class="p1" href="#catalogo/ramo-perfumado" aria-label="Ramo perfumado"><img src="img/ramo-perfumado-1.jpg" alt="Ramos perfumados de tulipanes, flores azules y violetas"></a>
-      <a class="p2" href="#catalogo/combo-bolso" aria-label="Combo con bolso"><img src="img/combo-bolso-1.jpg" alt="Combo con bolso camel en caja con papel de seda"></a>
+      <a class="p2" href="#catalogo/botiquin-amor" aria-label="Botiquín de Amor"><img src="img/botiquin-amor-1.jpg" alt="Botiquín de Amor con Amorcilina, curitas para el alma y dulces"></a>
       <div class="sello" aria-hidden="true"><b>Hecho<br>a tu<br>medida</b></div>
     </div>
   </div>
@@ -786,18 +799,18 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   <span class="adorno e" style="width:70px;height:70px;bottom:40px;left:-20px" aria-hidden="true"></span>
   <span class="adorno c" style="width:260px;height:260px;top:30%;right:-120px" aria-hidden="true"></span>
   <div class="wrap">
-    <div class="sec-h"><div><p class="eyebrow">Para cada ocasión</p><h2 class="t rev">¿A quién le <span class="acento">regalas?</span></h2></div><p class="lead rev">Todas nuestras categorías en una sola ventana: fechas especiales, corporativos y souvenirs, papelería, infantiles, combos, regalos por unidad y tu propio kit.</p></div>
+    <div class="sec-h"><div><p class="eyebrow">Para cada ocasión</p><h2 class="t rev">¿A quién le <span class="acento">regalas?</span></h2></div><p class="lead rev">Todas nuestras categorías en una sola ventana: fechas especiales, corporativos y souvenirs, papelería, infantiles, regalos y anchetas, regalos por unidad y tu propio kit.</p></div>
     <div class="lineas" id="lineas"></div>
   </div>
 </section>
 
 <section class="band oscuro ola lenta" id="como" style="--antes:var(--beige)">
   <div class="wrap">
-    <div class="sec-h"><div><p class="eyebrow">Así de fácil</p><h2 class="t rev">Tu detalle en <span class="acento">tres pasos.</span></h2></div><p class="lead rev">Sin complicaciones: nos escribes, lo diseñamos juntos y lo recibes listo para entregar.</p></div>
+    <div class="sec-h"><div><p class="eyebrow">Así de fácil</p><h2 class="t rev">Tu detalle en <span class="acento">tres pasos.</span></h2></div><p class="lead rev">Tú pones a la persona y la emoción. Nosotros nos encargamos de que el detalle hable por ti.</p></div>
     <div class="pasos">
-      <div class="paso rev"><span class="n">1</span><h3 class="t">Elige</h3><p>Mira el catálogo y toca «Cotizar» en el producto que te guste. Te llevamos a WhatsApp con todo escrito.</p></div>
-      <div class="paso rev"><span class="n">2</span><h3 class="t">Lo diseñamos</h3><p>Nos cuentas nombres, colores y mensaje. Te enviamos la prueba para que la apruebes.</p></div>
-      <div class="paso rev"><span class="n">3</span><h3 class="t">Te llega listo</h3><p>Lo armamos a mano, con su empaque y su lazo, listo para regalar.</p></div>
+      <div class="paso rev"><span class="n">1</span><h3 class="t">Escoge el que te enamore</h3><p>Recorre el catálogo y toca «Cotizar». En segundos estás hablando con nosotros por WhatsApp, con tu pedido ya escrito.</p></div>
+      <div class="paso rev"><span class="n">2</span><h3 class="t">Lo hacemos tuyo</h3><p>Su nombre, esa frase que solo ustedes entienden, una foto o el logo de tu empresa. Ves el diseño antes de producirlo y lo ajustamos hasta que te encante.</p></div>
+      <div class="paso rev"><span class="n">3</span><h3 class="t">Llega listo para sorprender</h3><p>Lo armamos a mano, con empaque, tarjeta y moño. A ti solo te queda entregarlo y ver su cara de sorpresa.</p></div>
     </div>
   </div>
 </section>
@@ -919,7 +932,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
       <span class="adorno" style="width:50px;height:50px;top:30px;right:6%" aria-hidden="true"></span>
       <span class="adorno c" style="width:220px;height:220px;top:-80px;right:-90px" aria-hidden="true"></span>
       <div class="wrap">
-        <div class="sec-h" style="margin-bottom:0"><div><p class="eyebrow">Papelería y diseños</p><h2 class="t">Tarjetas, cajas y <span class="acento">mucho papel.</span></h2></div><p class="lead">Tarjetas, cajas personalizadas, libretas y calendarios que diseñamos e imprimimos nosotros. Toca un producto para ver sus detalles y cotizarlo.</p></div>
+        <div class="sec-h" style="margin-bottom:0"><div><p class="eyebrow">Papelería y diseños</p><h2 class="t">Tarjetas, cajas y <span class="acento">mucho papel.</span></h2></div><p class="lead">Tarjetas por pedido con los diseños para tu emprendimiento, diseños y plantillas con lo que necesitas para tu negocio, insumos personalizados para hacer realidad tus ideas. Te diseñamos, personalizamos y hacemos todo nosotros para eventos, clientes y lo que sea necesario para hacer crecer tus proyectos.</p></div>
       </div>
     </section>
     <nav class="pap-nav" id="pap-nav" aria-label="Tipos de papelería"></nav>
@@ -1020,8 +1033,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
           <div class="kit-caja">
             <div class="kit-cab"><h3 class="t">Mi kit</h3><span id="kit-cuenta">Sin artículos</span></div>
             <ul class="kit-lista" id="kit-lista" aria-live="polite"></ul>
-            <label class="kit-lab" for="kit-notas">Notas para tu kit (opcional)</label>
-            <textarea id="kit-notas" rows="3" maxlength="400" placeholder="Ej.: para 20 personas, con los colores de la empresa, para el 15 de diciembre…"></textarea>
+            <label class="kit-lab" for="kit-notas">Notas o tu idea (puedes cotizar solo con texto)</label>
+            <textarea id="kit-notas" rows="3" maxlength="400" placeholder="Ej.: un kit para 20 personas con pinza, chocolate y tarjeta, con los colores de la empresa, para el 15 de diciembre…"></textarea>
             <a class="btn mag" id="kit-cotizar" target="_blank" rel="noopener">Cotizar kit por WhatsApp <span class="fl wa-i" aria-hidden="true"><svg><use href="#i-wa"/></svg></span></a>
             <button type="button" class="link" id="kit-vaciar">Vaciar kit</button>
           </div>
@@ -1080,7 +1093,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 {
 "id": "papeleria",
 "nombre": "Papelería y diseños",
-"texto": "Tarjetería, cajitas, diseños por pedido, agendas e insumos para emprendedores.",
+"texto": "Tarjetas por pedido con los diseños para tu emprendimiento, diseños y plantillas con lo que necesitas para tu negocio, insumos personalizados para hacer realidad tus ideas. Te diseñamos, personalizamos y hacemos todo nosotros para eventos, clientes y lo que sea necesario para hacer crecer tus proyectos.",
 "color": "ox",
 "subs": [
 {
@@ -1114,16 +1127,16 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 {
 "id": "infantiles",
 "nombre": "Regalos infantiles",
-"texto": "Libritos para colorear, pizarritas y recordatorios con el nombre del peque.",
+"texto": "Todos los regalos para niños y niñas: encuentras dulcería, tarjetas, stickers y juegos didácticos para toda ocasión.",
 "color": "b",
 "img": "libritos-colorear-1"
 },
 {
 "id": "combos",
-"nombre": "Combos y anchetas",
-"texto": "Cajas, anchetas y combos con bolso, llenos de detalles y listos para entregar.",
+"nombre": "Regalos y anchetas",
+"texto": "Combos con bolso, anchetas, el Botiquín de Amor, cajas decoradas y perfumes de 30 ml, listos para entregar.",
 "color": "ox",
-"img": "combo-bolso-1"
+"img": "botiquin-amor-1"
 },
 {
 "id": "unidad",
@@ -1154,112 +1167,112 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 "bolsos": [
 {
+"nombre": "Bolso gris dos corazones",
+"precio": 38000,
+"detalle": "Cadena movible, tapa con torniquete, un compartimiento, bolsillo para tarjetas y detalles bordados.",
+"foto": "b-bolso-gris-dos-corazones"
+},
+{
+"nombre": "Bolso negro con gris",
+"precio": 46000,
+"detalle": "Un compartimiento, tapa con torniquete, bolsillo delantero y correa ajustable.",
+"foto": "b-bolso-negro-con-gris"
+},
+{
+"nombre": "Bolso corazón",
+"precio": 48000,
+"detalle": "Dos correas (larga y corta), tapa con broche imantado, cierre, un compartimiento y bolsillo con cierre.",
+"foto": "b-bolso-corazon"
+},
+{
+"nombre": "Bolso beige",
+"precio": 45000,
+"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado.",
+"foto": "b-bolso-beige"
+},
+{
 "nombre": "Bolso candado",
 "precio": 43000,
 "detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado. En blanco y negro.",
-"foto": "u-bolso-negro"
+"foto": "b-bolso-candado"
 },
 {
 "nombre": "Bolso café",
 "precio": 45000,
 "detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado.",
-"foto": "u-bolso-camel"
+"foto": "b-bolso-cafe"
+},
+{
+"nombre": "Caja sencilla",
+"precio": 33000,
+"detalle": "Incluye correa y tapa con broche imantado. Sintético con forro interno en poliéster.",
+"foto": "b-caja-sencilla"
+},
+{
+"nombre": "Caja sencilla con pompón",
+"precio": 33000,
+"detalle": "Incluye correa y pompón, tapa con broche imantado. Solo en negro.",
+"foto": "b-caja-sencilla"
+},
+{
+"nombre": "Bolso flor",
+"precio": 42000,
+"detalle": "Correa ajustable, tapa con broche imantado, un compartimiento con cierre y bolsillo delantero grande.",
+"foto": "b-bolso-flor"
+},
+{
+"nombre": "Bolso rojo de cadena",
+"precio": 43000,
+"detalle": "Cadena movible, tapa con broche imantado, bolsillo trasero con cierre y dos bolsillos internos.",
+"foto": "b-bolso-rojo-de-cadena"
+},
+{
+"nombre": "Bolso con cadena",
+"precio": 32000,
+"detalle": "Tapa con broche imantado, un compartimiento y correa ajustable.",
+"foto": "b-bolso-con-cadena"
+},
+{
+"nombre": "Cajita doble cierre",
+"precio": 32000,
+"detalle": "Cajita pequeña con un compartimiento, doble cierre y reata ajustable.",
+"foto": "b-cajita-doble-cierre"
+},
+{
+"nombre": "Bolso negro",
+"precio": 45000,
+"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado. En blanco y negro.",
+"foto": "b-bolso-negro"
+},
+{
+"nombre": "Bolso pequeño",
+"precio": 35000,
+"detalle": "Efecto piel de cocodrilo, tapa con torniquete y correa ajustable.",
+"foto": "b-bolso-pequeno"
+},
+{
+"nombre": "Bolso II",
+"precio": 35000,
+"detalle": "Un compartimiento, tapa con broche imantado y correa ajustable.",
+"foto": "b-bolso-ii"
+},
+{
+"nombre": "Bolso corazón grande",
+"precio": 60000,
+"detalle": "Estampado combinado, napa garantizada. 37 cm de ancho × 22 cm de alto.",
+"foto": "b-bolso-corazon"
 },
 {
 "nombre": "Bolso blanco",
 "precio": null,
 "detalle": "Bolso blanco con cadena, como el de la foto.",
 "foto": "u-bolso-blanco"
-},
-{
-"nombre": "Bolso gris dos corazones",
-"precio": 38000,
-"detalle": "Cadena movible, tapa con torniquete, un compartimiento, bolsillo para tarjetas y detalles bordados.",
-"foto": null
-},
-{
-"nombre": "Bolso negro con gris",
-"precio": 46000,
-"detalle": "Un compartimiento, tapa con torniquete, bolsillo delantero y correa ajustable.",
-"foto": null
-},
-{
-"nombre": "Bolso corazón",
-"precio": 48000,
-"detalle": "Dos correas (larga y corta), tapa con broche imantado, cierre, un compartimiento y bolsillo con cierre.",
-"foto": null
-},
-{
-"nombre": "Bolso beige",
-"precio": 45000,
-"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado.",
-"foto": null
-},
-{
-"nombre": "Caja sencilla",
-"precio": 33000,
-"detalle": "Incluye correa y tapa con broche imantado. Sintético con forro interno en poliéster.",
-"foto": null
-},
-{
-"nombre": "Caja sencilla con pompón",
-"precio": 33000,
-"detalle": "Incluye correa y pompón, tapa con broche imantado. Solo en negro.",
-"foto": null
-},
-{
-"nombre": "Bolso flor",
-"precio": 42000,
-"detalle": "Correa ajustable, tapa con broche imantado, un compartimiento con cierre y bolsillo delantero grande.",
-"foto": null
-},
-{
-"nombre": "Bolso rojo de cadena",
-"precio": 43000,
-"detalle": "Cadena movible, tapa con broche imantado, bolsillo trasero con cierre y dos bolsillos internos.",
-"foto": null
-},
-{
-"nombre": "Bolso con cadena",
-"precio": 32000,
-"detalle": "Tapa con broche imantado, un compartimiento y correa ajustable.",
-"foto": null
-},
-{
-"nombre": "Cajita doble cierre",
-"precio": 32000,
-"detalle": "Cajita pequeña con un compartimiento, doble cierre y reata ajustable.",
-"foto": null
-},
-{
-"nombre": "Bolso negro",
-"precio": 45000,
-"detalle": "Un compartimiento con cierre, bolsillo delantero, correa ajustable y tapa con broche imantado. En blanco y negro.",
-"foto": null
-},
-{
-"nombre": "Bolso pequeño",
-"precio": 35000,
-"detalle": "Efecto piel de cocodrilo, tapa con torniquete y correa ajustable.",
-"foto": null
-},
-{
-"nombre": "Bolso II",
-"precio": 35000,
-"detalle": "Un compartimiento, tapa con broche imantado y correa ajustable.",
-"foto": null
-},
-{
-"nombre": "Bolso corazón grande",
-"precio": 60000,
-"detalle": "Estampado combinado, napa garantizada. 37 cm de ancho × 22 cm de alto.",
-"foto": null
 }
 ],
 "productos": [
 {
 "id": "pinza-flor",
-"nombre": "Pinza flor en tarjeta",
+"nombre": "Pinza pequeña",
 "cats": [
 "fechas",
 "corporativos",
@@ -1268,8 +1281,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 ],
 "desde": 1600,
 "unidad": "ud",
-"minimo": "Desde 3 unidades",
-"descripcion": "Pinza para el cabello en forma de flor, nacarada o de color, montada en una tarjeta con tu mensaje y un chocolate. Un detalle pequeño que se luce a diario y le recuerda a mamá, a la profe o a tu amiga cuánto la quieres.",
+"minimo": "Desde 6 unidades",
+"descripcion": "Pinza pequeña en tarjeta con tu mensaje y un chocolate, empacada en bolsa. Un detalle que se usa a diario y le recuerda a mamá, a la profe o a tu amiga cuánto la quieres.",
 "personaliza": [
 "Color de la flor",
 "Mensaje de la tarjeta",
@@ -1288,45 +1301,153 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "pinza-flor-1",
 "pinza-flor-2",
-"pinza-flor-3",
-"pinza-flor-4",
-"pinza-flor-5",
-"pinza-flor-6"
+"pinza-flor-3"
 ],
 "incluye": [
 "Tarjeta con mensaje personalizado",
-"Pinza pequeña, mediana o grande (colores y diseños según disponibilidad)",
-"Chocolate cuadrado o en forma de corazón",
+"Pinza en tamaño pequeño (colores y diseños según disponibilidad)",
+"Chocolate pequeño",
 "Empacado en bolsa"
 ],
-"tamano": "Pequeña 13 × 7 cm · mediana 16 × 9 cm · grande 20 × 10 cm",
+"tamano": "Tarjeta de 13 cm de alto × 7 cm de ancho",
 "precios": [
 [
-"Pequeña con chocolate (6–30 / 31+)",
-"$2.200 / $1.800"
+"Con chocolate, de 6 a 30",
+"$2.200"
 ],
 [
-"Pequeña sin chocolate (6–30 / 31+)",
-"$1.800 / $1.600"
+"Con chocolate, desde 31",
+"$1.800"
 ],
 [
-"Mediana con chocolate corazón (4–24 / 25+)",
-"$4.000 / $3.700"
+"Sin chocolate, de 6 a 30",
+"$1.800"
 ],
 [
-"Mediana sin chocolate (4–24 / 25+)",
-"$3.500 / $3.200"
-],
-[
-"Grande con chocolate corazón (3–12 / 13+)",
-"$5.000 / $4.600"
-],
-[
-"Grande sin chocolate (3–12 / 13+)",
-"$4.400 / $4.000"
+"Sin chocolate, desde 31",
+"$1.600"
 ]
 ],
-"nota": "Mínimo: pequeña 6, mediana 4 y grande 3 unidades. El chocolate en forma de corazón en la pinza pequeña tiene costo adicional."
+"nota": "Tenemos chocolates cuadrados (más pequeños) y en forma de corazón. Los de corazón tienen un costo adicional: ¡consúltanos su precio!"
+},
+{
+"id": "pinza-mediana",
+"nombre": "Pinza mediana",
+"cats": [
+"fechas",
+"corporativos",
+"toda",
+"papeleria"
+],
+"desde": 3200,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Pinza mediana en tarjeta con tu mensaje y chocolate en forma de corazón, empacada en bolsa.",
+"personaliza": [
+"Color de la pinza",
+"Mensaje de la tarjeta",
+"Con o sin chocolate"
+],
+"tags": "pinza pinzas cabello pelo flor mediana madre maestra mujer",
+"oc": [
+"mama",
+"maestro",
+"mujer",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"pinza-mediana-1",
+"pinza-mediana-2",
+"pinza-mediana-3"
+],
+"incluye": [
+"Tarjeta con mensaje personalizado",
+"Pinza en tamaño mediano (colores y diseños según disponibilidad)",
+"Chocolate en forma de corazón",
+"Empacado en bolsa"
+],
+"tamano": "Tarjeta de 16 cm de alto × 9 cm de ancho",
+"precios": [
+[
+"Con chocolate, de 4 a 24",
+"$4.000"
+],
+[
+"Con chocolate, desde 25",
+"$3.700"
+],
+[
+"Sin chocolate, de 4 a 24",
+"$3.500"
+],
+[
+"Sin chocolate, desde 25",
+"$3.200"
+]
+],
+"nota": "También tenemos chocolates cuadrados (más pequeños). ¡Consúltanos su precio!"
+},
+{
+"id": "pinza-grande",
+"nombre": "Pinza grande",
+"cats": [
+"fechas",
+"corporativos",
+"toda",
+"papeleria"
+],
+"desde": 4000,
+"unidad": "ud",
+"minimo": "Desde 3 unidades",
+"descripcion": "Pinza grande en tarjeta con tu mensaje y chocolate en forma de corazón, empacada en bolsa.",
+"personaliza": [
+"Color de la pinza",
+"Mensaje de la tarjeta",
+"Con o sin chocolate"
+],
+"tags": "pinza pinzas cabello pelo flor grande madre maestra mujer",
+"oc": [
+"mama",
+"maestro",
+"mujer",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
+"sub": "tarjeteria",
+"fotos": [
+"pinza-grande-1",
+"pinza-grande-2"
+],
+"incluye": [
+"Tarjeta con mensaje personalizado",
+"Pinza en tamaño grande (colores y diseños según disponibilidad)",
+"Chocolate en forma de corazón",
+"Empacado en bolsa"
+],
+"tamano": "Tarjeta de 20 cm de alto × 10 cm de ancho",
+"precios": [
+[
+"Con chocolate, de 3 a 12",
+"$5.000"
+],
+[
+"Con chocolate, desde 13",
+"$4.600"
+],
+[
+"Sin chocolate, de 3 a 12",
+"$4.400"
+],
+[
+"Sin chocolate, desde 13",
+"$4.000"
+]
+],
+"nota": "También tenemos chocolates cuadrados (más pequeños). ¡Consúltanos su precio!"
 },
 {
 "id": "lapicero-tarjeta",
@@ -1358,9 +1479,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "lapicero-tarjeta-1",
 "lapicero-tarjeta-2",
 "lapicero-tarjeta-3",
-"lapicero-tarjeta-4",
-"lapicero-tarjeta-5",
-"lapicero-tarjeta-6"
+"lapicero-tarjeta-4"
 ],
 "incluye": [
 "Tarjeta personalizada",
@@ -1416,7 +1535,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "ramo-perfumado-1",
 "ramo-perfumado-2",
 "ramo-perfumado-3",
-"ramo-perfumado-4"
+"ramo-perfumado-4",
+"ramo-perfumado-5"
 ],
 "incluye": [
 "Perfume en frasco de vidrio de 30 ml",
@@ -1465,7 +1585,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "nombre": "Perfume camiseta",
 "cats": [
 "fechas",
-"toda"
+"toda",
+"combos"
 ],
 "desde": 14000,
 "unidad": "ud",
@@ -1488,8 +1609,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "perfume-camiseta-2",
 "perfume-camiseta-3",
 "perfume-camiseta-4",
-"perfume-camiseta-5",
-"perfume-camiseta-6"
+"perfume-camiseta-5"
 ],
 "incluye": [
 "Caja en forma de camiseta",
@@ -1517,8 +1637,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "id": "combo-bolso",
 "nombre": "Combo con bolso",
 "cats": [
-"combos",
-"fechas"
+"fechas",
+"combos"
 ],
 "desde": 40000,
 "unidad": "caja",
@@ -1542,7 +1662,10 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "combo-bolso-1",
 "combo-bolso-2",
-"combo-bolso-3"
+"combo-bolso-3",
+"combo-bolso-4",
+"combo-bolso-5",
+"combo-bolso-6"
 ],
 "incluye": [
 "El bolso que quieras",
@@ -1564,11 +1687,11 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "ancheta-papa",
-"nombre": "Anchetas personalizadas",
+"nombre": "Anchetas con dulces",
 "cats": [
-"combos",
 "fechas",
-"corporativos"
+"corporativos",
+"combos"
 ],
 "desde": 25000,
 "unidad": "ud",
@@ -1597,15 +1720,15 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "caja-mimos",
-"nombre": "Caja de mimos",
+"nombre": "Anchetas personalizadas",
 "cats": [
-"combos",
-"fechas"
+"fechas",
+"combos"
 ],
 "desde": 40000,
 "unidad": "ud",
 "minimo": "Desde 1 unidad",
-"descripcion": "Un rato de consentimiento en una caja: cremas, perfume, accesorios y la tarjeta «Increíble mamá». Para recordarle que ella también merece que la cuiden.",
+"descripcion": "Ancheta armada a tu gusto: cremas, perfume, accesorios, dulces y la tarjeta con tu mensaje, en una caja decorada. Para consentir a mamá, a tu pareja o a esa amiga que se lo merece.",
 "personaliza": [
 "Productos del kit",
 "Color del papel",
@@ -1627,7 +1750,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "botiquin-amor",
-"nombre": "B+tiquín de amor",
+"nombre": "Botiquín de Amor",
 "cats": [
 "toda",
 "fechas",
@@ -1661,8 +1784,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "id": "cajas-sorpresa",
 "nombre": "Cajas sorpresa temáticas",
 "cats": [
-"combos",
-"toda"
+"toda",
+"combos"
 ],
 "desde": null,
 "unidad": "ud",
@@ -1692,9 +1815,9 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "id": "caja-madera-fotos",
 "nombre": "Caja de madera con fotos",
 "cats": [
-"combos",
 "fechas",
-"toda"
+"toda",
+"combos"
 ],
 "desde": null,
 "unidad": "ud",
@@ -1725,10 +1848,10 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fechas",
 "toda"
 ],
-"desde": null,
+"desde": 5000,
 "unidad": "ud",
-"minimo": "Desde 1 unidad",
-"descripcion": "Mini cajonera decorada con tus fotos y una frase especial. Un lugar para guardar pequeños tesoros que, además, se convierte en uno.",
+"minimo": "Desde 4 unidades",
+"descripcion": "Cajita pequeña con la foto o el mensaje que quieras, con chocolates o dulces. Un recuerdo bonito que además guarda pequeños tesoros.",
 "personaliza": [
 "Fotos",
 "Frase",
@@ -1744,6 +1867,20 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "cajonera-foto-1",
 "cajonera-foto-2"
+],
+"incluye": [
+"Caja pequeña con la foto o el mensaje que quieras",
+"Chocolates o dulces"
+],
+"precios": [
+[
+"De 1 a 4 unidades",
+"$6.000"
+],
+[
+"Desde 6 unidades",
+"$5.000"
+]
 ]
 },
 {
@@ -1835,16 +1972,15 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "dulces-personalizados",
-"nombre": "Tarjeta con dulce personalizado",
+"nombre": "Dulce personalizado",
 "cats": [
-"infantiles",
 "corporativos",
 "toda"
 ],
 "desde": 1500,
 "unidad": "ud",
 "minimo": "Desde 4 unidades",
-"descripcion": "Tarjeta con tu mensaje y diseño, acompañada de un dulce personalizado. Endulza la fiesta, el evento de tu empresa o la atención a tus clientes.",
+"descripcion": "Dulce con empaque personalizado y tarjeta con tu mensaje y diseño. Ideal para agradecer a clientes, recibir a tu equipo o endulzar el evento de tu empresa.",
 "personaliza": [
 "Diseño del empaque",
 "Tipo de dulce",
@@ -1860,7 +1996,9 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "dulces-personalizados-1",
 "dulces-personalizados-2",
-"dulces-personalizados-3"
+"dulces-personalizados-3",
+"dulces-personalizados-4",
+"dulces-personalizados-5"
 ],
 "incluye": [
 "Tarjeta con el mensaje y el diseño que quieras",
@@ -1908,7 +2046,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "rompecabezas",
-"nombre": "Tarjeta rompecabezas",
+"nombre": "Stickers personalizados",
 "cats": [
 "infantiles",
 "papeleria"
@@ -1916,7 +2054,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "desde": null,
 "unidad": "ud",
 "minimo": "Desde 4 unidades",
-"descripcion": "Rompecabezas con el personaje favorito, en bolsita con tarjeta. La fiesta sigue en casa: algo para armar cuando ya se apagaron las velas.",
+"descripcion": "Stickers con el personaje favorito, el nombre o el logo que quieras. Para decorar cuadernos, regalos y recordatorios, y que la fiesta se quede pegada en todas partes.",
 "personaliza": [
 "Personaje",
 "Nombre",
@@ -2024,13 +2162,11 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "taza-dulces-1",
 "taza-dulces-2",
-"taza-dulces-3",
-"taza-dulces-4"
+"taza-dulces-3"
 ],
 "incluye": [
 "Mug con el diseño y el mensaje que quieras",
-"En combo: dulces o el contenido que elijas, tarjeta personalizada y empaque",
-"Mug con caja: cajita y tarjeta, listo para regalar"
+"En combo: dulces o el contenido que elijas, tarjeta personalizada y empaque"
 ],
 "precios": [
 [
@@ -2044,17 +2180,9 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 [
 "Mug solo, desde 13",
 "$13.000"
-],
-[
-"Mug con caja, sin personalizar",
-"$13.000 c/u"
-],
-[
-"Mug con caja, personalizado",
-"$19.000 c/u"
 ]
 ],
-"nota": "El mug solo se pide desde 4 unidades; el mug con caja, desde 1. El valor del combo varía según lo que elijas."
+"nota": "El mug solo se pide desde 4 unidades. El valor del combo varía según lo que elijas. ¿Lo quieres en caja? Mira el «Mug en caja decorada»."
 },
 {
 "id": "cajita-corazon",
@@ -2106,7 +2234,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "nombre": "Caja rotulada a mano",
 "cats": [
 "papeleria",
-"toda"
+"toda",
+"combos"
 ],
 "desde": 8000,
 "unidad": "ud",
@@ -2159,8 +2288,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "cajita-zapatilla-1",
 "cajita-zapatilla-2",
 "cajita-zapatilla-3",
-"cajita-zapatilla-4",
-"cajita-zapatilla-5"
+"cajita-zapatilla-4"
 ],
 "incluye": [
 "Caja en forma de tenis con el mensaje que quieras",
@@ -2181,15 +2309,15 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "camara-dulcera",
-"nombre": "Cámara y portátil dulcera",
+"nombre": "Caja personalizada con dulces",
 "cats": [
 "papeleria",
 "toda"
 ],
-"desde": 15000,
+"desde": 7500,
 "unidad": "ud",
-"minimo": "Desde 1 unidad",
-"descripcion": "Cajitas con forma de cámara de fotos o de portátil, rellenas de dulces. Celebran grados y cumpleaños, y también lucen como centro de mesa.",
+"minimo": "Desde 4 unidades",
+"descripcion": "Caja diseñada y personalizada con la forma, el diseño y el mensaje que quieras, llena de dulces: cámaras, portátiles, carros o lo que imagines. También con el logo de tu empresa o institución.",
 "personaliza": [
 "Nombre",
 "Dulces",
@@ -2207,9 +2335,24 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "camara-dulcera-1",
 "camara-dulcera-2",
 "camara-dulcera-3",
-"camara-dulcera-4",
-"camara-dulcera-5"
+"camara-dulcera-4"
+],
+"incluye": [
+"Caja con la forma, el diseño y el mensaje que quieras (o el logo de tu empresa o institución)",
+"Dulces",
+"Puedes sumarle otros productos"
+],
+"precios": [
+[
+"De 4 a 12 unidades",
+"$8.500"
+],
+[
+"Desde 13 unidades",
+"$7.500"
 ]
+],
+"nota": "¡Cuéntanos tu idea! También la personalizamos con otros productos."
 },
 {
 "id": "cajas-feliz-dia",
@@ -2266,8 +2409,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "sub": "tarjeteria",
 "fotos": [
 "tarjeta-maestro-1",
-"tarjeta-maestro-2",
-"tarjeta-maestro-3"
+"tarjeta-maestro-2"
 ],
 "incluye": [
 "Tarjeta en forma de lápiz con mensaje personalizado",
@@ -2398,7 +2540,9 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "boligrafo-cumple-1",
 "boligrafo-cumple-2",
-"boligrafo-cumple-3"
+"boligrafo-cumple-3",
+"boligrafo-cumple-4",
+"boligrafo-cumple-5"
 ],
 "incluye": [
 "Tarjeta con mensaje personalizado",
@@ -2454,9 +2598,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "tarjetas-bienvenida-1",
 "tarjetas-bienvenida-2",
-"tarjetas-bienvenida-3",
-"tarjetas-bienvenida-4",
-"tarjetas-bienvenida-5"
+"tarjetas-bienvenida-3"
 ],
 "incluye": [
 "Chocolate en forma de corazón",
@@ -2507,15 +2649,16 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "tarjetas-dedicatoria",
-"nombre": "Tarjetas con dedicatoria",
+"nombre": "Cajas diseño personalizado",
 "cats": [
 "papeleria",
-"toda"
+"toda",
+"combos"
 ],
 "desde": null,
 "unidad": "ud",
 "minimo": "Desde 4 unidades",
-"descripcion": "Tarjetas y cartas impresas con tu dedicatoria: cumpleaños, reserva la fecha, reconocimientos y mensajes para alguien especial. Tus palabras, con el diseño que se merecen.",
+"descripcion": "Cajas impresas con el diseño, los colores y la dedicatoria que quieras: un «Feliz cumple» gigante, un aniversario o un mensaje para alguien especial. La caja también es parte del regalo.",
 "personaliza": [
 "Texto",
 "Diseño",
@@ -2528,7 +2671,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 ],
 "destacado": false,
 "tipo": "producto",
-"sub": "tarjeteria",
+"sub": "cajas",
 "fotos": [
 "tarjetas-dedicatoria-1",
 "tarjetas-dedicatoria-2",
@@ -2541,7 +2684,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "nombre": "Detalles para baby shower y bautizo",
 "cats": [
 "toda",
-"papeleria"
+"infantiles"
 ],
 "desde": null,
 "unidad": "ud",
@@ -2558,7 +2701,6 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 ],
 "destacado": false,
 "tipo": "producto",
-"sub": "tarjeteria",
 "fotos": [
 "baby-shower-1",
 "baby-shower-2",
@@ -2595,8 +2737,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "fotos": [
 "separador-chocolate-1",
 "separador-chocolate-2",
-"separador-chocolate-3",
-"separador-chocolate-4"
+"separador-chocolate-3"
 ],
 "incluye": [
 "Tarjeta separador con mensaje personalizado",
@@ -2629,7 +2770,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "cats": [
 "toda",
 "fechas",
-"corporativos"
+"corporativos",
+"combos"
 ],
 "desde": 5500,
 "unidad": "ud",
@@ -2652,8 +2794,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "llavero-foto-1",
 "llavero-foto-2",
 "llavero-foto-3",
-"llavero-foto-4",
-"llavero-foto-5"
+"llavero-foto-4"
 ],
 "incluye": [
 "Llavero de acrílico con el diseño o la foto que quieras",
@@ -2755,8 +2896,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "mini-perfume-1",
 "mini-perfume-2",
 "mini-perfume-3",
-"mini-perfume-4",
-"mini-perfume-5"
+"mini-perfume-4"
 ],
 "incluye": [
 "Perfume de tu elección en frasco de vidrio de 10 o 5 ml",
@@ -2780,11 +2920,159 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "nota": "Aromas como 212 de Carolina Herrera, 360 de Perry Ellis, Hugo Boss, Chanel y Aqua de Bvlgari, además de perfumes de nicho, de diseñador y árabes (Lattafa, Armaf, Al Haramain, Afnan y más)."
 },
 {
+"id": "humectante",
+"nombre": "Humectante personalizado",
+"cats": [
+"corporativos",
+"fechas",
+"toda"
+],
+"desde": 4500,
+"unidad": "ud",
+"minimo": "Desde 4 unidades",
+"descripcion": "Humectante de labios, normal o personalizado, en tarjeta con el diseño que quieras.",
+"personaliza": [
+"Diseño de la tarjeta",
+"Humectante normal o personalizado",
+"Mensaje"
+],
+"tags": "humectante labial labios balsamo mujer amistad souvenir",
+"oc": [
+"amor",
+"mujer",
+"empresa",
+"cumple"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"humectante-1",
+"humectante-2",
+"humectante-3"
+],
+"incluye": [
+"Tarjeta personalizada con el diseño que quieras",
+"Humectante de labios (normal o personalizado)",
+"Empacado en bolsa"
+],
+"precios": [
+[
+"De 4 a 24 unidades",
+"$5.000"
+],
+[
+"Desde 25 unidades",
+"$4.500"
+]
+]
+},
+{
+"id": "perfume-tarjeta",
+"nombre": "Perfume 30 ml con tarjeta",
+"cats": [
+"fechas",
+"corporativos",
+"toda",
+"combos"
+],
+"desde": 10000,
+"unidad": "ud",
+"minimo": "Desde 2 unidades",
+"descripcion": "Perfume de tu elección en frasco de vidrio de 30 ml, con tarjeta y el mensaje que quieras.",
+"personaliza": [
+"Fragancia",
+"Color del frasco",
+"Mensaje de la tarjeta"
+],
+"tags": "perfume 30 ml frasco loción fragancia tarjeta",
+"oc": [
+"papa",
+"mama",
+"amor",
+"cumple",
+"empresa"
+],
+"destacado": true,
+"tipo": "producto",
+"fotos": [
+"perfume-tarjeta-1",
+"perfume-tarjeta-2",
+"perfume-tarjeta-3",
+"perfume-tarjeta-4",
+"perfume-tarjeta-5",
+"perfume-tarjeta-6"
+],
+"incluye": [
+"Perfume de tu elección",
+"Frasco de vidrio de 30 ml",
+"Tarjeta con el mensaje que quieras"
+],
+"precios": [
+[
+"De 2 a 8 unidades",
+"$14.000"
+],
+[
+"De 8 a 24 unidades",
+"$12.000"
+],
+[
+"Desde 24 unidades",
+"$10.000"
+]
+],
+"nota": "Versión mujer en rosado, morado, azul y rojo. También hay frascos plateados y negros. Aromas como 212 de Carolina Herrera, 360 de Perry Ellis, Hugo Boss, Chanel y Aqua de Bvlgari, además de perfumes de nicho, de diseñador y árabes (Lattafa, Armaf, Al Haramain, Afnan y más)."
+},
+{
+"id": "cajita-jabon",
+"nombre": "Cajita con jabón",
+"cats": [
+"fechas",
+"corporativos"
+],
+"desde": 12000,
+"unidad": "ud",
+"minimo": "Desde 2 unidades",
+"descripcion": "Caja personalizada con tu mensaje, jabón corporal Natura y tarjeta, empacada en bolsita con moño.",
+"personaliza": [
+"Mensaje de la caja",
+"Tarjeta",
+"Color del moño"
+],
+"tags": "jabon natura caja mujer madre cuidado",
+"oc": [
+"mama",
+"mujer",
+"empresa"
+],
+"destacado": false,
+"tipo": "producto",
+"fotos": [
+"cajita-jabon-1",
+"cajita-jabon-2"
+],
+"incluye": [
+"Caja personalizada con el mensaje que quieras",
+"Jabón corporal Natura",
+"Tarjeta con el mensaje que quieras",
+"Empacado en bolsita con moño"
+],
+"precios": [
+[
+"De 2 a 8 unidades",
+"$14.000"
+],
+[
+"De 8 a 24 unidades",
+"$12.000"
+]
+]
+},
+{
 "id": "kit-corporativo",
 "nombre": "Gift box corporativo",
 "cats": [
-"corporativos",
-"combos"
+"corporativos"
 ],
 "desde": 8000,
 "unidad": "ud",
@@ -2824,7 +3112,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "nombre": "Cajas para profesiones",
 "cats": [
 "corporativos",
-"fechas"
+"fechas",
+"combos"
 ],
 "desde": 25000,
 "unidad": "ud",
@@ -2936,17 +3225,17 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 },
 {
 "id": "cajita-personalizada",
-"nombre": "Cajita personalizada",
+"nombre": "Mug en caja decorada",
 "cats": [
 "papeleria",
 "fechas",
 "corporativos",
 "toda"
 ],
-"desde": 5000,
+"desde": 13000,
 "unidad": "ud",
-"minimo": "Desde 4 unidades",
-"descripcion": "Caja con la forma, el diseño y el mensaje que quieras, o con el logo de tu empresa, llena de dulces. El 8 de marzo, un cumpleaños o un «porque sí» se vuelven inolvidables.",
+"minimo": "Desde 1 unidad",
+"descripcion": "Mug con uno de nuestros diseños o con tu propio diseño, frase o temática, en cajita decorada con tarjeta. Llega listo para regalar, y si quieres le sumamos dulces.",
 "personaliza": [
 "Forma y diseño",
 "Mensaje o logo",
@@ -2966,34 +3255,26 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "cajita-personalizada-2"
 ],
 "incluye": [
-"Caja con la forma, el diseño y el mensaje que quieras (o el logo de tu empresa)",
-"Dulces o chocolates",
-"Puedes sumarle otros productos"
+"Mug con uno de nuestros diseños o con tu diseño, frase o temática",
+"Cajita decorada",
+"Tarjeta, listo para regalar"
 ],
 "precios": [
 [
-"Cajita personalizada, de 4 a 12",
-"$8.500"
+"Sin personalizar",
+"$13.000 c/u"
 ],
 [
-"Cajita personalizada, desde 13",
-"$7.500"
-],
-[
-"Cajita pequeña con foto o mensaje, de 1 a 4",
-"$6.000"
-],
-[
-"Cajita pequeña, desde 6",
-"$5.000"
+"Personalizado",
+"$19.000 c/u"
 ]
-]
+],
+"nota": "También puedes añadirle dulces para hacerlo aún más especial."
 },
 {
 "id": "gift-box-mini-kit",
 "nombre": "Gift box mini kit",
 "cats": [
-"combos",
 "toda",
 "corporativos"
 ],
@@ -3017,7 +3298,9 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "extras": true,
 "fotos": [
 "gift-box-mini-kit-1",
-"gift-box-mini-kit-2"
+"gift-box-mini-kit-2",
+"gift-box-mini-kit-3",
+"gift-box-mini-kit-4"
 ],
 "incluye": [
 "Tarjeta pequeña personalizada",
@@ -3164,7 +3447,8 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "id": "u-perfume",
 "nombre": "Perfume 30 ml",
 "cats": [
-"unidad"
+"unidad",
+"combos"
 ],
 "desde": null,
 "unidad": "ud",
@@ -3179,7 +3463,10 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
 "destacado": false,
 "tipo": "unidad",
 "fotos": [
-"u-perfume"
+"u-perfume",
+"u-perfume-2",
+"u-perfume-3",
+"u-perfume-4"
 ]
 },
 {
@@ -3730,7 +4017,7 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     {id:'i-testi',nombre:'Testimonios',texto:'Opiniones de clientes y formulario para dejar tu reseña con estrellas.',href:'#testimonios'},
     {id:'i-cats',nombre:'Categorías',texto:'Fechas especiales, corporativos y souvenirs, papelería, infantiles, combos y anchetas, regalos por unidad.',href:'#categorias'},
     {id:'i-pap',nombre:'Papelería y diseños',texto:'Tarjetería, cajitas personalizadas, diseños por pedido, agendas para empresas e insumos para emprendedores.',href:'#papeleria'},
-    {id:'i-como',nombre:'Cómo hacer tu pedido',texto:'Elige, lo diseñamos contigo y te llega listo para regalar. Pasos para comprar.',href:'#como'},
+    {id:'i-como',nombre:'Cómo hacer tu pedido',texto:'Escoge tu detalle, lo hacemos tuyo y llega listo para sorprender. Pasos para comprar.',href:'#como'},
     {id:'i-contacto',nombre:'Contacto y WhatsApp',texto:'Escríbenos al WhatsApp +57 304 337 5997. Instagram y TikTok @morantadetalles. Medellín, Colombia.',href:'#',wa:'Hola, estoy interesado en los detalles'}
   ]).map(function(x){x.info=true;return x});
 
@@ -3813,7 +4100,9 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
   function toast(h){var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.innerHTML=h;(abierta||document.body).appendChild(t);
     setTimeout(function(){t.classList.add('va')},2600);setTimeout(function(){t.remove()},3100)}
   function nombreExtras(ex){return (ex||[]).map(function(e){if(/^b\d+$/.test(e)){var b=D.bolsos[+e.slice(1)];return b?b.nombre:e}var u=prodPor(e);return u?u.nombre:e}).join(', ')}
-  function msgKit(){var notas=document.getElementById('kit-notas').value.trim();
+  function kitNotas(){return document.getElementById('kit-notas').value.trim()}
+  function msgKit(){var notas=kitNotas();
+    if(!KIT.length)return 'Hola, quiero cotizar un kit personalizado:\n'+notas;
     return 'Hola, quiero cotizar este kit con precio especial:\n'+KIT.map(function(x){var p=prodPor(x.id);return '• '+x.qty+' × '+p.nombre+(x.extras&&x.extras.length?' (con '+nombreExtras(x.extras)+')':'')}).join('\n')+(notas?'\nNotas: '+notas:'')}
   var kitLista=document.getElementById('kit-lista'),kitBtn=document.getElementById('kit-cotizar');
   function pintaKit(){var n=kitN();
@@ -3821,16 +4110,18 @@ dialog.mini::backdrop{background:rgba(23,20,58,.62);-webkit-backdrop-filter:blur
     document.getElementById('kit-flot').hidden=n===0;
     kitLista.innerHTML=KIT.length?KIT.map(function(x,i){var p=prodPor(x.id);
       return '<li class="kit-it"><img src="'+img(p.fotos[0])+'" alt=""><div><b>'+esc(p.nombre)+'</b><small>'+(x.extras&&x.extras.length?'Con '+esc(nombreExtras(x.extras)):esc(precioCorto(p)))+'</small></div><div class="paso-n" role="group" aria-label="Cantidad de '+esc(p.nombre)+'"><button type="button" data-k="'+i+'" data-d="-1" aria-label="Quitar uno">−</button><output>'+x.qty+'</output><button type="button" data-k="'+i+'" data-d="1" aria-label="Agregar uno">+</button></div><button type="button" class="kit-x" data-k="'+i+'" aria-label="Quitar '+esc(p.nombre)+' del kit">✕</button></li>'}).join('')
-      :'<li class="kit-vacio">Tu kit está vacío. Agrega productos con el botón <b>+</b> del catálogo o aquí abajo.</li>';
+      :'<li class="kit-vacio">Tu kit está vacío. Agrega productos con el botón <b>+</b> o, si prefieres, escribe tu idea en las notas y cotízala así.</li>';
     document.getElementById('kit-cuenta').textContent=n?n+(n===1?' artículo':' artículos'):'Sin artículos';
-    kitBtn.classList.toggle('off',!n);kitBtn.setAttribute('aria-disabled',!n);
-    if(n)kitBtn.href=waUrl(msgKit());else kitBtn.removeAttribute('href')}
+    kitBoton()}
+  function kitBoton(){var ok=kitN()>0||kitNotas().length>0;
+    kitBtn.classList.toggle('off',!ok);kitBtn.setAttribute('aria-disabled',!ok);
+    if(ok)kitBtn.href=waUrl(msgKit());else kitBtn.removeAttribute('href')}
   kitLista.addEventListener('click',function(e){var b=e.target.closest('button[data-k]');if(!b)return;var i=+b.dataset.k;
     if(b.classList.contains('kit-x'))KIT.splice(i,1);else{KIT[i].qty+=+b.dataset.d;if(KIT[i].qty<1)KIT.splice(i,1)}
     guarda('moranta-kit',KIT);pintaKit()});
-  document.getElementById('kit-notas').addEventListener('input',function(){if(kitN())kitBtn.href=waUrl(msgKit())});
+  document.getElementById('kit-notas').addEventListener('input',kitBoton);
   document.getElementById('kit-vaciar').addEventListener('click',function(){KIT=[];guarda('moranta-kit',KIT);pintaKit()});
-  kitBtn.addEventListener('click',function(e){if(!kitN()){e.preventDefault();document.getElementById('kq').focus()}});
+  kitBtn.addEventListener('click',function(e){if(!kitN()&&!kitNotas()){e.preventDefault();document.getElementById('kit-notas').focus();toast('Agrega productos o escribe en las notas lo que quieres en tu kit.')}});
   // agregar desde el kit
   var kq=document.getElementById('kq'),kitCat=document.getElementById('kit-cat'),kitF='unidad';
   var kitFil=document.getElementById('kit-fil');
