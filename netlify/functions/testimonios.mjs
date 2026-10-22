@@ -25,7 +25,7 @@ export default async (req) => {
       estrellas,
       fecha: new Date().toISOString(),
     };
-    if (!t.nombre || t.resena.length < 3 || !t.producto || !(estrellas >= 1 && estrellas <= 5)) {
+    if (!t.nombre || t.resena.length < 3 || !(estrellas >= 1 && estrellas <= 5)) {
       return new Response("Faltan datos", { status: 400 });
     }
     const lista = (await store.get("lista", { type: "json" })) || [];

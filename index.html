@@ -728,6 +728,21 @@ dialog.vent[open]{animation:vent-in8 .6s var(--ease)}
 @keyframes vent-in8{from{transform:translateY(24px) scale(.97);opacity:0;clip-path:inset(6% 4% round 28px)}to{clip-path:inset(0 0 round 0)}}
 dialog.vent::backdrop{cursor:pointer}
 @media (max-width:640px){dialog.vent{width:100vw;height:100dvh}}
+/* v9: testimonios con la foto completa del producto */
+.testi .foto{aspect-ratio:4/5;margin:10px 10px 0;border-radius:var(--r-md);overflow:hidden;background:var(--morado)}
+.cinta .testi .foto,.testis .testi .foto{aspect-ratio:4/5}
+.testi .foto img,.testi.v2 .foto img,.testi:hover .foto img{border-radius:var(--r-md)}
+.testi .foto .tag{left:10px;bottom:10px}
+.testi-vacio{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;margin:8px auto 0;max-width:1180px;padding:20px 22px;border:2px dashed var(--morado-f);border-radius:var(--r-lg);background:var(--blanco)}
+.testi-vacio p{margin:0;max-width:60ch}
+/* v9: video en la ficha */
+.c3d .it.vid video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.miniaturas .mini-vid{position:relative}
+.miniaturas .mini-vid span{position:absolute;inset:0;display:grid;place-items:center;color:var(--blanco);font-size:18px;background:rgba(23,20,58,.25)}
+.cinta-pista.quieta{animation:none;transform:none;width:auto;flex-wrap:wrap;justify-content:center;padding-inline:16px}
+.cinta-pista.quieta .testi{margin-bottom:14px}
+.testi-vacio{margin:8px 16px 0}
+@media (min-width:1212px){.testi-vacio{margin:8px auto 0}}
 </style>
 </head>
 <body>
@@ -1055,7 +1070,7 @@ dialog.vent::backdrop{cursor:pointer}
 <dialog class="mini" id="d-resena" aria-labelledby="r-tit">
   <form id="f-resena" novalidate>
     <div class="mini-cab"><h2 class="t" id="r-tit">Deja tu <span class="acento">testimonio</span></h2><button class="cerrar" type="button" aria-label="Cerrar">✕</button></div>
-    <div class="r-campo r-prod"><label for="r-prod">¿Qué producto recibiste?</label>
+    <div class="r-campo r-prod"><label for="r-prod">¿Qué producto recibiste? <small>(opcional; si lo eliges, tu opinión puede salir en el inicio)</small></label>
       <div class="campo"><svg aria-hidden="true"><use href="#i-lupa"/></svg><input type="search" id="r-prod" placeholder="Busca el producto…" autocomplete="off" enterkeyhint="search"></div>
       <div class="r-sel" id="r-prod-sel" hidden></div>
       <div class="q-res r-res" id="r-prod-res" hidden></div>
@@ -1584,9 +1599,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "perfume-camiseta",
 "nombre": "Perfume camiseta",
 "cats": [
+"combos",
 "fechas",
 "toda",
-"combos"
+"unidad"
 ],
 "desde": 14000,
 "unidad": "ud",
@@ -1637,8 +1653,9 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "combo-bolso",
 "nombre": "Combo con bolso",
 "cats": [
+"combos",
 "fechas",
-"combos"
+"unidad"
 ],
 "desde": 40000,
 "unidad": "caja",
@@ -1689,9 +1706,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "ancheta-papa",
 "nombre": "Anchetas con dulces",
 "cats": [
+"combos",
 "fechas",
 "corporativos",
-"combos"
+"unidad"
 ],
 "desde": 25000,
 "unidad": "ud",
@@ -1722,8 +1740,9 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "caja-mimos",
 "nombre": "Anchetas personalizadas",
 "cats": [
+"combos",
 "fechas",
-"combos"
+"unidad"
 ],
 "desde": 40000,
 "unidad": "ud",
@@ -1752,9 +1771,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "botiquin-amor",
 "nombre": "Botiquín de Amor",
 "cats": [
+"combos",
 "toda",
 "fechas",
-"combos"
+"unidad"
 ],
 "desde": null,
 "unidad": "ud",
@@ -1784,8 +1804,9 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "cajas-sorpresa",
 "nombre": "Cajas sorpresa temáticas",
 "cats": [
+"combos",
 "toda",
-"combos"
+"unidad"
 ],
 "desde": null,
 "unidad": "ud",
@@ -1815,9 +1836,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "caja-madera-fotos",
 "nombre": "Caja de madera con fotos",
 "cats": [
+"combos",
 "fechas",
 "toda",
-"combos"
+"unidad"
 ],
 "desde": null,
 "unidad": "ud",
@@ -2233,9 +2255,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "caja-rotulada",
 "nombre": "Caja rotulada a mano",
 "cats": [
+"combos",
 "papeleria",
 "toda",
-"combos"
+"unidad"
 ],
 "desde": 8000,
 "unidad": "ud",
@@ -2651,9 +2674,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "tarjetas-dedicatoria",
 "nombre": "Cajas diseño personalizado",
 "cats": [
+"combos",
 "papeleria",
 "toda",
-"combos"
+"unidad"
 ],
 "desde": null,
 "unidad": "ud",
@@ -2768,10 +2792,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "llavero-foto",
 "nombre": "Llavero personalizado",
 "cats": [
+"combos",
 "toda",
 "fechas",
-"corporativos",
-"combos"
+"corporativos"
 ],
 "desde": 5500,
 "unidad": "ud",
@@ -2970,10 +2994,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "perfume-tarjeta",
 "nombre": "Perfume 30 ml con tarjeta",
 "cats": [
+"combos",
 "fechas",
 "corporativos",
-"toda",
-"combos"
+"toda"
 ],
 "desde": 10000,
 "unidad": "ud",
@@ -3069,6 +3093,85 @@ dialog.vent::backdrop{cursor:pointer}
 ]
 },
 {
+"id": "combo-eventos",
+"nombre": "Combo para eventos personalizado",
+"cats": [
+"corporativos"
+],
+"desde": null,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "El kit de bienvenida que hace que tu evento se recuerde: bolsa con sticker, agua, libreta, separador y lapicero, todo con el logo o el lema de tu evento. Para congresos, retiros, capacitaciones, lanzamientos y eventos de empresa.",
+"personaliza": [
+"Logo, lema o nombre del evento",
+"Productos del combo",
+"Bolsa y empaque"
+],
+"tags": "combo evento eventos kit bienvenida congreso retiro conferencia taller empresa logo agua libreta separador lapicero bolsa",
+"oc": [
+"empresa"
+],
+"destacado": true,
+"tipo": "producto",
+"fotos": [
+"combo-eventos-1"
+],
+"incluye": [
+"Bolsa de papel con sticker de tu evento",
+"Agua personalizada",
+"Libreta argollada con tu diseño",
+"Separador con borla",
+"Lapicero",
+"Pañuelos o el detalle que prefieras"
+],
+"nota": "Armamos el combo a la medida de tu evento y tu presupuesto: cambiamos productos, colores y empaques para que todo hable de tu marca."
+},
+{
+"id": "aguas-personalizadas",
+"nombre": "Aguas personalizadas",
+"cats": [
+"corporativos"
+],
+"desde": 1500,
+"unidad": "ud",
+"minimo": "Se confirma al cotizar",
+"descripcion": "Tu marca en la mano de cada invitado. Botellas de agua con etiqueta diseñada con tu logo, tus colores y tu mensaje: un detalle útil que se ve en cada mesa, en cada foto y en cada reunión.",
+"personaliza": [
+"Logo, nombre o diseño de la etiqueta",
+"Tamaño: 300 ml o 600 ml",
+"Moño y tag de agradecimiento"
+],
+"tags": "agua aguas botella botellas personalizadas etiqueta logo marca evento empresa consultorio baby shower bautizo boda hidratación",
+"oc": [
+"empresa",
+"bebe",
+"cumple"
+],
+"destacado": true,
+"tipo": "producto",
+"fotos": [
+"aguas-personalizadas-1",
+"aguas-personalizadas-2",
+"aguas-personalizadas-3",
+"aguas-personalizadas-4",
+"aguas-personalizadas-5"
+],
+"video": "aguas-personalizadas",
+"incluye": [
+"Botella de agua de 300 ml o 600 ml",
+"Etiqueta personalizada con tu logo, nombre o diseño",
+"Diseño de la etiqueta incluido",
+"Opcional: moño de cinta y tag «Gracias por venir»"
+],
+"precios": [
+[
+"Desde",
+"$1.500 por unidad"
+]
+],
+"nota": "Ideal para empresas, consultorios, ferias, lanzamientos y salas de espera, y también para baby shower, bautizos y bodas. El valor final depende del tamaño, la cantidad y los acabados."
+},
+{
 "id": "kit-corporativo",
 "nombre": "Gift box corporativo",
 "cats": [
@@ -3111,9 +3214,10 @@ dialog.vent::backdrop{cursor:pointer}
 "id": "caja-ingeniero",
 "nombre": "Cajas para profesiones",
 "cats": [
+"combos",
 "corporativos",
 "fechas",
-"combos"
+"unidad"
 ],
 "desde": 25000,
 "unidad": "ud",
@@ -3230,7 +3334,8 @@ dialog.vent::backdrop{cursor:pointer}
 "papeleria",
 "fechas",
 "corporativos",
-"toda"
+"toda",
+"unidad"
 ],
 "desde": 13000,
 "unidad": "ud",
@@ -3714,6 +3819,7 @@ dialog.vent::backdrop{cursor:pointer}
     [].forEach.call(filtros.querySelectorAll('[data-f]'),function(b){b.setAttribute('aria-pressed',!busca&&b.dataset.f===f)});
     if(busca){if(cq.value.trim()!==v)cq.value=v}else if(document.activeElement!==cq)cq.value='';
     var arr=busca?buscar(v).map(function(x){return x.p}):(f==='todo'&&(FS.tipo.indexOf('info')>-1)?TODO:P).filter(function(p){return f==='todo'||en(p,f)});
+    if(!busca&&f!=='todo')arr=arr.filter(function(p){return p.cats[0]===f}).concat(arr.filter(function(p){return p.cats[0]!==f}));
     var nf=nFil();arr=arr.filter(pasa);
     prods.innerHTML=arr.length?arr.map(function(x,i){return x.info?tarjetaInfo(x,i):tarjeta(x,i)}).join(''):(busca?'<p class="vacio">No hay nada con un 47 % o más de coincidencia con «'+esc(v)+'»'+(nf?' y los filtros elegidos':'')+'. Prueba con otra palabra'+(nf?', <button type="button" class="link" data-limpia>quita los filtros</button>':'')+' o <a data-wa="Hola, busco: '+esc(v)+'" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.</p>'
       :'<p class="vacio">Ningún producto cumple todos los filtros. <button type="button" class="link" data-limpia>Quitar filtros</button></p>');
@@ -3748,12 +3854,13 @@ dialog.vent::backdrop{cursor:pointer}
   function extrasSel(){return [].map.call(document.querySelectorAll('#det .ex-op[aria-pressed="true"]'),function(b){return b.dataset.ex})}
   function msgFicha(p){var ex=p.extras?extrasSel():[];return 'Hola, quiero cotizar: '+p.nombre+(ex.length?' (con '+nombreExtras(ex)+')':'')}
   function ficha(p){
-    c3d.innerHTML=p.fotos.map(function(f,i){return '<figure class="it"><img src="'+img(f)+'" alt="'+esc(p.nombre)+', foto '+(i+1)+'"></figure>'}).join('');
+    var vid=p.video?'<figure class="it vid"><video poster="'+img(p.fotos[0])+'" autoplay muted loop playsinline aria-label="Video de '+esc(p.nombre)+'"><source src="img/'+p.video+'.webm" type="video/webm"><source src="img/'+p.video+'.mp4" type="video/mp4"></video></figure>':'',nfo=p.fotos.length+(p.video?1:0);
+    c3d.innerHTML=vid+p.fotos.map(function(f,i){return '<figure class="it"><img src="'+img(f)+'" alt="'+esc(p.nombre)+', foto '+(i+1)+'"></figure>'}).join('');
     items=[].slice.call(c3d.children);k3=0;
-    minis.innerHTML=p.fotos.length>1?p.fotos.map(function(f,i){return '<button type="button" aria-label="Foto '+(i+1)+'"><img src="'+img(f)+'" alt=""></button>'}).join(''):'';
+    minis.innerHTML=nfo>1?(p.video?'<button type="button" class="mini-vid" aria-label="Video"><img src="'+img(p.fotos[0])+'" alt=""><span aria-hidden="true">▶</span></button>':'')+p.fotos.map(function(f,i){return '<button type="button" aria-label="Foto '+(i+1)+'"><img src="'+img(f)+'" alt=""></button>'}).join(''):'';
     [].forEach.call(minis.children,function(b,i){b.onclick=function(){va3(i);para3()}});
-    document.querySelector('.c3d-ctrl').hidden=p.fotos.length<2;
-    pinta3();clearInterval(auto3);if(!red&&p.fotos.length>1)auto3=setInterval(function(){va3(k3+1)},3600);
+    document.querySelector('.c3d-ctrl').hidden=nfo<2;
+    pinta3();clearInterval(auto3);if(!red&&nfo>1)auto3=setInterval(function(){va3(k3+1)},p.video?5200:3600);
     var det=document.getElementById('det'),sub=subDe(p),uni=p.tipo==='unidad';
     var bol=p.id==='combo-bolso';
     var ex=p.extras?'<div class="extras">'+(bol?'<p class="ex-t">1. Elige el bolso</p><div class="ex-ops" data-uno>'+D.bolsos.map(function(b,i){return '<button type="button" class="ex-op" data-ex="b'+i+'" data-det="'+esc(b.detalle)+'" aria-pressed="'+(i===0)+'">'+(b.foto?'<img src="'+img(b.foto)+'" alt="">':'<i class="ex-ico" aria-hidden="true"></i>')+esc(b.nombre)+(b.precio?' <small>'+cop(b.precio)+'</small>':'')+'</button>'}).join('')+'</div><p class="ex-det" id="ex-det">'+esc(D.bolsos[0].detalle)+'</p>':'')+
@@ -3782,28 +3889,21 @@ dialog.vent::backdrop{cursor:pointer}
   document.getElementById('volver').onclick=function(){nav('#catalogo'+(filtro==='todo'?'':'/c-'+filtro),false)};
 
   // ===== testimonios =====
-  var T0=[
-    ['ramo-perfumado-1','Día de la Madre','Mi mamá lloró de la emoción con su ramo.','Laura M.','ramo-perfumado'],
-    ['perfume-esmoquin-1','Día del Padre','Pedí para toda la familia y llegó perfecto.','Carlos R.','perfume-esmoquin'],
-    ['calendarios-1','Calendarios','El calendario con nuestras fotos quedó precioso.','Andrea S.','calendarios'],
-    ['combo-bolso-1','Cumpleaños','Mi hermana no se lo esperaba. ¡Le encantó el bolso!','Valentina P.','combo-bolso'],
-    ['libritos-colorear-1','Infantil','Los niños se fueron felices con su librito.','Diana G.','libritos-colorear'],
-    ['caja-ingeniero-1','Corporativos','Todo el equipo quedó encantado con su caja.','Andrés T.','caja-ingeniero'],
-    ['pinza-flor-1','Día del Maestro','Las profes del colegio aún usan sus pinzas.','Marcela R.','pinza-flor'],
-    ['ancheta-papa-1','Día del Padre','Llegó a tiempo y con todo lo que pedí.','Jorge L.','ancheta-papa'],
-    ['botiquin-amor-1','Amor y amistad','El B+tiquín le sacó una carcajada. ¡Lo amó!','Camila V.','botiquin-amor'],
-    ['taza-dulces-1','Día del Padre','Mi papá usa la taza todos los días.','Sebastián M.','taza-dulces']].map(function(t,i){return {id:'m'+i,foto:t[0],tag:t[1],resena:t[2],nombre:t[3],producto:t[4],estrellas:5,fecha:'2026-10-0'+(i%9+1)}});
   var MIAS=lee('moranta-resenas',[]),SRV=[];
-  function todas(){var vistos={},out=[];SRV.concat(MIAS,T0).forEach(function(r){if(r&&!vistos[r.id]){vistos[r.id]=1;out.push(r)}});
+  function todas(){var vistos={},out=[];SRV.concat(MIAS).forEach(function(r){if(r&&!vistos[r.id]){vistos[r.id]=1;out.push(r)}});
     return out.sort(function(a,b){return (b.estrellas-a.estrellas)||String(b.fecha).localeCompare(String(a.fecha))})}
   var AV=['var(--verde)','var(--blanco)','var(--morado)'];
   function testi(r,i){var p=prodPor(r.producto),v=['','v2','v3'][i%3],ini=String(r.nombre).split(/\s+/).map(function(x){return x.charAt(0)}).join('').slice(0,2).toUpperCase(),s=Math.max(1,Math.min(5,r.estrellas|0));
     return '<figure class="testi '+v+(s===5&&i%3===1?' dest':'')+'">'+(s===5&&i%3===1?'<div class="sello" aria-hidden="true"><b>5★</b></div>':'')+'<div class="foto"><img src="'+img(r.foto||(p?p.fotos[0]:'combo-bolso-1'))+'" alt="'+esc(p?p.nombre:'')+'" loading="lazy"><span class="tag"'+(i%3===2?' style="background:var(--blanco)"':'')+'>'+esc(r.tag||(p?cat0(p).nombre:'Moranta'))+'</span></div><div class="cuerpo"><span class="estrellas" aria-label="'+s+' de 5 estrellas">'+'★★★★★'.slice(0,s)+'<span class="apag">'+'★★★★★'.slice(s)+'</span></span><q>'+esc(r.resena)+'</q><figcaption class="quien"><span class="av" style="background:'+AV[i%3]+'">'+esc(ini)+'</span><span><b>'+esc(r.nombre)+'</b>'+esc(p?p.nombre:'')+'</span></figcaption></div></figure>'}
-  function cinta(id,lst){var c=document.getElementById(id),h=lst.map(testi).join('');
-    c.innerHTML='<div class="cinta-pista" style="--dur:'+Math.max(40,lst.length*7)+'s">'+h+'<div style="display:contents" aria-hidden="true">'+h+'</div></div>'}
-  function pintaTesti(){var t=todas();cinta('testi-home',t.filter(function(r){return r.estrellas>=4}));cinta('testi-vent',t);
+  function vacioTesti(id){var c=document.getElementById(id);c.innerHTML='';c.insertAdjacentHTML('afterend','<div class="testi-vacio"><p><b>Aquí van a aparecer las opiniones de nuestros clientes.</b> ¿Ya recibiste tu detalle? Sé el primero en contarnos cómo te fue.</p><button class="btn sm" type="button" data-resena>Deja tu testimonio <span class="fl" aria-hidden="true">★</span></button></div>')}
+  function cinta(id,lst){if(!lst.length){document.getElementById(id).innerHTML='';return}var c=document.getElementById(id),h=lst.map(testi).join('');
+    c.innerHTML=lst.length<4?'<div class="cinta-pista quieta">'+h+'</div>':'<div class="cinta-pista" style="--dur:'+Math.max(40,lst.length*7)+'s">'+h+'<div style="display:contents" aria-hidden="true">'+h+'</div></div>'}
+  function pintaTesti(){var t=todas();var ban=t.filter(function(r){return r.estrellas>=4&&r.producto&&prodPor(r.producto)});
+    cinta('testi-home',ban);cinta('testi-vent',t);
+    document.querySelectorAll('.testi-vacio').forEach(function(e){e.remove()});
+    if(!ban.length)vacioTesti('testi-home');if(!t.length)vacioTesti('testi-vent');
     var n=t.length,prom=t.reduce(function(a,r){return a+r.estrellas},0)/(n||1);
-    document.querySelectorAll('.testi-prom').forEach(function(e){e.textContent=prom.toFixed(1).replace('.',',')+' de 5 · '+n+' opiniones'})}
+    document.querySelectorAll('.testi-prom').forEach(function(e){e.textContent=n?prom.toFixed(1).replace('.',',')+' de 5 · '+n+(n===1?' opinión':' opiniones'):'Sé el primero en opinar'})}
   ['testi-home','testi-vent'].forEach(function(id){var c=document.getElementById(id);
     c.addEventListener('touchstart',function(){c.classList.add('parada')},{passive:true});
     c.addEventListener('touchend',function(){setTimeout(function(){c.classList.remove('parada')},2500)})});
@@ -3831,11 +3931,11 @@ dialog.vent::backdrop{cursor:pointer}
   fr.addEventListener('submit',function(e){e.preventDefault();var fd=new FormData(fr);
     if(fd.get('web'))return dr.close();
     var est=+(fd.get('estrellas')||0),nom=String(fd.get('nombre')||'').trim(),res=String(fd.get('resena')||'').trim();
-    rErr.textContent=!rpId.value?'Elige el producto que recibiste.':!est?'Elige de 1 a 5 estrellas.':!nom?'Escribe tu nombre.':res.length<3?'Cuéntanos un poco más en tu reseña.':'';
+    rErr.textContent=!est?'Elige de 1 a 5 estrellas.':!nom?'Escribe tu nombre.':res.length<3?'Cuéntanos un poco más en tu reseña.':'';
     if(rErr.textContent)return;
     var r={id:'r'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),nombre:nom.slice(0,40),resena:res.slice(0,400),producto:rpId.value,estrellas:est,fecha:new Date().toISOString()};
     MIAS.unshift(r);guarda('moranta-resenas',MIAS.slice(0,30));pintaTesti();dr.close();
-    toast('¡Gracias, '+esc(r.nombre)+'! Tu testimonio ya está publicado'+(est>=4?' en el inicio y en Testimonios.':' en Testimonios.'));
+    toast('¡Gracias, '+esc(r.nombre)+'! Tu testimonio ya está publicado'+(est>=4&&r.producto?' en el inicio y en Testimonios.':' en Testimonios.'));
     try{fetch('/api/testimonios',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(r)}).catch(function(){})}catch(x){}});
 
   // ===== ventanas por enlace (#catalogo, #catalogo/id, #categorias, #papeleria/sub, #kit…) =====
