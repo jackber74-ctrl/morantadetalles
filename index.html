@@ -743,6 +743,20 @@ dialog.vent::backdrop{cursor:pointer}
 .cinta-pista.quieta .testi{margin-bottom:14px}
 .testi-vacio{margin:8px 16px 0}
 @media (min-width:1212px){.testi-vacio{margin:8px auto 0}}
+/* v11: testimonios en tarjetas sencillas (avatar, nombre, estrellas y texto) */
+.testi.t2{background:var(--blanco);border:1px solid #e4e1ec;border-radius:var(--r-md);padding:16px 18px;gap:10px;display:flex;flex-direction:column;box-shadow:none}
+.testi.t2:hover{transform:none}
+.testi.t2 .quien{margin:0;display:flex;gap:10px;align-items:center}
+.testi.t2 .av{width:34px;height:34px;font-size:14px}
+.testi.t2 .quien b{font-size:14px;line-height:1.2}
+.testi.t2 .estrellas{display:block;color:#F2B53A;font-size:12px;letter-spacing:1px}
+.testi.t2 .estrellas .apag{color:#d8d5e0}
+.testi.t2 q{font-family:var(--f-cuerpo,inherit);font-style:italic;font-weight:400;font-size:14px;line-height:1.5;letter-spacing:0;quotes:"\201C" "\201D";-webkit-line-clamp:8;color:#4a4760}
+.testi.t2 .t2-prod{font-size:12px;font-weight:700;color:var(--morado-f);text-decoration:none;margin-top:auto}
+.cinta .testi.t2{flex:0 0 clamp(260px,30vw,360px)}
+.cinta .testi.t2 q{font-size:14px}
+.testis2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:1180px;margin:20px auto 0}
+@media (max-width:700px){.testis2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -3572,7 +3586,7 @@ dialog.vent::backdrop{cursor:pointer}
     var ps=de(c.id),m=minimo(ps),fs=[c.img].concat(ps.filter(function(p){return p.fotos[0]!==c.img}).slice(0,2).map(function(p){return p.fotos[0]})).map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('');
     return '<a class="cat-card '+c.color+'" href="'+(c.subs?'#papeleria':'#catalogo/c-'+c.id)+'"><div class="info"><span class="cuenta">'+nprod(ps.length)+'</span><h3 class="t">'+esc(c.nombre)+'</h3><p>'+esc(c.texto)+'</p><div class="meta"><span>'+(m!=null?'Desde '+cop(m):'Precio a cotizar')+'</span><span class="fl" aria-hidden="true">→</span></div></div><div class="fotos" aria-hidden="true">'+fs+'</div></a>'}).join('')+
     '<a class="cat-card ancha kit-card" href="#kit"><div class="info"><span class="cuenta">Especial</span><h3 class="t">Arma tu <span class="acento">kit</span></h3><p>Junta productos, artículos por unidad y servicios en un solo pedido y cotízalo con precio especial.</p><div class="meta"><span>Cotiza todo en un mensaje</span><span class="fl" aria-hidden="true">→</span></div></div><div class="fotos" aria-hidden="true">'+
-    ['u-perfume','u-perfume-2','u-perfume-3','u-perfume-4'].map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('')+'</div></a>';
+    ['u-perfume','combo-bolso-1','botiquin-amor-1','cajas-sorpresa-1'].map(function(f){return '<img src="'+img(f)+'" alt="" loading="lazy">'}).join('')+'</div></a>';
   document.getElementById('cats-subs').innerHTML=PAP.subs.map(function(s){return '<a class="chip-sub" href="#papeleria/'+s.id+'">'+esc(s.nombre)+' <small>'+deSub(s.id).length+'</small></a>'}).join('');
 
   // ventana de papelería
@@ -3705,9 +3719,11 @@ dialog.vent::backdrop{cursor:pointer}
   // agregar desde el kit
   var kq=document.getElementById('kq'),kitCat=document.getElementById('kit-cat'),kitF='unidad';
   var kitFil=document.getElementById('kit-fil');
-  kitFil.innerHTML=[['unidad','Por unidad'],['producto','Productos'],['servicio','Servicios'],['todo','Todo']].map(function(f){return '<button class="filtro" type="button" data-kf="'+f[0]+'" aria-pressed="'+(f[0]===kitF)+'">'+f[1]+'</button>'}).join('');
+  function kitDe(f){var a=P.filter(function(p){return f==='todo'||(f==='unidad'?en(p,'unidad'):p.tipo===f)});
+    if(f==='unidad')a.sort(function(x,y){return (y.cats[0]==='unidad')-(x.cats[0]==='unidad')});return a}
+  kitFil.innerHTML=[['unidad','Por unidad'],['producto','Productos'],['servicio','Servicios'],['todo','Todo']].map(function(f){return '<button class="filtro" type="button" data-kf="'+f[0]+'" aria-pressed="'+(f[0]===kitF)+'">'+f[1]+' <small>'+kitDe(f[0]).length+'</small></button>'}).join('');
   kitFil.addEventListener('click',function(e){var b=e.target.closest('[data-kf]');if(!b)return;kitF=b.dataset.kf;[].forEach.call(kitFil.children,function(x){x.setAttribute('aria-pressed',x===b)});pintaKitCat()});
-  function pintaKitCat(){var v=kq.value.trim(),arr=v.length>=2?buscar(v,P).map(function(x){return x.p}):P.filter(function(p){return kitF==='todo'||(kitF==='producto'?p.tipo==='producto':p.tipo===kitF)});
+  function pintaKitCat(){var v=kq.value.trim(),arr=v.length>=2?buscar(v,P).map(function(x){return x.p}):kitDe(kitF);
     kitCat.innerHTML=arr.length?arr.map(function(p){return '<div class="kmini"><img src="'+img(p.fotos[0])+'" alt="" loading="lazy"><span><b>'+esc(p.nombre)+'</b><small>'+precioCorto(p)+'</small></span><a class="kmini-ver" href="#catalogo/'+p.id+'" aria-label="Ver '+esc(p.nombre)+'">Ver</a><button type="button" class="kit-mas" data-kit="'+p.id+'" aria-label="Agregar '+esc(p.nombre)+' a mi kit">+</button></div>'}).join('')
       :'<p class="vacio">Nada con un 47 % o más de coincidencia. <a data-wa="Hola, para mi kit busco: '+esc(v)+'" target="_blank" rel="noopener">Pregúntanos por WhatsApp</a>.</p>';
     waLinks(kitCat)}
@@ -3839,13 +3855,14 @@ dialog.vent::backdrop{cursor:pointer}
   function todas(){var vistos={},out=[];SRV.concat(MIAS).forEach(function(r){if(r&&!vistos[r.id]){vistos[r.id]=1;out.push(r)}});
     return out.sort(function(a,b){return (b.estrellas-a.estrellas)||String(b.fecha).localeCompare(String(a.fecha))})}
   var AV=['var(--verde)','var(--blanco)','var(--morado)'];
-  function testi(r,i){var p=prodPor(r.producto),v=['','v2','v3'][i%3],ini=String(r.nombre).split(/\s+/).map(function(x){return x.charAt(0)}).join('').slice(0,2).toUpperCase(),s=Math.max(1,Math.min(5,r.estrellas|0));
-    return '<figure class="testi '+v+(s===5&&i%3===1?' dest':'')+'">'+(s===5&&i%3===1?'<div class="sello" aria-hidden="true"><b>5★</b></div>':'')+'<div class="foto"><img src="'+img(r.foto||(p?p.fotos[0]:'combo-bolso-1'))+'" alt="'+esc(p?p.nombre:'')+'" loading="lazy"><span class="tag"'+(i%3===2?' style="background:var(--blanco)"':'')+'>'+esc(r.tag||(p?cat0(p).nombre:'Moranta'))+'</span></div><div class="cuerpo"><span class="estrellas" aria-label="'+s+' de 5 estrellas">'+'★★★★★'.slice(0,s)+'<span class="apag">'+'★★★★★'.slice(s)+'</span></span><q>'+esc(r.resena)+'</q><figcaption class="quien"><span class="av" style="background:'+AV[i%3]+'">'+esc(ini)+'</span><span><b>'+esc(r.nombre)+'</b>'+esc(p?p.nombre:'')+'</span></figcaption></div></figure>'}
+  var AVC=['#9DB6F9','#17143A','#839AEA','#C9D86A'];
+  function testi(r,i){var p=prodPor(r.producto),s=Math.max(1,Math.min(5,r.estrellas|0)),ini=String(r.nombre).trim().charAt(0).toUpperCase(),c=AVC[(String(r.nombre).length+i)%AVC.length];
+    return '<figure class="testi t2"><figcaption class="quien"><span class="av" style="background:'+c+';color:'+(c==='#17143A'?'#fff':'#17143A')+'">'+esc(ini)+'</span><span><b>'+esc(r.nombre)+'</b><span class="estrellas" aria-label="'+s+' de 5 estrellas">'+'★★★★★'.slice(0,s)+'<span class="apag">'+'★★★★★'.slice(s)+'</span></span></span></figcaption><q>'+esc(r.resena)+'</q>'+(p?'<a class="t2-prod" href="#catalogo/'+p.id+'">'+esc(p.nombre)+'</a>':'')+'</figure>'}
   function vacioTesti(id){var c=document.getElementById(id);c.innerHTML='';c.insertAdjacentHTML('afterend','<div class="testi-vacio"><p><b>Aquí van a aparecer las opiniones de nuestros clientes.</b> ¿Ya recibiste tu detalle? Sé el primero en contarnos cómo te fue.</p><button class="btn sm" type="button" data-resena>Deja tu testimonio <span class="fl" aria-hidden="true">★</span></button></div>')}
   function cinta(id,lst){if(!lst.length){document.getElementById(id).innerHTML='';return}var c=document.getElementById(id),h=lst.map(testi).join('');
     c.innerHTML=lst.length<4?'<div class="cinta-pista quieta">'+h+'</div>':'<div class="cinta-pista" style="--dur:'+Math.max(40,lst.length*7)+'s">'+h+'<div style="display:contents" aria-hidden="true">'+h+'</div></div>'}
   function pintaTesti(){var t=todas();var ban=t.filter(function(r){return r.estrellas>=4&&r.producto&&prodPor(r.producto)});
-    cinta('testi-home',ban);cinta('testi-vent',t);
+    cinta('testi-home',ban);var tv=document.getElementById('testi-vent');tv.className='testis2';tv.innerHTML=t.map(testi).join('');
     document.querySelectorAll('.testi-vacio').forEach(function(e){e.remove()});
     if(!ban.length)vacioTesti('testi-home');if(!t.length)vacioTesti('testi-vent');
     var n=t.length,prom=t.reduce(function(a,r){return a+r.estrellas},0)/(n||1);
