@@ -919,7 +919,7 @@ dialog.vent::backdrop{cursor:pointer}
     </section>
     <section class="vent-sec" id="cat-ficha" hidden>
       <div class="wrap">
-        <button class="volver" type="button" id="volver">← Todo el catálogo</button>
+        <button class="volver" type="button" id="volver">← Ir atrás</button>
         <div class="ficha">
           <div class="escena">
             <div class="sol" aria-hidden="true"></div>
@@ -4469,7 +4469,7 @@ dialog.vent::backdrop{cursor:pointer}
     document.getElementById('cat-lista').hidden=true;document.getElementById('cat-ficha').hidden=false;
     document.getElementById('cat-tit').textContent=p.nombre;
   }
-  document.getElementById('volver').onclick=function(){nav('#catalogo'+(filtro==='todo'?'':'/c-'+filtro),false)};
+  document.getElementById('volver').onclick=function(){if(idx>0)history.back();else nav('#catalogo'+(filtro==='todo'?'':'/c-'+filtro),false)};
 
   // ===== testimonios =====
   var MIAS=lee('moranta-resenas',[]),SRV=[];
@@ -4524,7 +4524,9 @@ dialog.vent::backdrop{cursor:pointer}
 
   // ===== ventanas por enlace (#catalogo, #catalogo/id, #categorias, #papeleria/sub, #kit…) =====
   var V={catalogo:'v-catalogo',categorias:'v-categorias',papeleria:'v-papeleria',testimonios:'v-testimonios',preguntas:'v-preguntas',nosotros:'v-nosotros',kit:'v-kit'},abierta=null;
-  function nav(h,reemplaza){if(reemplaza)history.replaceState(null,'',h);else history.pushState(null,'',h);ruta()}
+  var idx=(history.state&&history.state.k)||0,SC={},volverA=null;
+  function guardaPos(){if(abierta){var c=abierta.querySelector('.vent-cuerpo');if(c)SC[idx]=c.scrollTop}}
+  function nav(h,reemplaza){guardaPos();if(reemplaza)history.replaceState({k:idx},'',h);else{idx++;history.pushState({k:idx},'',h)}ruta()}
   function cierra(){if(abierta){abierta.close();abierta=null}document.documentElement.classList.remove('bloq');clearInterval(auto3)}
   function ruta(){
     var h=location.hash.slice(1),partes=h.split('/'),v=V[partes[0]];
@@ -4537,7 +4539,7 @@ dialog.vent::backdrop{cursor:pointer}
       if(nueva)abreFil(false);
       if(s.indexOf('b-')===0){var t='';try{t=decodeURIComponent(s.slice(2))}catch(e){t=s.slice(2)}lista('?'+t)}
       else if(s.indexOf('c-')===0&&C[s.slice(2)])lista(s.slice(2));else if(prodPor(s))ficha(prodPor(s));else lista('todo');
-      if(s.indexOf('b-')!==0)cuerpo.scrollTop=0;else if(nueva)cuerpo.scrollTop=0;
+      if(volverA!==null){cuerpo.style.scrollBehavior='auto';cuerpo.scrollTop=volverA;cuerpo.style.scrollBehavior=''}else if(s.indexOf('b-')!==0)cuerpo.scrollTop=0;else if(nueva)cuerpo.scrollTop=0;
     }else if(partes[0]==='papeleria'&&document.getElementById('pap-'+s)){
       var sec=document.getElementById('pap-'+s);if(nueva){cuerpo.style.scrollBehavior='auto';cuerpo.scrollTop=0}
       cuerpo.scrollTop+=sec.getBoundingClientRect().top-cuerpo.getBoundingClientRect().top-64;cuerpo.style.scrollBehavior='';
@@ -4547,8 +4549,8 @@ dialog.vent::backdrop{cursor:pointer}
     if(partes[0]==='papeleria')setTimeout(espia,50);
     if(partes[0]==='kit'){pintaKit();pintaKitCat()}
   }
-  function sal(){history.replaceState(null,'',location.pathname+location.search);ruta()}
-  function alInicio(){panel(false);cierraQ();if(abierta)cierra();if(location.hash)history.pushState(null,'',location.pathname+location.search);scrollTo({top:0,behavior:red?'auto':'smooth'})}
+  function sal(){guardaPos();history.replaceState({k:idx},'',location.pathname+location.search);ruta()}
+  function alInicio(){panel(false);cierraQ();if(abierta)cierra();if(location.hash){idx++;history.pushState({k:idx},'',location.pathname+location.search)}scrollTo({top:0,behavior:red?'auto':'smooth'})}
   document.querySelectorAll('dialog.vent').forEach(function(d){
     d.querySelector('.cerrar').onclick=sal;
     d.addEventListener('cancel',function(e){e.preventDefault();sal()});
@@ -4557,9 +4559,9 @@ dialog.vent::backdrop{cursor:pointer}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&top.classList.contains('abierto')){panel(false);hamb.focus()}});
   document.addEventListener('click',function(e){var a=e.target.closest('a[href^="#"]');if(!a||a.hasAttribute('data-wa'))return;var h=a.getAttribute('href'),k=h.slice(1).split('/')[0];
     if(h==='#inicio'||h==='#'){e.preventDefault();alInicio();return}
-    if(V[k]){e.preventDefault();if(dr.open)dr.close();nav(h,!!abierta)}
+    if(V[k]){e.preventDefault();if(dr.open)dr.close();nav(h,!!abierta&&abierta.id!=='v-'+k)}
     else{panel(false);if(abierta){e.preventDefault();sal();var t=document.getElementById(h.slice(1));if(t)t.scrollIntoView({behavior:red?'auto':'smooth'})}}});
-  addEventListener('popstate',ruta);addEventListener('hashchange',ruta);
+  addEventListener('popstate',function(){guardaPos();idx=(history.state&&history.state.k)||0;volverA=(SC[idx]!=null)?SC[idx]:null;ruta();volverA=null});
   pintaKit();
   ruta();
 
